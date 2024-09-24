@@ -1,0 +1,20 @@
+
+.body{
+    background-color: #1B123D;
+}
+.logo{
+    margin-top: 3px;
+}
+.logo-nav{
+    height: 55px;
+    width: 60px;
+    margin-left: 200px;
+
+}
+.menu{
+    margin: 15px;
+}
+.bi-list, .titulo{
+    color: #33FF66;
+}
+
