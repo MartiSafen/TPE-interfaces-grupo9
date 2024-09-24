@@ -7,64 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="" alt="">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Juegos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
-            <button>Buscar</button>
-        </div>
-        <div class="cart">
-            <img src="cart.png" alt="Carrito">
-            <span>0</span>
-        </div>
-    </header>
-
+    
     <main>
-        <section class="featured">
-            <h2>Juegos Destacados</h2>
-            <div class="games-carousel">
-                <!-- Juegos destacados (carrusel principal) -->
-                <div class="game">
-                    <img src="featured1.jpg" alt="Juego 1">
-                    <p>Nombre del juego</p>
+        <section class="">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
                 </div>
-                <div class="game">
-                    <img src="featured2.jpg" alt="Juego 2">
-                    <p>Nombre del juego</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="games">
-            <div class="category">
-                <h3>Populares</h3>
-                <div class="games-carousel">
-                    <!-- Juegos populares (carruseles más pequeños) -->
-                    <div class="game">
-                        <img src="popular1.jpg" alt="Popular 1">
-                        <p>Nombre del juego</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="category">
-                <h3>Aventura</h3>
-                <div class="games-carousel">
-                    <div class="game">
-                        <img src="aventura1.jpg" alt="Aventura 1">
-                        <p>Nombre del juego</p>
-                    </div>
-                </div>
-            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </section>
     </main>
 
