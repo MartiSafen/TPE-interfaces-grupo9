@@ -1,25 +1,93 @@
-<<<<<<< HEAD
 
-.body{
+body{
     background-color: #1B123D;
 }
-.logo{
-    margin-top: 3px;
+header{
+    background-color: #302556;
+    width: 100%;
+    height: 153px;
+    
 }
-.logo-nav{
-    height: 55px;
+.barra-nav{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 153px;
+}
+div.logo{
+    display: flex;
+    align-items: center;
+    width: 45%;
+
+}
+div.logo .logo-nav{
     width: 60px;
-    margin-left: 200px;
-
+    height: 60px;
+    
 }
-.menu{
-    margin: 15px;
-}
-.bi-list, .titulo{
+div .logo .titulo{
     color: #33FF66;
+    font-family: 'secular one';
+    font-size: 30px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+.menu-hamburguesa, .logo, .search , .carrito{
+    display: inline-block;
+    border: 5px;
+    margin: 0px 5px;
+    align-items: center;
+    
+}
+.box .logo-nav{
+    height:78px ;
+    width: 58px;
+}
+.box .avatar{
+    width: 27px;
+    height: 34px;
+}
+.box .bi-list{
+color: #33FF66;
+}
+div.menu-hamburguesa{
+    width: 20%;
+    text-align: left;
+    color:#33FF66;
+}
+div.search{
+    width: 40%;
+    height: 30px;
+    border-radius: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+div.search .d-flex{
+    display: flex;
+}
+div.carrito{
+    width: 20%;
+    color: #33FF66;
+    display: flex;
+}
+div.carrito .bi-cart2{
+    position: sticky;
+    width: 40px;
+    height: 40px;
+}
+div.carrito .bi-1-circle-fill{
+    display: inline-block;
+    color: red;
+    margin-right: 10px;
+}
+div.carrito .avatar{
+    width: 140px;
+    height: 60px;
+
 }
 
-=======
 * {
     margin: 0;
     padding: 0;
@@ -147,5 +215,4 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-}
->>>>>>> 79e25a6acd6c5277250cd21706ca04e0fed691db
+} */
