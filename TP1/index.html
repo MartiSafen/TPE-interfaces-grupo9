@@ -9,30 +9,45 @@
 </head>
 <body>
    
-    <ul>
-        <li>
-            <a href="https://www.figma.com/design/qEp8WXZpGK8ibgqWiKqMU6/Practico-Entregable-1?node-id=0-1&t=BhlHYahUZ4XaI9uj-1">
-                Link al Proyecto Editable</a></li>
-            <li><a href="https://www.figma.com/proto/qEp8WXZpGK8ibgqWiKqMU6/Practico-Entregable-1?node-id=799-4110&t=BhlHYahUZ4XaI9uj-1">
-                Link a Presentación
-                </a> 
-            </li>
-    </ul>
-    <footer>
-        <div class="footer-content">
-            <div>
-                <h4>Acerca de Nosotros</h4>
-                <p>Información de la empresa, misión y visión.</p>
-            </div>
-            <div>
-                <h4>Ayuda y Soporte</h4>
-                <p>FAQ, contacto, y soporte técnico.</p>
-            </div>
-            <div>
-                <h4>Redes Sociales</h4>
-                <p>Síguenos en nuestras redes sociales: Facebook, Twitter.</p>
+    <div class="containerFormulario">
+        <h2 class="titulo">REGISTRATE EN LUDO GAMES </h2>
+        <form class="register" action="index.html">
+            <p class="parrafo" id="nombreForm"><label>Nombre*</label></p>
+            <input type="text" name="nombre" id="nombreUsuario" required minlength="4" placeholder="Nombre">
+            <p class="parrafo" id="apellidoForm"><label>Apellido*</label></p>
+            <input type="text" name="nombre" id="apellidoUsuario" required minlength="2" placeholder="Apellido">
+            <p class="parrafo" id="edadForm"><label>Edad*</label></p>
+            <input type="number" name="edad" id="edad" required placeholder="Edad">
+            <p class="parrafo"><label>Nombre de Usuario*</label></p>
+            <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Nombre de Usuario">
+            <p class="parrafo"><label>Email*</label></p>
+            <input type="email" name="email" id="email" placeholder="Direccion de correo">
+            <p class="parrafo" id="contraseñaForm"><label>Contraseña*</label></p>
+            <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+            <p class="parrafo" id="confirmarForm"><label>Repetir contraseña*</label></p>
+            <input type="password" name="confirmarContraseña" id="confirmarContraseña" placeholder="Confirmar Contraseña">
+            <figure>
+                <img src="/img/Pagina Login-Register/captcha.png" alt="Captcha" id="captcha">
+            </figure>
+            <button type="submit" class="btnEnviar">Registrarse</button>
+            <p class="ayuda parrafo" id="deshacerSemantico">¿Tenés cuenta? <a href="login.html"> Ingresá</a>.</p>
+            <div class="googleFb">
+                <figure>
+                    <img src="/img/Pagina Login-Register/google.png" alt="google" id="google">
+                </figure>
+                <p>Registrarse con Google</p>
+                <figure></figure>
+                    <img src="/img/Pagina Login-Register/facebook.png" alt="facebook" id="facebook">
+                </figure>
+                <p>Registrarse con Facebook</p>
             </div>
         </div>
+        </form>
+   </div>
+
+    <footer>
+        <div class="footer-content">
+           
     </footer>
 </body>
 </html>
