@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+
+.body{
+    background-color: #1B123D;
+}
+.logo{
+    margin-top: 3px;
+}
+.logo-nav{
+    height: 55px;
+    width: 60px;
+    margin-left: 200px;
+
+}
+.menu{
+    margin: 15px;
+}
+.bi-list, .titulo{
+    color: #33FF66;
+}
+
+=======
 * {
     margin: 0;
     padding: 0;
@@ -126,3 +148,4 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+>>>>>>> 79e25a6acd6c5277250cd21706ca04e0fed691db
