@@ -88,3 +88,232 @@ div.carrito .avatar{
 
 }
 
+<<<<<<< HEAD
+=======
+
+header {
+    width: 1440px;
+    height: 153px;
+    background-color: #302556; /* Azul oscuro */
+    display: flex;
+    justify-content: space-between;
+   margin:0px;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+}
+
+header .search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+header .search-bar button {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #33FF66; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+header .cart {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+header .cart img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+main {
+    width: 1440px;
+    margin: 20px auto;
+}
+
+/* Sección del carrusel principal (juegos destacados) */
+.featured {
+    width: 1318px;
+    height: 381px;
+    margin: 0 auto 40px;
+    background-color: #302556;
+    color: white;
+    padding: 20px;
+}
+
+.featured h2 {
+    margin-bottom: 20px;
+}
+
+.games-carousel {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+.game {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.game img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Carruseles para las categorías de juegos (más pequeños) */
+.category {
+    width: 1380px;
+    height: 283px;
+    margin: 0 auto 40px;
+    background-color: #302556;
+    color: white;
+    padding: 20px;
+}
+
+.category h3 {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #302556;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+/*----------------css de registro-----------------------------------*/
+/* Contenedor principal */
+.containerPagForm {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea los elementos al principio */
+    padding: 20px;
+    position: relative;
+    width: 1440px;
+    height: 1928px;
+    background: #1B123D;
+}
+
+/* Contenedor para el texto y el formulario */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Asegura que el texto y el formulario estén alineados al inicio */
+    gap: 20px; /* Espacio entre el texto y el formulario */
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Sección del texto: título, párrafo y logo */
+.text-section {
+    flex: 1; /* Ocupará el espacio restante a la izquierda */
+    max-width: 40%; /* Limita el ancho máximo de la sección de texto */
+    font-family: 'Averia Serif Libre';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #FFFFFF;
+}
+
+/* Formulario a la derecha */
+.containerFormulario {
+    flex: 0 1 410px; /* Mantiene un ancho fijo pero es flexible */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 98px 22px;
+    gap: 22px;
+    background: #2C2A2A;
+    border: 1px solid #7FE865;
+    border-radius: 5px;
+    height: auto; /* Deja que el formulario ajuste su altura automáticamente */
+    position: relative;
+}
+
+/* Otros ajustes de estilo */
+.containerFormulario .titulo {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.containerFormulario .parrafo {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.containerFormulario label {
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.containerFormulario input {
+    width: 330px;
+    height: 40px;
+    background: #8481D7;
+    border: 1px solid #9747FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.containerFormulario input::placeholder {
+    color: white;
+}
+
+.containerFormulario button {
+    width: 100%;
+    padding: 10px;
+    background-color: #33FF66;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.containerFormulario button:hover {
+    background-color: #28B204;
+}
+
+.ayuda {
+    color: #33FF66;
+}
+
+.googleFb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.googleFb figure {
+    margin: 0;
+}
