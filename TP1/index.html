@@ -6,7 +6,7 @@
     <title>Plataforma de Videojuegos</title>
     <link rel="stylesheet" href="style.css">
     <script src="scripts.js"></script>
-</head>
+</head> 
 <body>
     <div class="containerPagForm">
         <!-- Contenedor principal -->
@@ -19,7 +19,7 @@
                 </p>
                 <!-- Logo debajo del párrafo -->
                 <div class="image-container">
-                    <img class="logoform" src="/TP1/img/logo.jpg" alt="logof">
+                    <img class="logoform" src="/TP1/img/logo.jpg" alt="logo">
                 </div>
             </div>
 
@@ -27,6 +27,7 @@
             <div class="containerFormulario">
                 <h2 class="titulo">REGÍSTRATE EN LUDO GAMES</h2>
                 <form class="register" action="index.html">
+                <div class="campos">
                     <p class="parrafo" id="nombreForm"><label>Nombre*</label></p>
                     <input type="text" name="nombre" id="nombreUsuario" required minlength="4" placeholder="Nombre">
                     <p class="parrafo" id="apellidoForm"><label>Apellido*</label></p>
@@ -41,21 +42,21 @@
                     <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
                     <p class="parrafo" id="confirmarForm"><label>Repetir contraseña*</label></p>
                     <input type="password" name="confirmarContraseña" id="confirmarContraseña" placeholder="Confirmar Contraseña">
+                </div>
+                <div class="botones">
                     <figure>
-                        <img src="/img/Pagina Login-Register/captcha.png" alt="Captcha" id="captcha">
+                    <img src="/img/Pagina Login-Register/captcha.png" alt="Captcha" id="captcha">
                     </figure>
                     <button type="submit" class="btnEnviar">Registrarse</button>
+               
                     <p class="ayuda parrafo" id="deshacerSemantico">¿Tenés cuenta? <a class ="ayuda parrafo" href="login.html">Ingresá</a>.</p>
                     <div class="googleFb">
-                        <figure>
-                            <img src="/img/Pagina Login-Register/google.png" alt="google" id="google">
-                        </figure>
-                        <button type="submit" class="btnGoogle">Registrarse con Google</button>
-                        <figure>
-                            <img src="/img/Pagina Login-Register/facebook.png" alt="facebook" id="facebook">
-                        </figure>
-                        <button type="submit" class="btnFB">Registrarse con Facebook</button>
+                        <button type="submit" class="btnGoogle">
+                        <img src="/img/Pagina Login-Register/google.png" alt="google" id="google">Registrarse con Google</button>
+                        <button type="submit" class="btnFB"> 
+                        <img src="/img/Pagina Login-Register/facebook.png" alt="facebook" id="facebook">Registrarse con Facebook</button>
                     </div>
+                </div>
                 </form>
             </div>
         </div>

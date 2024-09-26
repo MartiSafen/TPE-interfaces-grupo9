@@ -208,112 +208,190 @@ footer {
 
 /*----------------css de registro-----------------------------------*/
 /* Contenedor principal */
+/* Contenedor del formulario */
+/* Contenedor principal */
+/* Estilos generales del contenedor principal */
+/* Estilos generales del contenedor principal */
 .containerPagForm {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinea los elementos al principio */
+    align-items: flex-start;
     padding: 20px;
-    position: relative;
-    width: 1440px;
-    height: 1928px;
-    background: #1B123D;
+    background-color: #1B123D;
+    height: 100vh;
+    width: 100vw;
 }
 
-/* Contenedor para el texto y el formulario */
+/* Contenido: Sección de texto a la izquierda y formulario a la derecha */
 .content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Asegura que el texto y el formulario estén alineados al inicio */
-    gap: 20px; /* Espacio entre el texto y el formulario */
-    width: 80%;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre la sección de texto y el formulario */
     max-width: 1200px;
+    width: 100%;
 }
 
-/* Sección del texto: título, párrafo y logo */
+/* Sección de texto a la izquierda */
 .text-section {
-    flex: 1; /* Ocupará el espacio restante a la izquierda */
-    max-width: 40%; /* Limita el ancho máximo de la sección de texto */
-    font-family: 'Averia Serif Libre';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22px;
+    width: 350px;
+    color: white;
+}
+
+.text-section .titulo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-section .parrafo {
+    
+    font-size: 18px;
     line-height: 1.5;
-    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+/* Logo debajo del párrafo */
+.image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-container img {
+    width: 150px;
+    height: auto;
 }
 
 /* Formulario a la derecha */
 .containerFormulario {
-    flex: 0 1 410px; /* Mantiene un ancho fijo pero es flexible */
+    background-color: #2C2A2A;
+    width: 34%;
+    height: 1000px;
+    border-radius: 5px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 98px 22px;
-    gap: 22px;
-    background: #2C2A2A;
-    border: 1px solid #7FE865;
-    border-radius: 5px;
-    height: auto; /* Deja que el formulario ajuste su altura automáticamente */
-    position: relative;
+    align-items: center; /* Alinea los elementos al centro */
 }
 
-/* Otros ajustes de estilo */
 .containerFormulario .titulo {
-    font-size: 22px;
+    text-align: center;
+    color: white;
     margin-bottom: 20px;
-    color: white;
-}
-
-.containerFormulario .parrafo {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.containerFormulario label {
-    color: white;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.containerFormulario input {
-    width: 330px;
-    height: 40px;
-    background: #8481D7;
-    border: 1px solid #9747FF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-}
-
-.containerFormulario input::placeholder {
-    color: white;
-}
-
-.containerFormulario button {
     width: 100%;
-    padding: 10px;
+}
+
+.campos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos dentro del contenedor */
+}
+
+.botones {
+    width: 100%;
+     display: flex;
+    flex-direction: column;
+    align-items: center;/* Centra los elementos dentro del contenedor */
+}
+
+
+.campos .parrafo {
+      color: white;
+    width: 90%; /* Asegura que las etiquetas también estén centradas */
+    margin-bottom: 5px;
+    text-align: left; /* Mantiene el texto alineado a la izquierda */
+}
+
+.campos input {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    height: 40px;
+    width: 90%; /* Asegura que los inputs estén centrados */
+    background-color: #8481D7;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-size: 16px;
+}
+
+.campos input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Captcha */
+.containerFormulario figure {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#captcha {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Botón de envío */
+.containerFormulario .btnEnviar {
+    width: 90%; /* Asegura que el botón esté alineado con los inputs */
+    margin-bottom: 15px;
+    padding-left: 10px;
+    height: 40px;
     background-color: #33FF66;
     color: black;
     border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.containerFormulario .btnEnviar:hover {
+    background-color: #28B204;
+}
+
+/* Ayuda e inicio de sesión */
+.ayuda {
+    color: #33FF66;
+    text-align: center;
+}
+
+.ayuda a {
+    color: #33FF66;
+    text-decoration: none;
+}
+
+/* Botones de Google y Facebook */
+.googleFb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.googleFb button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
 }
 
-.containerFormulario button:hover {
-    background-color: #28B204;
+.btnGoogle {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
-.ayuda {
-    color: #33FF66;
-}
-
-.googleFb {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.googleFb figure {
-    margin: 0;
+.btnFB {
+    background-color: #4267B2;
+    color: white;
 }
 
 
+
+#google,
+#facebook {
+    width: 30px;
+    height: auto;
+}
