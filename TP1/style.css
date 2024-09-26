@@ -589,10 +589,15 @@ footer {
     background-color: #4267B2;
     color: white;
 }
-body{
-    background-color: #1B123D;
+
+
+
+#google,
+#facebook {
+    width: 30px;
+    height: auto;
 }
-/* Rectangle 18 */
+
 
 
 .instrucciones{
