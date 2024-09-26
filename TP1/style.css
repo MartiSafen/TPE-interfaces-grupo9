@@ -87,6 +87,18 @@ div.carrito .avatar{
     height: 60px;
 
 }
+.breadcrumbs{
+    width: 1140px;
+    height: 20px;
+    display: flex;
+}
+.breadcrumbs h2{
+    color:#28B204;
+    font-size: 15px;
+}
+.bi{
+    color:#28B204;
+}
  HEAD
 
 header {
