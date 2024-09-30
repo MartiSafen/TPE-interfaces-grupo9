@@ -1,81 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Videojuegos</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="scripts.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
- </head>
-<body>
-   
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Plataforma de Videojuegos</title>
+        <link rel="stylesheet" href="/TP1/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="scripts.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+   <!-- barra de navegación -->
     <header>
-        
             <div class="barra-nav">
                 <div class="menu-hamburguesa">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi-list" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                     </svg>
                 </div>
-                
                 <div class="logo">
                         <img class="logo-nav"  src="/TP1/img/logo.jpg" alt="logo">
                         <h1 class="titulo">LUDO GAMES</h1>
                 </div>
-
                 <div class="search">
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search">
                     </form>
                 </div>
                 <div class="carrito">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-cart2" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
                     </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-1-circle-fill" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z"/>
                     </svg>
-                      
                     <img src="/TP1/img/avatar.png" alt="avatar" class="avatar">
                     <p>Bienvenido Juan!</p>
                 </div>
             </div>
-        </header>  
-
-     <main>
-        
-        <nav>
-            <div class="breadcrumbs"> 
+    </header>  
+    <!-- contenido principal -->
+    <main>
+        <!-- mantener al usuario informado donde esta parado -->
+        <section class="breadcrumbs">
+            <div class="div-breadcrumbs"> 
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
                   </svg>
-                  <h2>Para ti -> Plantas vs zombies</h2>
-            </div>
-       <article>
-        <section>
-            <div class="juego"></div>
-                <img src="/TP1/img/juego.jpg" alt="juego" class="img-juego">
+                  <h2>Para ti-> Plantas vs zombies</h2>
             </div>
         </section>
-       </article>
-
-            
-            <aside>
-                <div class="instrucciones">
-                    <p>Instrucciones:
-                        Es un juego de estrategia para dos jugadores. El objetivo es ser el primero 
-                        en formar una línea de cuatro fichas     del mismo color, en cualquier posicion.</p>
-
-                </div>
-               
-            </aside>
+    <!-- imagen del juego e instrucciones  -->
+        <section class="game-info">
+            <div class="game-img">
+                <img src="/TP1/img/juego.jpg" alt="juego">
+            </div>
+            <div class="instrucciones">
+              <p>Instrucciones:Es un juego de estrategia para dos jugadores. El objetivo es ser el primero en formar una línea de cuatro fichas     del mismo color, en cualquier posicion.</p>
+            </div>
+        </section>
+        <!--descripcion del juego e imagenes informativas-->
+        <section class="game-description">
+            <h3>Plantas vs Zombies</h2>
+              <p>Es un juego basado en el clasico “4 en linea”, el cual es un juego de mesa para       dos jugadores, en el que se introducen fichas en un tablero vertical con eobjetivo de alinear cuatro consecutivas de un mismo color. Fue creado en 1974 por Ned Strongin y Howard Wexler para Milton Bradley Company. El objetivo de 4 en linea es alinear cuatro fichas sobre un tablero formado por seis filas y siete columnas. Cada jugador dispone de 21 fichas de un color (en este caso colores de la respectiva seleccion de futbols seleccionada).​ Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en horizontal, vertical o diagonal.​ Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.</p>
+            <h4>Desarrolador</h3>
+              <p>Fue desarrolado por Felipe Barreyra, Martina Safenreiter y Marcos Gallinal.</p>
+            <h5>Fecha de lanzamiento</h4>
+              <p>El 20 de septiembre del 2024</p>
+            <div class="game-images">
+                <img src="img/plantas.jpg" alt="Tablero de 4 en línea" />
+                <img src="img/plantas2.jpg" alt="Personajes del juego" />
+            </div>
+        </section>
+        <!--comentarios-->
+        <section class="comments">
+            <h3>Comentarios</h3>
+           <input type="text" name="comentario" id="comentario" placeholder="Agrega un comentario...">
+            <div class="comment">
+                <p><strong>Martin Perez:</strong> ¡Gran juego! Me encantó la estrategia.</p>
+            </div>
         </section>
 
-    </main>
-     
+    </main>    
+</body>
+<footer>
+    
+        <p>© 2024 Ludo Games - Todos los derechos reservados</p>
+    
+</footer>
 </body>
 </html>
