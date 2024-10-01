@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #1B123D;
+  
 }
 
 body{
@@ -192,15 +192,7 @@ input {
 }
 
 /* Pie de página */
-footer {
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-}
 
-footer p {
-    color: #fff;
-} 
 /* fin 4 en linea*/
  /*body{
     background-color: #1B123D;
@@ -493,12 +485,7 @@ button.price{
     color: rgba(28, 58, 169, 1);
 }
 /* Carrousel*/
-footer {
-    background-color: #302556;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
+
 
 
 /*----------------css de registro-----------------------------------*/
@@ -513,8 +500,9 @@ footer {
     align-items: flex-start;
     padding: 20px;
     background-color: #1B123D;
-    height: 100vh;
+    min-height: 100vh; /* Cambia a min-height para que ocupe al menos el 100% de la pantalla */
     width: 100vw;
+    box-sizing: border-box;
 }
 
 /* Contenido: Sección de texto a la izquierda y formulario a la derecha */
@@ -561,7 +549,7 @@ footer {
 .containerFormulario {
     background-color: #2C2A2A;
     width: 34%;
-    height: 1000px;
+    height: 845px;
     border-radius: 5px;
     padding: 20px;
     display: flex;
@@ -587,12 +575,13 @@ footer {
     width: 100%;
      display: flex;
     flex-direction: column;
+   
     align-items: center;/* Centra los elementos dentro del contenedor */
 }
 
 
 .campos .parrafo {
-      color: white;
+    color: white;
     width: 90%; /* Asegura que las etiquetas también estén centradas */
     margin-bottom: 5px;
     text-align: left; /* Mantiene el texto alineado a la izquierda */
@@ -636,6 +625,7 @@ footer {
     border: none;
     border-radius: 5px;
     font-weight: bold;
+    justify-content: center;
     cursor: pointer;
     text-align: center;
 }
@@ -648,6 +638,7 @@ footer {
 .ayuda {
     color: #33FF66;
     text-align: center;
+    padding: 22px;
 }
 
 .ayuda a {
@@ -655,7 +646,7 @@ footer {
     text-decoration: none;
 }
 
-/* Botones de Google y Facebook */
+/* Contenedor de los botones de Google y Facebook */
 .googleFb {
     display: flex;
     justify-content: space-between;
@@ -665,22 +656,39 @@ footer {
 }
 
 .googleFb button {
+    
     width: 100%;
-    padding: 10px;
+    padding: 15px 20px; /* Aumenté el padding para hacer los botones más grandes */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Redondeado un poco más los bordes */
     cursor: pointer;
     font-weight: bold;
+    font-size: 12px; /* Aumenté el tamaño de la fuente para mejor legibilidad */
+    transition: background-color 0.3s ease; /* Transición suave para cambios de color */
+}
+
+.googleFb button:hover {
+    filter: brightness(0.9); /* Añadí un efecto hover para que los botones se oscurezcan ligeramente al pasar el cursor */
 }
 
 .btnGoogle {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle más profundidad */
 }
 
 .btnFB {
     background-color: #4267B2;
     color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Misma sombra sutil que el botón de Google */
+}
+
+.btnGoogle:hover {
+    background-color: #f0f0f0; /* Color más claro al hacer hover */
+}
+
+.btnFB:hover {
+    background-color: #365899; /* Color más oscuro para Facebook al hacer hover */
 }
 
 
@@ -703,3 +711,33 @@ background: #1B123D;
 border: 1px solid #FFFFFF;
 border-radius: 35px;
 }
+
+/*footer*/
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #302556;
+    padding: 2% 0;
+    
+}
+
+footer div {
+    width: 15%;
+    color: #33FF66;
+    text-align: left;
+
+}
+
+footer div h4{
+    margin-bottom: 10%;
+}
+
+
+div.logofooter .logof{
+    width: 60px;
+    height: 60px;
+    
+    
+}
+
+/*fin del footer*/
