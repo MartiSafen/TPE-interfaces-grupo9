@@ -6,8 +6,9 @@
 }
 
 body{
-    font-family: Arial, sans-serif;
     background-color: #1b1834;
+
+    font-family: Arial, sans-serif;
     color: #fff;
     margin: 0px;
     padding: 0px;
@@ -661,7 +662,6 @@ border: 1px solid #FFFFFF;
 border-radius: 35px;
 }
 
-/footer/
 footer {
     display: flex;
     justify-content: space-between;
@@ -681,10 +681,14 @@ footer div h4{
     margin-bottom: 10%;
 }
 
+.logofooter {
+    display: flex;
+    flex-direction: column;  /* Pone los elementos en una columna (uno encima del otro) */
+    align-items: center;     /* Centra horizontalmente los elementos */
+    justify-content: center; /* Centra verticalmente si es necesario */
+}
 
-div.logofooter .logof{
-    width: 60px;
-    height: 60px;
-    
-    
+.logo-f {
+    width: 100px;   /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
 }
