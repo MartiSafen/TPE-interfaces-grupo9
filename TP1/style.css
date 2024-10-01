@@ -7,16 +7,18 @@
 
 body{
     font-family: Arial, sans-serif;
-    background-color: #1b1834;
+    background-color: #1B123D;
     color: #fff;
     margin: 0px;
     padding: 0px;
+    height: 1000px;
+    width: 1350px;
     
 }
 
 header{
     background-color:#302556;
-    padding: 10px;
+       padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,41 +52,86 @@ main {
 }
 
 .game-img img {
-    width: 300px;
-    height: 200px;
+    width: 700px;
+    height: 350px;
+    position: static;
+    border-radius: 15px;
 }
-
-
-.instrucciones {
+.button-play{
+    position: absolute;
+    border-radius: 15px;
+    background-color:#1b1834;
+    color: #28B204;
+    margin-left: 20px;
+    justify-content: center;
+    transition: width 1s, height 1s;
+    height: 41px;
+    width: 99px;
+}
+.button-play:hover {
+    width: 110px;
+    height: 50px;
+}
+.button-play:active{
+    background-color: #302b44;
+}
+.instrucciones{
     background-color: #302b44;
     padding: 20px;
     border-radius: 10px;
-    max-width: 400px;
+    margin-top: 0px;
 }
-
-.instrucciones p {
+.instrucciones p{
+    font-size: 20px;
     color: #fff;
 }
 
-.instrucciones p {
-    font-size: 16px;
-    color: #ccc;
+
+.compartir div{
+    width: 550px;
+    height: 65px;
+    background-color: #2FCE08;
+    display: flex;
+    border-radius: 15px;
+    margin-left: 15px;
+    justify-content: center;
+}
+.compartir img{
+    height: 40px;
+    width: 55px;
+    background-color:#2FCE08;
+    margin: 14px;
+}
+.like-img{
+    width: 120px;
+    height: 80px;
+}
+.compartir svg{
+    height: 48px;
+    width: 45px;
+    background-color:#2FCE08;
+    margin: 12px;
+
+}
+/* Descripción del juego */
+.description{
+    display: inline-block;
+    height: 200px;
+    width: 900px;
+    margin-top: 0px;
 }
 
-/* Descripción del juego */
-.game-description {
-    margin-top: 20px;
-}
 
 .game-description, h3,h4,h5 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
+    font-size: 1.8px;
+   margin-bottom: 10px;
+   color: #fff;
 }
-
 
 .game-description p {
     font-size: 16px;
-    color: #ccc;
+    color:#fff;
+    margin-top: 0px;
 }
 
 .game-img {
@@ -92,10 +139,15 @@ main {
     gap: 15px;
     margin-top: 25px;
 }
-
-.game-images img {
-    width: 120px;
-    height: auto;
+.game-images{
+    display: inline-block;
+    width: 300px;
+    margin-top: 0px;
+}
+.game-images img{
+    width: 150px;
+    flex-direction: row;
+    margin: 5px;
 }
 
 /* Información adicional */
@@ -103,12 +155,6 @@ main {
     font-size: 1.2em;
     margin-bottom: 10px;
 }
-
-.game-info p {
-    font-size: 16px;
-    color: #ccc;
-}
-
 /* Comentarios */
 .comments {
     margin-top: 30px;
@@ -117,7 +163,7 @@ main {
     border-radius: 10px;
 }
 
-.comments h3 {
+.comments h6 {
     margin-bottom: 10px;
     font-size: 1.5em;
 }
@@ -666,9 +712,9 @@ button.price{
 
 .instrucciones{
 position: absolute;
-width: 500px;
-height: 200px;
-left: 800px;
+width: 600px;
+height: 250px;
+left: 740px;
 top: 200px;
 background: #1B123D;
 border: 1px solid #FFFFFF;
