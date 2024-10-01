@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #1B123D;
+  
 }
 
 body{
@@ -146,15 +146,7 @@ input {
 }
 
 /* Pie de página */
-footer {
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-}
 
-footer p {
-    color: #fff;
-} 
 /* fin 4 en linea*/
  /*body{
     background-color: #1B123D;
@@ -447,12 +439,7 @@ button.price{
     color: rgba(28, 58, 169, 1);
 }
 /* Carrousel*/
-footer {
-    background-color: #302556;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
+
 
 
 /*----------------css de registro-----------------------------------*/
@@ -467,8 +454,9 @@ footer {
     align-items: flex-start;
     padding: 20px;
     background-color: #1B123D;
-    height: 100vh;
+    min-height: 100vh; /* Cambia a min-height para que ocupe al menos el 100% de la pantalla */
     width: 100vw;
+    box-sizing: border-box;
 }
 
 /* Contenido: Sección de texto a la izquierda y formulario a la derecha */
@@ -547,7 +535,7 @@ footer {
 
 
 .campos .parrafo {
-      color: white;
+    color: white;
     width: 90%; /* Asegura que las etiquetas también estén centradas */
     margin-bottom: 5px;
     text-align: left; /* Mantiene el texto alineado a la izquierda */
@@ -622,6 +610,7 @@ footer {
 }
 
 .googleFb button {
+    
     width: 100%;
     padding: 15px 20px; /* Aumenté el padding para hacer los botones más grandes */
     border: none;
@@ -683,7 +672,7 @@ footer {
     justify-content: space-between;
     background-color: #302556;
     padding: 2% 0;
-    padding-left: 6%;
+    
 }
 
 footer div {
@@ -697,9 +686,11 @@ footer div h4{
     margin-bottom: 10%;
 }
 
+
 div.logofooter .logof{
     width: 60px;
     height: 60px;
+    
     
 }
 
