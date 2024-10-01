@@ -7,18 +7,16 @@
 
 body{
     font-family: Arial, sans-serif;
-    background-color: #1B123D;
+    background-color: #1b1834;
     color: #fff;
     margin: 0px;
     padding: 0px;
-    height: 1000px;
-    width: 1350px;
     
 }
 
 header{
     background-color:#302556;
-       padding: 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +37,6 @@ header div img {
     margin-right: 10px;
 }
 
-/* 4 en linea*/
 main {
     padding: 20px;
 }
@@ -168,7 +165,7 @@ main {
     font-size: 1.5em;
 }
 
-input {
+.comments input {
     width: 100%;
     height: 80px;
     padding: 10px;
@@ -194,15 +191,7 @@ input {
 /* Pie de página */
 
 /* fin 4 en linea*/
- /*body{
-    background-color: #1B123D;
-}
-header{
-    background-color: #302556;
-    width: 100%;
-    height: 153px;
-    
-}*/
+
 .barra-nav{
     text-align: center;
     display: flex;
@@ -305,55 +294,6 @@ color: #28B204;
     margin-left: 10px;
     display: inline-block;
 }
-
-/*
-header .logo img {
-    height: 50px;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-header .search-bar {
-    display: flex;
-    align-items: center;
-}
-
-header .search-bar input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-header .search-bar button {
-    padding: 10px;
-    margin-left: 10px;
-    background-color: #33FF66; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-header .cart {
-    display: flex;
-    align-items: center;
-    color: white;
-}
-
-header .cart img {
-    height: 30px;
-    margin-right: 10px;
-}
-*/
-
 
 /* Sección del carrusel principal (juegos destacados) */
 .carrousel-exclusivos {
@@ -488,7 +428,7 @@ button.price{
 
 
 
-/*----------------css de registro-----------------------------------*/
+/*----------------css de registro-----------------------------------/
 /* Contenedor principal */
 /* Contenedor del formulario */
 /* Contenedor principal */
@@ -703,16 +643,16 @@ button.price{
 
 .instrucciones{
 position: absolute;
-width: 600px;
-height: 250px;
-left: 740px;
+width: 500px;
+height: 200px;
+left: 800px;
 top: 200px;
 background: #1B123D;
 border: 1px solid #FFFFFF;
 border-radius: 35px;
 }
 
-/*footer*/
+/footer/
 footer {
     display: flex;
     justify-content: space-between;
@@ -739,5 +679,3 @@ div.logofooter .logof{
     
     
 }
-
-/*fin del footer*/
