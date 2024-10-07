@@ -363,11 +363,12 @@ div.tercero img{
     margin-left: 30px;
     margin-bottom: 20px;
 }
-.category{
+
+.category {
     margin-left: 30px;
 }
-  
-  /* Cards dentro del carrusel */
+
+/* Cards dentro del carrusel */
 .carousel-item {
     display: flex;
     flex-direction: column;
@@ -383,56 +384,83 @@ div.tercero img{
     flex: 0 0 auto;
     position: relative;
 }
-  
-  /* Imagen dentro de las cards */
+
+/* Posición del SVG encima de la imagen */
+.carousel-item:last-child .svg-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    z-index: 5; /* Se asegura de que esté encima de la imagen */
+    cursor: pointer;
+}
+
+/* Imagen dentro de las cards */
 .carousel-item img {
     width: 100%;
     height: auto;
     border-radius: 10px; /* Bordes redondeados para la imagen */
 }
-  
-  /* Contenedor para los botones */
+
+/* Contenedor para los botones */
 .details {
     display: flex;
     justify-content: space-between; /* Separar botones dentro de la card */
     width: 100%; /* Asegura que ocupen todo el ancho de la card */
     margin-top: 10px; /* Espacio entre la imagen y los botones */
 }
+
 .carousel-item:last-child {
     margin-right: -70%; /* Muestra la última card a la mitad */
 }
-  
-  /* Estilo para los botones */
-.carousel button{
+
+/* Estilo para los botones */
+.carousel button {
     padding: 5px 10px; /* Ajusta el relleno para hacer los botones más grandes */
     border-radius: 15px;
     border: none;
     cursor: pointer;
     display: flex;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     width: 69px;
     height: 29px;
     align-items: center;
-  
 }
+
 button.free {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
 }
-button.cart img{
+
+button.cart img {
     width: 30px;
     height: 30px;
 }
-button.cart{
-  background-color: rgba(48, 37, 86, 1);
+
+button.cart {
+    background-color: rgba(48, 37, 86, 1);
 }
+
 button.play {
     background-color: rgba(48, 37, 86, 1);
     color: rgba(51, 255, 102, 1);
 }
-button.price{
+
+button.price {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
+}
+
+.right-arrow-1,
+.right-arrow-2,
+.right-arrow-3 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
 }
 /* Carrousel*/
 
