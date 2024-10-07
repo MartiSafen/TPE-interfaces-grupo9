@@ -6,8 +6,9 @@
 }
 
 body{
-    font-family: Arial, sans-serif;
     background-color: #1b1834;
+
+    font-family: Arial, sans-serif;
     color: #fff;
     margin: 0px;
     padding: 0px;
@@ -37,7 +38,6 @@ header div img {
     margin-right: 10px;
 }
 
-/* 4 en linea*/
 main {
     padding: 20px;
 }
@@ -50,41 +50,86 @@ main {
 }
 
 .game-img img {
-    width: 300px;
-    height: 200px;
+    width: 700px;
+    height: 350px;
+    position: static;
+    border-radius: 15px;
 }
-
-
-.instrucciones {
+.button-play{
+    position: absolute;
+    border-radius: 15px;
+    background-color:#1b1834;
+    color: #28B204;
+    margin-left: 20px;
+    justify-content: center;
+    transition: width 1s, height 1s;
+    height: 41px;
+    width: 99px;
+}
+.button-play:hover {
+    width: 110px;
+    height: 50px;
+}
+.button-play:active{
+    background-color: #302b44;
+}
+.instrucciones{
     background-color: #302b44;
     padding: 20px;
     border-radius: 10px;
-    max-width: 400px;
+    margin-top: 0px;
 }
-
-.instrucciones p {
+.instrucciones p{
+    font-size: 20px;
     color: #fff;
 }
 
-.instrucciones p {
-    font-size: 16px;
-    color: #ccc;
+
+.compartir div{
+    width: 550px;
+    height: 65px;
+    background-color: #2FCE08;
+    display: flex;
+    border-radius: 15px;
+    margin-left: 15px;
+    justify-content: center;
+}
+.compartir img{
+    height: 40px;
+    width: 55px;
+    background-color:#2FCE08;
+    margin: 14px;
+}
+.like-img{
+    width: 120px;
+    height: 80px;
+}
+.compartir svg{
+    height: 48px;
+    width: 45px;
+    background-color:#2FCE08;
+    margin: 12px;
+
+}
+/* Descripción del juego */
+.description{
+    display: inline-block;
+    height: 200px;
+    width: 900px;
+    margin-top: 0px;
 }
 
-/* Descripción del juego */
-.game-description {
-    margin-top: 20px;
-}
 
 .game-description, h3,h4,h5 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
+    font-size: 1.8px;
+   margin-bottom: 10px;
+   color: #fff;
 }
-
 
 .game-description p {
     font-size: 16px;
-    color: #ccc;
+    color:#fff;
+    margin-top: 0px;
 }
 
 .game-img {
@@ -92,10 +137,15 @@ main {
     gap: 15px;
     margin-top: 25px;
 }
-
-.game-images img {
-    width: 120px;
-    height: auto;
+.game-images{
+    display: inline-block;
+    width: 300px;
+    margin-top: 0px;
+}
+.game-images img{
+    width: 150px;
+    flex-direction: row;
+    margin: 5px;
 }
 
 /* Información adicional */
@@ -103,12 +153,6 @@ main {
     font-size: 1.2em;
     margin-bottom: 10px;
 }
-
-.game-info p {
-    font-size: 16px;
-    color: #ccc;
-}
-
 /* Comentarios */
 .comments {
     margin-top: 30px;
@@ -117,12 +161,12 @@ main {
     border-radius: 10px;
 }
 
-.comments h3 {
+.comments h6 {
     margin-bottom: 10px;
     font-size: 1.5em;
 }
 
-input {
+.comments input {
     width: 100%;
     height: 80px;
     padding: 10px;
@@ -148,15 +192,7 @@ input {
 /* Pie de página */
 
 /* fin 4 en linea*/
- /*body{
-    background-color: #1B123D;
-}
-header{
-    background-color: #302556;
-    width: 100%;
-    height: 153px;
-    
-}*/
+
 .barra-nav{
     text-align: center;
     display: flex;
@@ -260,55 +296,6 @@ color: #28B204;
     display: inline-block;
 }
 
-/*
-header .logo img {
-    height: 50px;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-header .search-bar {
-    display: flex;
-    align-items: center;
-}
-
-header .search-bar input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-header .search-bar button {
-    padding: 10px;
-    margin-left: 10px;
-    background-color: #33FF66; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-header .cart {
-    display: flex;
-    align-items: center;
-    color: white;
-}
-
-header .cart img {
-    height: 30px;
-    margin-right: 10px;
-}
-*/
-
-
 /* Sección del carrusel principal (juegos destacados) */
 .carrousel-exclusivos {
     width: 1318px;
@@ -316,7 +303,7 @@ header .cart img {
     display: flex;
     flex-direction: row;
     margin-top: 40px;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 div.primero, div.medio, div.tercero{
     width: 413px;
@@ -365,84 +352,121 @@ div.tercero img{
 .carousel {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start; /* Alinea las cards al inicio */
+    justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    width: 1345px; /* Ancho total del carrusel */
-    height: 263px; /* Alto total del carrusel */
+    width: 1345px;
+    height: 263px;
     box-sizing: border-box;
-    background-color: #333; /* Color de fondo opcional */
-    border-radius: 10px; /* Bordes redondeados */
-  }
-  
-  /* Cards dentro del carrusel */
-  .carousel-item {
+    background-color: #333;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.category {
+    margin-left: 30px;
+}
+
+/* Cards dentro del carrusel */
+.carousel-item {
     display: flex;
-    flex-direction: column; /* Alinea elementos verticalmente: imagen arriba, botones abajo */
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 16px;
     width: 287px;
     height: 229px;
     background: #D9D9D9;
     border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar las cards */   
-    margin-right: 10px; /* Espacio entre las cards */
-    flex: 0 0 auto; /* Evita que las cards se redimensionen */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 10px;
+    flex: 0 0 auto;
+    position: relative;
 }
-  
-  /* Imagen dentro de las cards */
+
+/* Posición del SVG encima de la imagen */
+.carousel-item:last-child .svg-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    z-index: 5; /* Se asegura de que esté encima de la imagen */
+    cursor: pointer;
+}
+
+/* Imagen dentro de las cards */
 .carousel-item img {
     width: 100%;
     height: auto;
     border-radius: 10px; /* Bordes redondeados para la imagen */
 }
-  
-  /* Contenedor para los botones */
+
+/* Contenedor para los botones */
 .details {
     display: flex;
     justify-content: space-between; /* Separar botones dentro de la card */
     width: 100%; /* Asegura que ocupen todo el ancho de la card */
     margin-top: 10px; /* Espacio entre la imagen y los botones */
 }
-  
-  /* Estilo para los botones */
-button {
+
+.carousel-item:last-child {
+    margin-right: -70%; /* Muestra la última card a la mitad */
+}
+
+/* Estilo para los botones */
+.carousel button {
     padding: 5px 10px; /* Ajusta el relleno para hacer los botones más grandes */
-    border-radius: 5px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
     display: flex;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     width: 69px;
     height: 29px;
     align-items: center;
-  
 }
+
 button.free {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
 }
-button.cart img{
+
+button.cart img {
     width: 30px;
     height: 30px;
 }
-button.cart{
-  background-color: rgba(48, 37, 86, 1);
+
+button.cart {
+    background-color: rgba(48, 37, 86, 1);
 }
+
 button.play {
     background-color: rgba(48, 37, 86, 1);
     color: rgba(51, 255, 102, 1);
 }
-button.price{
+
+button.price {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
+}
+
+.right-arrow-1,
+.right-arrow-2,
+.right-arrow-3 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
 }
 /* Carrousel*/
 
 
 
-/*----------------css de registro-----------------------------------*/
+/*----------------css de registro-----------------------------------/
 /* Contenedor principal */
 /* Contenedor del formulario */
 /* Contenedor principal */
@@ -669,7 +693,6 @@ border: 1px solid #FFFFFF;
 border-radius: 35px;
 }
 
-/*footer*/
 footer {
     display: flex;
     justify-content: space-between;

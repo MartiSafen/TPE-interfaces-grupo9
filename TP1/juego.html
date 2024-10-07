@@ -6,7 +6,6 @@
         <title>Plataforma de Videojuegos</title>
         <link rel="stylesheet" href="/TP1/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="scripts.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
@@ -58,26 +57,62 @@
             <div class="game-img">
                 <img src="/TP1/img/juego.jpg" alt="juego">
             </div>
+            <button class="button-play">Jugar</button>
+            
             <div class="instrucciones">
-              <p>Instrucciones:Es un juego de estrategia para dos jugadores. El objetivo es ser el primero en formar una línea de cuatro fichas     del mismo color, en cualquier posicion.</p>
+              <p><u>Instrucciones:</u> Es un juego de estrategia para dos jugadores,deben escoger las fichas violetas o azules y las colocan en la rejilla, comenzando por el centro o el borde, e intentan alinear 4 en horizontal, vertical o diagonal. Utiliza la estrategia para bloquear a tu adversario mientras intentas ser el primero en colocar 4 en línea para ganar.</p>
             </div>
+        </section>
+            <section class="compartir">
+                <div>
+                    <img src="img/images-removebg-preview.png "alt="like" class="like-img">
+                    <img src="img/f850x638-175757_253246_5050-removebg-preview.png" alt="dislike">
+                    <svg width="35" height="44" viewBox="0 0 35 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32.079 2L15.7527 24M32.079 2L21.6895 42L15.7527 24M32.079 2L2.39478 16L15.7527 24" stroke="#9747FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <svg width="36" height="48" viewBox="0 0 36 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32.716 12C32.716 9.8 31.3802 8 29.7475 8H6.00016C4.36753 8 3.03174 9.8 3.03174 12M32.716 12V36C32.716 38.2 31.3802 40 29.7475 40H6.00016C4.36753 40 3.03174 38.2 3.03174 36V12M32.716 12L17.8738 26L3.03174 12" stroke="#9747FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                            
+
+                        <svg width="45" height="48" viewBox="0 0 45 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M33.3234 44C31.7979 44 30.5013 43.4167 29.4335 42.25C28.3657 41.0833 27.8318 39.6667 27.8318 38C27.8318 37.7667 27.847 37.525 27.8776 37.275C27.9081 37.025 27.9538 36.8 28.0148 36.6L15.1096 28.4C14.591 28.9 14.0113 29.2917 13.3706 29.575C12.73 29.8583 12.0588 30 11.3571 30C9.83162 30 8.535 29.4167 7.46719 28.25C6.39938 27.0833 5.86548 25.6667 5.86548 24C5.86548 22.3333 6.39938 20.9167 7.46719 19.75C8.535 18.5833 9.83162 18 11.3571 18C12.0588 18 12.73 18.1417 13.3706 18.425C14.0113 18.7083 14.591 19.1 15.1096 19.6L28.0148 11.4C27.9538 11.2 27.9081 10.975 27.8776 10.725C27.847 10.475 27.8318 10.2333 27.8318 10C27.8318 8.33333 28.3657 6.91667 29.4335 5.75C30.5013 4.58333 31.7979 4 33.3234 4C34.8488 4 36.1454 4.58333 37.2132 5.75C38.281 6.91667 38.815 8.33333 38.815 10C38.815 11.6667 38.281 13.0833 37.2132 14.25C36.1454 15.4167 34.8488 16 33.3234 16C32.6217 16 31.9505 15.8583 31.3098 15.575C30.6691 15.2917 30.0894 14.9 29.5708 14.4L16.6656 22.6C16.7266 22.8 16.7724 23.025 16.8029 23.275C16.8334 23.525 16.8486 23.7667 16.8486 24C16.8486 24.2333 16.8334 24.475 16.8029 24.725C16.7724 24.975 16.7266 25.2 16.6656 25.4L29.5708 33.6C30.0894 33.1 30.6691 32.7083 31.3098 32.425C31.9505 32.1417 32.6217 32 33.3234 32C34.8488 32 36.1454 32.5833 37.2132 33.75C38.281 34.9167 38.815 36.3333 38.815 38C38.815 39.6667 38.281 41.0833 37.2132 42.25C36.1454 43.4167 34.8488 44 33.3234 44ZM33.3234 12C33.842 12 34.2768 11.8083 34.6276 11.425C34.9785 11.0417 35.1539 10.5667 35.1539 10C35.1539 9.43333 34.9785 8.95833 34.6276 8.575C34.2768 8.19167 33.842 8 33.3234 8C32.8047 8 32.37 8.19167 32.0191 8.575C31.6683 8.95833 31.4928 9.43333 31.4928 10C31.4928 10.5667 31.6683 11.0417 32.0191 11.425C32.37 11.8083 32.8047 12 33.3234 12ZM11.3571 26C11.8757 26 12.3105 25.8083 12.6613 25.425C13.0122 25.0417 13.1876 24.5667 13.1876 24C13.1876 23.4333 13.0122 22.9583 12.6613 22.575C12.3105 22.1917 11.8757 22 11.3571 22C10.8384 22 10.4037 22.1917 10.0528 22.575C9.70196 22.9583 9.52653 23.4333 9.52653 24C9.52653 24.5667 9.70196 25.0417 10.0528 25.425C10.4037 25.8083 10.8384 26 11.3571 26ZM33.3234 40C33.842 40 34.2768 39.8083 34.6276 39.425C34.9785 39.0417 35.1539 38.5667 35.1539 38C35.1539 37.4333 34.9785 36.9583 34.6276 36.575C34.2768 36.1917 33.842 36 33.3234 36C32.8047 36 32.37 36.1917 32.0191 36.575C31.6683 36.9583 31.4928 37.4333 31.4928 38C31.4928 38.5667 31.6683 39.0417 32.0191 39.425C32.37 39.8083 32.8047 40 33.3234 40Z" fill="#9747FF"/>
+                 </svg>
+                            
+                 <svg width="120" height="25" viewBox="0 0 120 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.68543 0.790173C9.94779 -0.20245 11.3567 -0.202448 11.619 0.790174L13.3436 7.31487C13.457 7.74406 13.8398 8.04709 14.2836 8.05898L19.9835 8.21174C20.862 8.23528 21.2851 9.29908 20.6628 9.91953L15.7094 14.8584C15.465 15.102 15.3636 15.4544 15.4409 15.7907L17.1388 23.1714C17.3588 24.1278 16.2131 24.7958 15.4891 24.1333L11.3273 20.3246C10.9452 19.9749 10.3593 19.9749 9.97711 20.3246L5.81532 24.1333C5.09134 24.7958 3.94564 24.1278 4.16566 23.1714L5.86354 15.7907C5.9409 15.4544 5.83942 15.102 5.59506 14.8584L0.641654 9.91953C0.0193719 9.29908 0.442498 8.23528 1.32093 8.21174L7.02088 8.05898C7.46465 8.04709 7.84746 7.74406 7.96089 7.31487L9.68543 0.790173Z" fill="#F0C24D"/>
+                    <path d="M34.2072 0.790173C34.4695 -0.20245 35.8784 -0.202448 36.1408 0.790174L37.8653 7.31487C37.9787 7.74406 38.3615 8.04709 38.8053 8.05898L44.5053 8.21174C45.3837 8.23528 45.8068 9.29908 45.1845 9.91953L40.2311 14.8584C39.9868 15.102 39.8853 15.4544 39.9626 15.7907L41.6605 23.1714C41.8805 24.1278 40.7348 24.7958 40.0109 24.1333L35.8491 20.3246C35.4669 19.9749 34.881 19.9749 34.4988 20.3246L30.337 24.1333C29.6131 24.7958 28.4674 24.1278 28.6874 23.1714L30.3853 15.7907C30.4626 15.4544 30.3612 15.102 30.1168 14.8584L25.1634 9.91953C24.5411 9.29908 24.9642 8.23528 25.8427 8.21174L31.5426 8.05898C31.9864 8.04709 32.3692 7.74406 32.4826 7.31487L34.2072 0.790173Z" fill="#F0C24D"/>
+                    <path d="M58.7286 0.790173C58.991 -0.20245 60.3999 -0.202448 60.6622 0.790174L62.3868 7.31487C62.5002 7.74406 62.883 8.04709 63.3268 8.05898L69.0267 8.21174C69.9052 8.23528 70.3283 9.29908 69.706 9.91953L64.7526 14.8584C64.5082 15.102 64.4068 15.4544 64.4841 15.7907L66.182 23.1714C66.402 24.1278 65.2563 24.7958 64.5323 24.1333L60.3706 20.3246C59.9884 19.9749 59.4025 19.9749 59.0203 20.3246L54.8585 24.1333C54.1346 24.7958 52.9889 24.1278 53.2089 23.1714L54.9068 15.7907C54.9841 15.4544 54.8826 15.102 54.6383 14.8584L49.6849 9.91953C49.0626 9.29908 49.4857 8.23528 50.3641 8.21174L56.0641 8.05898C56.5079 8.04709 56.8907 7.74406 57.0041 7.31487L58.7286 0.790173Z" fill="#F0C24D"/>
+                    <path d="M83.2506 0.790173C83.513 -0.20245 84.9219 -0.202448 85.1842 0.790174L86.9087 7.31487C87.0222 7.74406 87.405 8.04709 87.8488 8.05898L93.5487 8.21174C94.4271 8.23528 94.8503 9.29908 94.228 9.91953L89.2746 14.8584C89.0302 15.102 88.9287 15.4544 89.0061 15.7907L90.704 23.1714C90.924 24.1278 89.7783 24.7958 89.0543 24.1333L84.8925 20.3246C84.5104 19.9749 83.9244 19.9749 83.5423 20.3246L79.3805 24.1333C78.6565 24.7958 77.5108 24.1278 77.7308 23.1714L79.4287 15.7907C79.5061 15.4544 79.4046 15.102 79.1602 14.8584L74.2068 9.91953C73.5846 9.29908 74.0077 8.23528 74.8861 8.21174L80.5861 8.05898C81.0298 8.04709 81.4126 7.74406 81.5261 7.31487L83.2506 0.790173Z" fill="#F0C24D"/>
+                    <path opacity="0.3" d="M107.772 0.790172C108.035 -0.20245 109.444 -0.202448 109.706 0.790174L111.43 7.31487C111.544 7.74406 111.927 8.04709 112.37 8.05898L118.07 8.21174C118.949 8.23528 119.372 9.29908 118.75 9.91953L113.796 14.8584C113.552 15.102 113.45 15.4544 113.528 15.7907L115.226 23.1714C115.446 24.1278 114.3 24.7958 113.576 24.1333L109.414 20.3246C109.032 19.9749 108.446 19.9749 108.064 20.3246L103.902 24.1333C103.178 24.7958 102.033 24.1278 102.253 23.1714L103.95 15.7907C104.028 15.4544 103.926 15.102 103.682 14.8584L98.7286 9.91953C98.1063 9.29908 98.5294 8.23528 99.4078 8.21174L105.108 8.05898C105.552 8.04709 105.934 7.74406 106.048 7.31487L107.772 0.790172Z" fill="#F0C24D"/>
+                    </svg>
+                            
+
+
+
+
+                </div>
+
         </section>
         <!--descripcion del juego e imagenes informativas-->
         <section class="game-description">
-            <h3>Plantas vs Zombies</h2>
-              <p>Es un juego basado en el clasico “4 en linea”, el cual es un juego de mesa para       dos jugadores, en el que se introducen fichas en un tablero vertical con eobjetivo de alinear cuatro consecutivas de un mismo color. Fue creado en 1974 por Ned Strongin y Howard Wexler para Milton Bradley Company. El objetivo de 4 en linea es alinear cuatro fichas sobre un tablero formado por seis filas y siete columnas. Cada jugador dispone de 21 fichas de un color (en este caso colores de la respectiva seleccion de futbols seleccionada).​ Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en horizontal, vertical o diagonal.​ Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.</p>
-            <h4>Desarrolador</h3>
-              <p>Fue desarrolado por Felipe Barreyra, Martina Safenreiter y Marcos Gallinal.</p>
-            <h5>Fecha de lanzamiento</h4>
-              <p>El 20 de septiembre del 2024</p>
+            <h3>Plantas vs Zombies</h3>
+                <div class="description">
+              <p>Es un juego basado en el clasico “4 en linea”, el cual es un juego de mesa para dos jugadores, en el que se introducen fichas en un tablero vertical con eobjetivo de alinear cuatro consecutivas de un mismo color. Fue creado en 1974 por Ned Strongin y Howard Wexler para Milton Bradley Company. El objetivo de 4 en linea es alinear cuatro fichas sobre un tablero formado por seis filas y siete columnas. Cada jugador dispone de 21 fichas de un color (en este caso colores de la respectiva seleccion de futbols seleccionada).​ Por turnos, los jugadores deben introducir una ficha en la columna que prefieran (siempre que no esté completa) y ésta caerá a la posición más baja. Gana la partida el primero que consiga alinear cuatro fichas consecutivas de un mismo color en horizontal, vertical o diagonal.​ Si todas las columnas están llenas pero nadie ha hecho una fila válida, hay empate.</p>
+            </div>
             <div class="game-images">
-                <img src="img/plantas.jpg" alt="Tablero de 4 en línea" />
+                <img src="img/4 en linea.png" alt="Tablero de 4 en línea" />
+                <img src="img/plantas.jpg" alt="juego 4 en linea">
                 <img src="img/plantas2.jpg" alt="Personajes del juego" />
             </div>
+            <h4>Desarrolador</h4>
+              <p>Fue desarrolado por Felipe Barreyra, Martina Safenreiter y Marcos Gallinal.</p>
+            <h5>Fecha de lanzamiento</h5>
+              <p>El 20 de septiembre del 2024</p>
         </section>
         <!--comentarios-->
         <section class="comments">
-            <h3>Comentarios</h3>
+            <h6>Comentarios</h6>
            <input type="text" name="comentario" id="comentario" placeholder="Agrega un comentario...">
             <div class="comment">
                 <p><strong>Martin Perez:</strong> ¡Gran juego! Me encantó la estrategia.</p>
@@ -85,11 +120,40 @@
         </section>
 
     </main>    
-</body>
 <footer>
-    
-        <p>© 2024 Ludo Games - Todos los derechos reservados</p>
-    
-</footer>
+    <div class="logofooter">
+        <img class="logo-f"  src="/TP1/img/logo.jpg" alt="logo">
+        <h3 class="titulo">LUDO GAMES</h3>
+</div>
+    <div>
+        <h4>Navegación</h4>
+        <p>Home</p>
+        <p>Categorias</p>
+        <p>Registro</p>
+        <p>Inicio sesión</p>
+        <p>Perfil</p>
+    </div>
+    <div>
+        <h4>Ayuda</h4>
+        <p>FAQ</p>
+        <p>Nosotros</p>
+        <p>Soporte</p>
+        <p>Politicas de privacidad</p>
+        <p>Comentarios</p>   
+    </div>
+    <div>
+        <h4>Redes</h4>
+        <p>Instagram</p>
+        <p>Facebook</p>
+        <p>Twitter</p>
+        <p>Youtube</p>
+        <p>Discord</p>
+    </div>
+    <div>
+        <h4>Contacto</h4>
+        <p>ludogames@gmail.com</p>
+        <p>+54 2494 00 11 22 </p>
+    </div>
+ </footer>
 </body>
 </html>
