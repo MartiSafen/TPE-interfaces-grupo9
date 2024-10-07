@@ -503,7 +503,7 @@ button.price{
 .containerFormulario {
     background-color: #2C2A2A;
     width: 34%;
-    height: 845px;
+    height: 900px;
     border-radius: 5px;
     padding: 20px;
     display: flex;
@@ -563,14 +563,13 @@ button.price{
     text-align: center;
 }
 
-#captcha {
-    width: 100%;
-    max-width: 300px;
+.botones .captcha {
+    border-radius: 5px;
 }
 
 /* Botón de envío */
 .containerFormulario .btnEnviar {
-    width: 90%; /* Asegura que el botón esté alineado con los inputs */
+    width: 150px; /* Asegura que el botón esté alineado con los inputs */
     margin-bottom: 15px;
     padding-left: 10px;
     height: 40px;
@@ -578,6 +577,7 @@ button.price{
     color: black;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     font-weight: bold;
     justify-content: center;
     cursor: pointer;
@@ -607,6 +607,9 @@ button.price{
     align-items: center;
     gap: 10px;
     width: 100%;
+}
+.googleFb #facebook {
+    height: 22px;
 }
 
 .googleFb button {
@@ -687,11 +690,30 @@ footer div h4{
 }
 
 
-div.logofooter .logof{
-    width: 60px;
-    height: 60px;
-    
-    
+.logofooter {
+    display: flex;
+    flex-direction: column;  /* Pone los elementos en una columna (uno encima del otro) */
+    align-items: center;     /* Centra horizontalmente los elementos */
+    justify-content: center; /* Centra verticalmente si es necesario */
+}
+
+.logo-f {
+    width: 100px;   /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
 }
 
 /*fin del footer*/
+.text-section .parrafo {
+    width: 500px;
+}
+.text-section {
+   align-items: center;
+}
+.text-section .titulo {
+    font-size: 38px;
+}
+
+.text-section .logo-ff {
+    width: 445px;   /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+}
