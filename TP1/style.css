@@ -628,56 +628,44 @@ button.price {
 .googleFb {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 10px;
     width: 100%;
 }
-.googleFb #facebook {
-    height: 22px;
-}
 
 .googleFb button {
-    
+    display: flex;
+    align-items: center; /* Alinea el texto y la imagen verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
     width: 100%;
-    padding: 15px 20px; /* Aumenté el padding para hacer los botones más grandes */
+    padding: 10px 15px; /* Reduce el padding para un botón menos "gordo" */
     border: none;
-    border-radius: 8px; /* Redondeado un poco más los bordes */
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 12px; /* Aumenté el tamaño de la fuente para mejor legibilidad */
-    transition: background-color 0.3s ease; /* Transición suave para cambios de color */
+    font-size: 14px; /* Tamaño de fuente más adecuado para legibilidad */
+    transition: background-color 0.3s ease;
+}
+
+.googleFb img {
+    width: 20px; /* Ajusta el tamaño de la imagen para que no sea tan pequeña */
+    height: auto;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
 
 .googleFb button:hover {
-    filter: brightness(0.9); /* Añadí un efecto hover para que los botones se oscurezcan ligeramente al pasar el cursor */
+    filter: brightness(0.9);
 }
 
 .btnGoogle {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle más profundidad */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btnFB {
     background-color: #4267B2;
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Misma sombra sutil que el botón de Google */
-}
-
-.btnGoogle:hover {
-    background-color: #f0f0f0; /* Color más claro al hacer hover */
-}
-
-.btnFB:hover {
-    background-color: #365899; /* Color más oscuro para Facebook al hacer hover */
-}
-
-
-
-#google,
-#facebook {
-    width: 30px;
-    height: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -707,9 +695,14 @@ footer div {
     text-align: left;
 
 }
-
+.logofooter .titulo {
+    color: #33FF66; 
+    font-size: 20px;
+}
 footer div h4{
     margin-bottom: 10%;
+    color: #33FF66;
+    font-size: 30px;
 }
 
 
