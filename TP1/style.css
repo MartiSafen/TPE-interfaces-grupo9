@@ -97,7 +97,7 @@ nav {
 
 }
 
-.submenu li a:c {
+.submenu li a:hover {
     background-color:#604ea1;
     font-size: 18px;
 }
