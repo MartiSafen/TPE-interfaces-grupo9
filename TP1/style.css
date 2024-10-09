@@ -465,26 +465,6 @@ div.medio2 {
     align-items: center;
     margin-bottom: 20px;
 }
-
-/* Cuando se hace clic en la flecha (añade una clase al contenedor del carrusel al hacer clic) */
-.carousel.moving .carousel-item {
-    transform: scale(1.05); /* Estira ligeramente tanto en ancho como en alto */
-}
-
-/* Para simular el clic, la flecha activará el estiramiento de las cards */
-.carousel-arrow:active ~ .carousel .carousel-item {
-    transform: scale(1.03); /* Deforma las tarjetas al hacer clic */
-}
-/* Ajustar la propiedad transform para retroceder */
-.carousel-arrow:active.left-arrow ~ .carousel .carousel-item {
-    transform: scale(1.05);
-}
-
-/* Ajustar la propiedad transform para avanzar */
-.carousel-arrow:active.right-arrow ~ .carousel .carousel-item {
-    transform: scale(1.05);
-}
-
 .carousel {
     display: flex;
     flex-direction: row;
@@ -498,7 +478,6 @@ div.medio2 {
     border-radius: 10px;
     margin-left: 30px;
     overflow-x: hidden; /* Ocultar los elementos que no caben */
-    transition: transform 0.5s ease-in-out;
 }
 
 /* Cards dentro del carrusel */
@@ -516,8 +495,6 @@ div.medio2 {
     margin-right: 10px; /* Espacio entre las tarjetas */
     flex: 0 0 auto;
     position: relative;
-    transition: transform 0.3s ease-in-out;
-    transform-origin: center;
 }
 
 /* Posición del SVG encima de la imagen */
@@ -537,6 +514,15 @@ div.medio2 {
     width: 245px;
     height: auto;
     border-radius: 10px; /* Bordes redondeados para la imagen */
+    transition: width 3s;
+
+}
+.carousel-item img:hover{
+width: 250px;
+}
+
+.carousel-item:hover{
+    background-color:grey;
 }
 
 /* Contenedor para los botones */
@@ -594,7 +580,6 @@ button.price {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-    transition: opacity 0.3s ease;
 }
 
 .left-arrow {
