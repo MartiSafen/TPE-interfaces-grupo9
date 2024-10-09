@@ -375,10 +375,12 @@ color: #28B204;
 /* Sección del carrusel principal (juegos destacados) */
 
 .ex {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: white; /* Color del título */
     margin-top: 10px;
+    text-align: left;
+    margin-left: 10px;
 }
 .carrousel-exclusivos {
     position: relative; /* Para que las flechas y el carrusel estén dentro del mismo contenedor */
@@ -466,25 +468,6 @@ div.medio2 {
     margin-bottom: 20px;
 }
 
-/* Cuando se hace clic en la flecha (añade una clase al contenedor del carrusel al hacer clic) */
-.carousel.moving .carousel-item {
-    transform: scale(1.05); /* Estira ligeramente tanto en ancho como en alto */
-}
-
-/* Para simular el clic, la flecha activará el estiramiento de las cards */
-.carousel-arrow:active ~ .carousel .carousel-item {
-    transform: scale(1.03); /* Deforma las tarjetas al hacer clic */
-}
-/* Ajustar la propiedad transform para retroceder */
-.carousel-arrow:active.left-arrow ~ .carousel .carousel-item {
-    transform: scale(1.05);
-}
-
-/* Ajustar la propiedad transform para avanzar */
-.carousel-arrow:active.right-arrow ~ .carousel .carousel-item {
-    transform: scale(1.05);
-}
-
 .carousel {
     display: flex;
     flex-direction: row;
@@ -518,6 +501,9 @@ div.medio2 {
     position: relative;
     transition: transform 0.3s ease-in-out;
     transform-origin: center;
+}
+.carousel-item:hover{
+    transform: translateY(-10px);
 }
 
 /* Posición del SVG encima de la imagen */
