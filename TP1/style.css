@@ -297,24 +297,56 @@ color: #28B204;
 }
 
 /* Sección del carrusel principal (juegos destacados) */
+
+.ex {
+    font-size: 24px;
+    font-weight: bold;
+    color: white; /* Color del título */
+    margin-top: 10px;
+}
 .carrousel-exclusivos {
+    position: relative; /* Para que las flechas y el carrusel estén dentro del mismo contenedor */
     width: 1318px;
     height: 381px;
     display: flex;
     flex-direction: row;
-    margin-top: 40px;
-    margin-left: 30px;
+    margin-top: 0px; /* Esto controla la separación desde el título hacia abajo */
+    margin-left: 10px;
 }
-div.primero, div.medio, div.tercero{
+
+.carousel-arrow {
+    position: absolute;
+    bottom: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: -60px; /* Ajusta si es necesario */
+}
+
+.right-arrow {
+    right: 40px; /* Ajusta si es necesario */
+}
+
+.carrousel-content {
+    display: flex; /* Permitir desplazamiento horizontal */
+    transition: transform 0.3s ease; /* Suaviza el desplazamiento */
+}
+
+div.primero, div.medio, div.tercero {
     width: 413px;
     height: 318px;
 }
-div.primero img{
+
+div.primero img, div.tercero img {
     border-radius: 15px;
     width: 413px;
     height: 318px;
 }
-div.medio{
+
+div.medio {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
@@ -322,50 +354,75 @@ div.medio{
     height: 159px;
 }
 
-div.medio img{
+div.medio img, div.medio2 img {
     width: 206px;
     height: 159px;
     border-radius: 15px;
 }
-div.medio2{
+
+div.medio2 {
     display: flex;
     flex-direction: column;
     margin-left: 5px;
     width: 206px;
     height: 159px;
 }
-div.medio2 img{
-    width: 206px;
-    height: 159px;
-    border-radius: 15px;
-};
-.category h3 {
+
+/* Carrusel */
+/* Contenedor general del carrusel */
+.contenedor-carrouseles {
+    width: 100%;
+    overflow: hidden;
+    align-items:center;
+    padding: 20px;
+}
+.category {
+    margin-bottom: 10px; /* Espacio entre el título y el carrusel */
+    text-align: left; /* Alineación del texto, puedes cambiar a 'center' si prefieres */
+    margin-left: 30px; /* Ajusta el margen izquierdo si quieres alinear el título con el carrusel */
+}
+
+/* Carrusel */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
-div.tercero img{
-    border-radius: 15px;
-    width: 413px;
-    height: 318px;
-    margin-left: 10px;
+
+/* Cuando se hace clic en la flecha (añade una clase al contenedor del carrusel al hacer clic) */
+.carousel.moving .carousel-item {
+    transform: scale(1.05); /* Estira ligeramente tanto en ancho como en alto */
 }
-/* Carrusel */
+
+/* Para simular el clic, la flecha activará el estiramiento de las cards */
+.carousel-arrow:active ~ .carousel .carousel-item {
+    transform: scale(1.03); /* Deforma las tarjetas al hacer clic */
+}
+/* Ajustar la propiedad transform para retroceder */
+.carousel-arrow:active.left-arrow ~ .carousel .carousel-item {
+    transform: scale(1.05);
+}
+
+/* Ajustar la propiedad transform para avanzar */
+.carousel-arrow:active.right-arrow ~ .carousel .carousel-item {
+    transform: scale(1.05);
+}
+
 .carousel {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    width: 1345px;
+    width: 100%; /* Ajuste para que ocupe el 100% del contenedor */
     height: 263px;
     box-sizing: border-box;
     background-color: #333;
     border-radius: 10px;
     margin-left: 30px;
-    margin-bottom: 20px;
-}
-
-.category {
-    margin-left: 30px;
+    overflow-x: hidden; /* Ocultar los elementos que no caben */
+    transition: transform 0.5s ease-in-out;
 }
 
 /* Cards dentro del carrusel */
@@ -374,15 +431,17 @@ div.tercero img{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 16px;
-    width: 287px;
+    padding: 10px;
+    width: 22%; /* Ajuste para que sean 4 y media (22% del total del ancho) */
     height: 229px;
     background: #D9D9D9;
     border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin-right: 10px;
+    margin-right: 10px; /* Espacio entre las tarjetas */
     flex: 0 0 auto;
     position: relative;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
 }
 
 /* Posición del SVG encima de la imagen */
@@ -392,13 +451,14 @@ div.tercero img{
     right: 0;
     width: 48px;
     height: 48px;
-    z-index: 5; /* Se asegura de que esté encima de la imagen */
+    z-index: 5; /* Asegura que esté encima de la imagen */
     cursor: pointer;
 }
 
 /* Imagen dentro de las cards */
 .carousel-item img {
-    width: 100%;
+    height: 156px;
+    width: 245px;
     height: auto;
     border-radius: 10px; /* Bordes redondeados para la imagen */
 }
@@ -408,16 +468,12 @@ div.tercero img{
     display: flex;
     justify-content: space-between; /* Separar botones dentro de la card */
     width: 100%; /* Asegura que ocupen todo el ancho de la card */
-    margin-top: 10px; /* Espacio entre la imagen y los botones */
-}
-
-.carousel-item:last-child {
-    margin-right: -70%; /* Muestra la última card a la mitad */
+    margin-top: 20px; /* Espacio entre la imagen y los botones */
 }
 
 /* Estilo para los botones */
 .carousel button {
-    padding: 5px 10px; /* Ajusta el relleno para hacer los botones más grandes */
+    padding: 5px 10px;
     border-radius: 15px;
     border: none;
     cursor: pointer;
@@ -452,17 +508,39 @@ button.price {
     color: rgba(28, 58, 169, 1);
 }
 
-.right-arrow-1,
-.right-arrow-2,
-.right-arrow-3 {
+/* Flechas del carrusel */
+/* Flechas del carrusel */
+.carousel-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
     position: absolute;
-    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
     z-index: 10;
+    transition: opacity 0.3s ease;
 }
-/* Carrousel*/
+
+.left-arrow {
+    left: -10px;
+    top: 50%; /* Alinea la flecha izquierda al centro */
+}
+
+.right-arrow {
+    right: 10px;
+    top: 50%; /* Alinea la flecha derecha al centro */
+}
+
+.carousel-arrow svg {
+    fill: #33FF66;
+    opacity: 0.6;
+}
+
+.carousel-arrow:hover svg {
+    opacity: 1;
+}
+
+/*carrousel*/
 
 
 
