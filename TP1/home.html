@@ -10,52 +10,64 @@
 </head>
 
 <body>
-  <header>
-    <div class="barra-nav">
-      <div class="menu-hamburguesa">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi-list"
-          viewBox="0 0 16 16">
-          <path fill-rule="evenodd"
-            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-        </svg>
-      </div>
-      <div class="logo">
-        <img class="logo-nav" src="/TP1/img/logo.jpg" alt="logo">
-        <h1 class="titulo">LUDO GAMES</h1>
-      </div>
-      <div class="search">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search">
-        </form>
-      </div>
-      <div class="carrito">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-cart2"
-          viewBox="0 0 16 16">
-          <path
-            d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-1-circle-fill"
-          viewBox="0 0 16 16">
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z" />
-        </svg>
-        <img src="/TP1/img/avatar.png" alt="avatar" class="avatar">
-        <p>Bienvenido Juan!</p>
-      </div>
-    </div>
-  </header>
-  <div class="category">
-    <h2 class="ex">Exclusivos</h2>
-  </div>
-  <section class="carrousel-exclusivos">
-    <button class="carousel-arrow left-arrow">
-      <!-- SVG para la flecha izquierda -->
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="48" height="48" rx="24" fill="#33FF66" fill-opacity="0.33" />
-        <path d="M30 12L18 24L30 36" stroke="#1E1E1E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </button>
+    <header>
+        
+        <div class="barra-nav">
+          <nav>
+            <ul class="menu">
+                <li>
+                    <img class="img-btn" src="img/menu.png" alt="Menú">  
+                    <!-- Menú oculto que se mostrará al pasar el ratón por la imagen -->
+                    <ul class="submenu">
+                        <li><a href="home.html">INICIO</a></li>
+                        <li><a href="home.html">CATEGORIAS</a>
+                            <!-- Submenú desplegable de "Categorías" -->
+                            <ul class="submenu-categorias">
+                                <li><a href="home.html">Para ti</a></li>
+                                <li><a href="home.html">Aventura</a></li>
+                                <li><a href="home.html">Acción</a></li>
+                                <li><a href="home.html">Cartas</a></li>
+                                <li><a href="home.html">Juegos nuevos</a></li>
+                                <li><a href="home.html">Carreras</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="juego.html">BLOG</a></li>
+                        <li><a href="home.html">NOVEDADES</a></li>
+                        <li><a href="index.html">CONFIGURACIÓN</a></li>
+                        <li><a href="login.html">CERRAR SESIÓN</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+            
+            <div class="logo">
+                    <img class="logo-nav"  src="/TP1/img/logo.jpg" alt="logo">
+                    <h1 class="titulo">LUDO GAMES</h1>
+            </div>
 
-    <div class="carrousel-content"> <!-- Contenedor para permitir el desplazamiento -->
+            <div class="search">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search">
+                </form>
+            </div>
+            <div class="carrito">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-cart2" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-1-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z"/>
+                  </svg>
+                  
+                  <img src="/TP1/img/avatar.png" alt="avatar" class="avatar">
+                  <p>Bienvenido Juan!</p>
+             </div>
+        </div>
+        </header>
+        <div class="ex">
+          <h2>Exclusivos</h2>
+        </div>
+        <h2></h2>
+        <section class="carrousel-exclusivos">
       <div class="primero">
         <img src="/TP1/img/fifa.jpeg" alt="fifa">
       </div>
