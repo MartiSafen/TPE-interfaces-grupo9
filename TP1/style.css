@@ -527,7 +527,10 @@ button.price {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
 }
-
+.details img{
+    height: 30px;
+    width: 60px;
+}
 .right-arrow-1,
 .right-arrow-2,
 .right-arrow-3 {
