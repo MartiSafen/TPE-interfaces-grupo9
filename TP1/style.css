@@ -14,7 +14,44 @@ body{
     padding: 0px;
     
 }
+#content {
+    display: none;
+}
 
+/* Estilo para el loader */
+#loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3; /* Fondo mientras carga */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Loader en forma de círculo */
+#loader:before {
+    content: "";
+    width: 60px;
+    height: 60px;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db; /* Color del borde animado */
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 header{
     background-color:#302556;
     padding: 10px;
@@ -366,11 +403,16 @@ div.menu-hamburguesa{
     color:#33FF66;
 }
 div.search{
-    width: 40%;
-    height: 30px;
+    width: 400px;
+    height: 40px;
     border-radius: 15px;
     align-items: center;
     margin-bottom: 15px;
+}
+.form-controlme-2{
+height: 40px;
+width: 300px;
+border-radius: 5px;
 }
 div.search .d-flex{
     display: flex;
@@ -623,8 +665,12 @@ button.cart {
 button.play {
     background-color: rgba(48, 37, 86, 1);
     color: rgba(51, 255, 102, 1);
+    align-items: center;
 }
-
+.details img{
+    height: 29px;
+    width: 69px;
+}
 button.price {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
