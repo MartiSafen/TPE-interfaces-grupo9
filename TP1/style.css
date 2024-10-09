@@ -153,7 +153,7 @@ nav {
     background-color: #302b44;
     padding: 20px;
     border-radius: 10px;
-    margin-top: 42px;
+    margin-top: 0px;
 }
 .instrucciones p{
     font-size: 20px;
@@ -196,14 +196,11 @@ nav {
 div.description{
     display: block;
 }
-.container{
-    display: flex;
-}
+
 .game-description,h3,h4,h5 {
     font-size: 25px;
    margin-bottom: 10px;
    color: #fff;
-   margin-top: 25px;
 }
 
 .game-description p {
@@ -219,61 +216,18 @@ div.description{
 }
 .game-images{
     display: inline-block;
-    width: 200px;
-    height: 600px;
-
+    width: 300px;
 }
 .game-images img{
     width: 150px;
     flex-direction: row;
     margin: 5px;
-    height: 150px;
 }
 
 /* Información adicional */
 .game-info h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
-}
-.slider, .scroll{
-    list-style: none inside;
-}
-ul.slider{
-position: relative;
-margin-bottom: 20px;
-}
-ul.slider img{
-    opacity: 0;
-    transition:opacity 1s;
-    position: absolute;
-    max-width: 400px;
-    max-height: 400px;
-}
-ul.slider img:first-child{
-    opacity: 1;
-}
-ul.slider img:target{
-    opacity: 1;
-}
-.carrusel{
-    position: relative;
-    display: flex;
-    top: 150px;
-    left: 30px;
-}
-.scroll{
-    display: flex;
-    flex-direction: row;
-    margin-top: 0px;    
-}
-.scroll a{
-    text-decoration: none;
-    padding: 5px;
-    border:#60b74b 1px solid;
-    transition: background-color 2s;
-}
-.scroll a:hover{
-    background-color: #1B123D;
 }
 /* Comentarios */
 .comments {
@@ -511,6 +465,26 @@ div.medio2 {
     align-items: center;
     margin-bottom: 20px;
 }
+
+/* Cuando se hace clic en la flecha (añade una clase al contenedor del carrusel al hacer clic) */
+.carousel.moving .carousel-item {
+    transform: scale(1.05); /* Estira ligeramente tanto en ancho como en alto */
+}
+
+/* Para simular el clic, la flecha activará el estiramiento de las cards */
+.carousel-arrow:active ~ .carousel .carousel-item {
+    transform: scale(1.03); /* Deforma las tarjetas al hacer clic */
+}
+/* Ajustar la propiedad transform para retroceder */
+.carousel-arrow:active.left-arrow ~ .carousel .carousel-item {
+    transform: scale(1.05);
+}
+
+/* Ajustar la propiedad transform para avanzar */
+.carousel-arrow:active.right-arrow ~ .carousel .carousel-item {
+    transform: scale(1.05);
+}
+
 .carousel {
     display: flex;
     flex-direction: row;
@@ -524,6 +498,7 @@ div.medio2 {
     border-radius: 10px;
     margin-left: 30px;
     overflow-x: hidden; /* Ocultar los elementos que no caben */
+    transition: transform 0.5s ease-in-out;
 }
 
 /* Cards dentro del carrusel */
@@ -541,6 +516,8 @@ div.medio2 {
     margin-right: 10px; /* Espacio entre las tarjetas */
     flex: 0 0 auto;
     position: relative;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
 }
 
 /* Posición del SVG encima de la imagen */
@@ -560,15 +537,6 @@ div.medio2 {
     width: 245px;
     height: auto;
     border-radius: 10px; /* Bordes redondeados para la imagen */
-    transition: width 3s;
-
-}
-.carousel-item img:hover{
-width: 250px;
-}
-
-.carousel-item:hover{
-    background-color:grey;
 }
 
 /* Contenedor para los botones */
@@ -626,6 +594,7 @@ button.price {
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
+    transition: opacity 0.3s ease;
 }
 
 .left-arrow {
