@@ -25,11 +25,12 @@ body{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #f3f3f3; /* Fondo mientras carga */
+    background-color:#1B123D; /* Fondo mientras carga */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    
 }
 
 /* Loader en forma de círculo */
@@ -40,7 +41,7 @@ body{
     border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db; /* Color del borde animado */
     border-radius: 50%;
-    animation: spin .8s linear infinite;
+    animation: spin .8s ease infinite;
 }
 
 /* Animación del spinner */
@@ -78,7 +79,8 @@ header div img {
 main {
     padding: 20px;
 }
-/*menu*/
+/*menu hamburguesa*/
+
 nav {
     padding: 10px;
 }
@@ -89,35 +91,30 @@ nav {
     padding: 0;
 }
 
-/* Solo la imagen es visible por defecto */
-.img-btn {
-    background-color: #302556;
-    height: 30px;
+.menu-btn {
+    background-color: transparent;
+    border: none;
     cursor: pointer;
-    display: block;
-    align-items: center;
 }
 
-/* Ocultar todo el menú por defecto, excepto la imagen */
+.img-btn {
+    height: 30px;
+    display: block;
+}
+
 .submenu {
     display: none;
     position: absolute;
-    background-color:#302556;
+    background-color: #302556;
     list-style: none;
     padding: 0;
-    margin:10px 0 0 0;
+    margin: 10px 0 0 0;
     width: 250px;
     height: 290px;
     z-index: 1;
     border-radius: 5px;
 }
 
-/* Mostrar el menú completo al pasar el ratón por la imagen */
-.menu li:hover .submenu {
-    display: block;
-}
-
-/* Estilos para los ítems del menú */
 .submenu li {
     margin-top: 10px;
     margin-left: 5px;
@@ -126,26 +123,24 @@ nav {
 .submenu li a {
     display: block;
     padding: 10px;
-    color:#2FCE08;
+    color: #2FCE08;
     text-decoration: none;
     white-space: nowrap;
     text-align: left;
     transition: width 1s height 1s;
-
 }
 
 .submenu li a:hover {
-    background-color:#604ea1;
+    background-color: #604ea1;
     font-size: 18px;
 }
 
-/* Estilo para el submenú de categorías */
 .submenu-categorias {
     display: none;
     position: absolute;
     top: 0;
-    left: 250px; /* Desplazar a la derecha del menú principal */
-    background-color:#302556;
+    left: 250px;
+    background-color: #302556;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -155,6 +150,10 @@ nav {
 .submenu li:hover .submenu-categorias {
     display: block;
 }
+.submenu.active {
+    display: block;
+}
+/*fin de menu hamburguesa*/
 .game-info {
     display: flex;
     justify-content: space-between;
@@ -244,7 +243,7 @@ div.description{
     display: block;
 }
 
-.game-description,p,h3,h4,h5 {
+.game-description p,h3,h4,h5 {
     font-size: 35px;
    color: #fff;
    margin-top: 20px;
@@ -611,6 +610,9 @@ div.medio2 {
 }
 .carousel-item:hover{
     transform: translateY(-10px);
+    .nombrejuego{
+        display: flex;
+    }
 }
 
 /* Posición del SVG encima de la imagen */
@@ -641,6 +643,7 @@ div.medio2 {
     font-family: 'Arial', sans-serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     flex-grow: 1; /* Permitir que el nombre del juego crezca en el espacio disponible */
+    display:none;
 }
 
 /* Contenedor para los botones */
@@ -650,6 +653,9 @@ div.medio2 {
     align-items: center;
     width: 100%;
     margin-top: auto; /* Asegura que los botones siempre se mantengan en la parte inferior */
+}
+.details a{
+    text-decoration: none;
 }
 
 

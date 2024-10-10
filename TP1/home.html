@@ -20,12 +20,15 @@
           <nav>
             <ul class="menu">
                 <li>
-                    <img class="img-btn" src="img/menu.png" alt="Menú">  
-                    <!-- Menú oculto que se mostrará al pasar el ratón por la imagen -->
-                    <ul class="submenu">
+                    <!-- Boton con imagen para desplegar el menú -->
+                    <button class="menu-btn">
+                        <img class="img-btn" src="img/menu.png" alt="Menú">
+                    </button>
+                    <!-- Menu oculto -->
+                    <ul class="submenu" id="submenu">
                         <li><a href="home.html">INICIO</a></li>
                         <li><a href="home.html">CATEGORIAS</a>
-                            <!-- Submenú desplegable de "Categorías" -->
+                            <!-- Submenu Categorías -->
                             <ul class="submenu-categorias">
                                 <li><a href="home.html">Para ti</a></li>
                                 <li><a href="home.html">Aventura</a></li>
@@ -43,6 +46,7 @@
                 </li>
             </ul>
         </nav>
+    
             
             <div class="logo">
                     <img class="logo-nav"  src="/TP1/img/logo.jpg" alt="logo">
@@ -51,7 +55,7 @@
 
             <div class="search">
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar juego" aria-label="Search">
+                    <input class="form-controlme-2" type="search" placeholder="Buscar juego" aria-label="Search">
                 </form>
             </div>
             <div class="carrito">
@@ -124,7 +128,7 @@
         <!-- Añadir 8 items al carrusel -->
         <div class="carousel-item"><img src="/TP1/img/1.png" alt="Game 1">
           <p class ="nombrejuego">Plantas vs Zombies</p>
-          <div class="details"><button class="free">Gratis</button><button class="play">Jugar</button></div>
+          <div class="details"><button class="free">Gratis</button><a href="juego.html"><button class="play">Jugar</button></div></a>
         </div>
         <div class="carousel-item"><img src="/TP1/img/2p.png" alt="Game 2">
           <p class ="nombrejuego">Among Us</p>

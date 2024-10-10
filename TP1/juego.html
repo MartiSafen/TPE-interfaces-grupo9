@@ -12,18 +12,23 @@
 </head>
 
 <body>
-    <!-- barra de navegación -->
+    <!-- barra de navegacion -->
     <header>
+
         <div class="barra-nav">
+
             <nav>
                 <ul class="menu">
                     <li>
-                        <img class="img-btn" src="img/menu.png" alt="Menú">
-                        <!-- Menú oculto que se mostrará al pasar el ratón por la imagen -->
-                        <ul class="submenu">
+                        <!-- Boton con imagen para desplegar el menú -->
+                        <button class="menu-btn">
+                            <img class="img-btn" src="img/menu.png" alt="Menú">
+                        </button>
+                        <!-- Menu oculto -->
+                        <ul class="submenu" id="submenu">
                             <li><a href="home.html">INICIO</a></li>
                             <li><a href="home.html">CATEGORIAS</a>
-                                <!-- Submenú desplegable de "Categorías" -->
+                                <!-- Submenu Categorías -->
                                 <ul class="submenu-categorias">
                                     <li><a href="home.html">Para ti</a></li>
                                     <li><a href="home.html">Aventura</a></li>
@@ -41,7 +46,7 @@
                     </li>
                 </ul>
             </nav>
-
+        
             <div class="logo">
                 <img class="logo-nav" src="/TP1/img/logo.jpg" alt="logo">
                 <h1 class="titulo">LUDO GAMES</h1>
@@ -72,11 +77,13 @@
         <!-- mantener al usuario informado donde esta parado -->
         <section class="breadcrumbs">
             <div class="div-breadcrumbs">
+                <a href="home.html"></a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                     class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
                 </svg>
+            </a>
                 <h2>Para ti-> Plantas vs zombies</h2>
             </div>
         </section>
@@ -230,6 +237,8 @@
             <p>+54 2494 00 11 22 </p>
         </div>
     </footer>
+
+    <script src="scripts.js"></script>
 </body>
 
 </html>
