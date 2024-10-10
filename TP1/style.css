@@ -30,6 +30,7 @@ body{
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    
 }
 
 /* Loader en forma de círculo */
@@ -40,7 +41,7 @@ body{
     border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db; /* Color del borde animado */
     border-radius: 50%;
-    animation: spin .8s linear infinite;
+    animation: spin .8s ease infinite;
 }
 
 /* Animación del spinner */
@@ -242,7 +243,7 @@ div.description{
     display: block;
 }
 
-.game-description,p,h3,h4,h5 {
+.game-description p,h3,h4,h5 {
     font-size: 35px;
    color: #fff;
    margin-top: 20px;
