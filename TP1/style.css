@@ -190,7 +190,7 @@ nav {
     background-color: #302b44;
     padding: 20px;
     border-radius: 10px;
-    margin-top: 42px;
+    margin-top: 0px;
 }
 .instrucciones p{
     font-size: 20px;
@@ -233,14 +233,11 @@ nav {
 div.description{
     display: block;
 }
-.container{
-    display: flex;
-}
+
 .game-description,h3,h4,h5 {
     font-size: 25px;
    margin-bottom: 10px;
    color: #fff;
-   margin-top: 25px;
 }
 
 .game-description p {
@@ -256,9 +253,8 @@ div.description{
 }
 .game-images{
     display: inline-block;
-    width: 200px;
+    width: 300px;
     height: 600px;
-
 }
 .game-images img{
     width: 150px;
@@ -266,7 +262,9 @@ div.description{
     margin: 5px;
     height: 150px;
 }
-
+.container{
+    display: flex;
+}
 /* Información adicional */
 .game-info h3 {
     font-size: 1.2em;
@@ -463,10 +461,12 @@ color: #28B204;
 /* Sección del carrusel principal (juegos destacados) */
 
 .ex {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     color: white; /* Color del título */
     margin-top: 10px;
+    text-align: left;
+    margin-left: 10px;
 }
 .carrousel-exclusivos {
     position: relative; /* Para que las flechas y el carrusel estén dentro del mismo contenedor */
@@ -554,25 +554,6 @@ div.medio2 {
     margin-bottom: 20px;
 }
 
-/* Cuando se hace clic en la flecha (añade una clase al contenedor del carrusel al hacer clic) */
-.carousel.moving .carousel-item {
-    transform: scale(1.05); /* Estira ligeramente tanto en ancho como en alto */
-}
-
-/* Para simular el clic, la flecha activará el estiramiento de las cards */
-.carousel-arrow:active ~ .carousel .carousel-item {
-    transform: scale(1.03); /* Deforma las tarjetas al hacer clic */
-}
-/* Ajustar la propiedad transform para retroceder */
-.carousel-arrow:active.left-arrow ~ .carousel .carousel-item {
-    transform: scale(1.05);
-}
-
-/* Ajustar la propiedad transform para avanzar */
-.carousel-arrow:active.right-arrow ~ .carousel .carousel-item {
-    transform: scale(1.05);
-}
-
 .carousel {
     display: flex;
     flex-direction: row;
@@ -595,7 +576,7 @@ div.medio2 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     width: 22%; /* Ajuste para que sean 4 y media (22% del total del ancho) */
     height: 229px;
     background: #D9D9D9;
@@ -606,6 +587,9 @@ div.medio2 {
     position: relative;
     transition: transform 0.3s ease-in-out;
     transform-origin: center;
+}
+.carousel-item:hover{
+    transform: translateY(-10px);
 }
 
 /* Posición del SVG encima de la imagen */
@@ -627,13 +611,26 @@ div.medio2 {
     border-radius: 10px; /* Bordes redondeados para la imagen */
 }
 
+.carousel-item .nombrejuego {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0; /* Espaciado arriba y abajo */
+    color: #1B123D;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    flex-grow: 1; /* Permitir que el nombre del juego crezca en el espacio disponible */
+}
+
 /* Contenedor para los botones */
 .details {
     display: flex;
-    justify-content: space-between; /* Separar botones dentro de la card */
-    width: 100%; /* Asegura que ocupen todo el ancho de la card */
-    margin-top: 20px; /* Espacio entre la imagen y los botones */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto; /* Asegura que los botones siempre se mantengan en la parte inferior */
 }
+
 
 /* Estilo para los botones */
 .carousel button {
@@ -642,7 +639,7 @@ div.medio2 {
     border: none;
     cursor: pointer;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 69px;
     height: 29px;
     align-items: center;
@@ -670,6 +667,7 @@ button.play {
 .details img{
     height: 29px;
     width: 69px;
+    margin-bottom: 15px;
 }
 button.price {
     background-color: rgba(51, 255, 102, 1);
