@@ -874,3 +874,37 @@ footer div h4{
     height: auto;
 }
 
+
+
+/* mobile*/
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Apilar los elementos en columna */
+        align-items: flex-start; /* Alinear a la izquierda */
+    }
+
+
+    div.menu-hamburguesa, div.search, div.carrito {
+        width: 30%; /* Asegura que estos elementos ocupen todo el ancho */
+        justify-content: space-between; /* Espacio entre los elementos */
+        margin: 5px 0; /* Margen vertical */
+    }
+
+    .submenu {
+        width: 100%; /* Ampliar el submenú a ocupar todo el ancho */
+        left: 0; /* Alinear a la izquierda */
+    }
+    div.search{
+        display:none;
+    }
+
+    div.carrito{
+        display:none;
+
+    }
+    .avatar{
+        height: 40px;
+        width: 40px;
+    }
+}
+
