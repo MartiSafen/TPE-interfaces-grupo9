@@ -757,20 +757,24 @@ button.price {
 /* Contenido: Sección de texto a la izquierda y formulario a la derecha */
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Mantén los elementos alineados al inicio */
     align-items: flex-start;
-    gap: 40px; /* Espacio entre la sección de texto y el formulario */
+    gap: 10px; /* Ajusta el espacio entre los elementos */
     max-width: 1200px;
     width: 100%;
+    margin-left: 50px; 
 }
 
 /* Sección de texto a la izquierda */
 .text-section {
     width: 350px;
     color: white;
+    flex: 1; /* El texto ocupará un 50% del espacio disponible */
+    max-width: 50%; /* Ajusta según tus necesidades */
 }
 
 .text-section .titulo {
+    margin-left: 100px;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
