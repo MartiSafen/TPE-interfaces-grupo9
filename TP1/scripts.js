@@ -54,3 +54,19 @@ window.onload = function() {
     // Mostrar el contenido de la página
     document.getElementById('content').style.display = 'block';
 };
+
+// Seleccionamos el botón y el menú
+const menuBtn = document.querySelector('.menu-btn');
+const submenu = document.getElementById('submenu');
+
+// Evento para mostrar/ocultar el menú al hacer clic
+menuBtn.addEventListener('click', () => {
+    submenu.classList.toggle('active');
+});
+
+// Opcional: Si quieres que al hacer clic fuera del menú se cierre
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !submenu.contains(e.target)) {
+        submenu.classList.remove('active');
+    }
+});
