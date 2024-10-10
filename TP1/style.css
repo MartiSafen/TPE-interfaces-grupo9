@@ -14,7 +14,44 @@ body{
     padding: 0px;
     
 }
+#content {
+    display: none;
+}
 
+/* Estilo para el loader */
+#loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f3f3f3; /* Fondo mientras carga */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Loader en forma de círculo */
+#loader:before {
+    content: "";
+    width: 60px;
+    height: 60px;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db; /* Color del borde animado */
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 header{
     background-color:#302556;
     padding: 10px;
@@ -135,7 +172,7 @@ nav {
     position: absolute;
     border-radius: 15px;
     background-color:#1b1834;
-    color: #28B204;
+    color: #33FF66;
     margin-left: 280px;
     justify-content: center;
     transition: width 1s, height 1s;
@@ -150,14 +187,24 @@ nav {
     background-color: #302b44;
 }
 .instrucciones{
-    background-color: #302b44;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 0px;
+    background-color:#1b1834;
+    padding: 5px;
+    border-style: dotted;
+    border-color: #33FF66;
+    margin-top: 40px;
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    left: 800px;
+    top: 206px;
+        
 }
 .instrucciones p{
     font-size: 20px;
     color: #fff;
+    align-items: center;
+    text-align: start;
+    margin-top: 10px;
 }
 
 
@@ -197,18 +244,25 @@ div.description{
     display: block;
 }
 
-.game-description,h3,h4,h5 {
-    font-size: 25px;
-   margin-bottom: 10px;
+.game-description,p,h3,h4,h5 {
+    font-size: 35px;
    color: #fff;
+   margin-top: 20px;
+    align-items: center;
 }
+.game-description h3{
+    margin-top: 15px;
+}
+.game-description{
+    background-color:#302556;
+    border-radius: 15px;
 
+}
 .game-description p {
     font-size: 16px;
-    color:#fff;
-    margin-top: 0px;
-}
+    color:#ffffff;
 
+}
 .game-img {
     display: flex;
     gap: 15px;
@@ -217,17 +271,62 @@ div.description{
 .game-images{
     display: inline-block;
     width: 300px;
+    height: 600px;
 }
 .game-images img{
     width: 150px;
     flex-direction: row;
     margin: 5px;
+    height: 150px;
 }
-
+.container{
+    display: flex;
+}
 /* Información adicional */
 .game-info h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
+}
+.slider, .scroll{
+    list-style: none inside;
+}
+ul.slider{
+position: relative;
+margin-bottom: 20px;
+}
+ul.slider img{
+    opacity: 0;
+    transition:opacity 1s;
+    position: absolute;
+    max-width: 400px;
+    max-height: 400px;
+}
+ul.slider img:first-child{
+    opacity: 1;
+}
+ul.slider img:target{
+    opacity: 1;
+}
+.carrusel{
+    position: relative;
+    top: 150px;
+    left: 30px;
+}
+.scroll{
+     display: flex;
+    flex-direction: row;
+    margin-top: 0px;    
+    
+}
+
+.scroll a{
+    text-decoration: none;
+    padding: 5px;
+    border:#33FF66 1px solid;
+    transition: background-color 2s;
+}
+.scroll a:hover{
+    background-color: #1B123D;
 }
 /* Comentarios */
 .comments {
@@ -320,11 +419,16 @@ div.menu-hamburguesa{
     color:#33FF66;
 }
 div.search{
-    width: 40%;
-    height: 30px;
+    width: 400px;
+    height: 40px;
     border-radius: 15px;
     align-items: center;
     margin-bottom: 15px;
+}
+.form-controlme-2{
+height: 40px;
+width: 300px;
+border-radius: 5px;
 }
 div.search .d-flex{
     display: flex;
@@ -346,10 +450,13 @@ div.carrito .bi-1-circle-fill{
     position: absolute;
 }
 div.carrito p{
+    font-family:sans-serif;
     display: flex;
     flex-direction: row;
     position: absolute;
     margin-left: 120px;
+    font-size: 25px;
+    color:#33FF66;
 }
 .avatar{
     width:140px;
@@ -357,18 +464,18 @@ div.carrito p{
 }
 
 .bi-arrow-left-circle{
-color: #28B204;
+    color:#33FF66;
 }
 .breadcrumbs{
     width: 100%;
-    height: 25px;
+    height: 20px;
     display: flex;
 }
 .breadcrumbs h2{
-    color:#28B204;
+    color:#33FF66;
     font-size: 20px;
     font-family:sans-serif;
-    margin-left: 10px;
+    margin-left: 30px;
     display: inline-block;
 }
 
@@ -490,7 +597,7 @@ div.medio2 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     width: 22%; /* Ajuste para que sean 4 y media (22% del total del ancho) */
     height: 229px;
     background: #D9D9D9;
@@ -525,13 +632,26 @@ div.medio2 {
     border-radius: 10px; /* Bordes redondeados para la imagen */
 }
 
+.carousel-item .nombrejuego {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0; /* Espaciado arriba y abajo */
+    color: #1B123D;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    flex-grow: 1; /* Permitir que el nombre del juego crezca en el espacio disponible */
+}
+
 /* Contenedor para los botones */
 .details {
     display: flex;
-    justify-content: space-between; /* Separar botones dentro de la card */
-    width: 100%; /* Asegura que ocupen todo el ancho de la card */
-    margin-top: 20px; /* Espacio entre la imagen y los botones */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto; /* Asegura que los botones siempre se mantengan en la parte inferior */
 }
+
 
 /* Estilo para los botones */
 .carousel button {
@@ -540,7 +660,7 @@ div.medio2 {
     border: none;
     cursor: pointer;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 69px;
     height: 29px;
     align-items: center;
@@ -563,8 +683,13 @@ button.cart {
 button.play {
     background-color: rgba(48, 37, 86, 1);
     color: rgba(51, 255, 102, 1);
+    align-items: center;
 }
-
+.details img{
+    height: 29px;
+    width: 69px;
+    margin-bottom: 15px;
+}
 button.price {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
@@ -806,19 +931,6 @@ button.price {
     background-color: #4267B2;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.instrucciones{
-position: absolute;
-width: 500px;
-height: 200px;
-left: 800px;
-top: 200px;
-background: #1B123D;
-border: 1px solid #FFFFFF;
-border-radius: 35px;
 }
 
 footer {
