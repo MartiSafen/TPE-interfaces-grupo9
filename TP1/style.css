@@ -172,7 +172,7 @@ nav {
     position: absolute;
     border-radius: 15px;
     background-color:#1b1834;
-    color: #28B204;
+    color: #33FF66;
     margin-left: 280px;
     justify-content: center;
     transition: width 1s, height 1s;
@@ -187,14 +187,24 @@ nav {
     background-color: #302b44;
 }
 .instrucciones{
-    background-color: #302b44;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 0px;
+    background-color:#1b1834;
+    padding: 5px;
+    border-style: dotted;
+    border-color: #33FF66;
+    margin-top: 40px;
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    left: 800px;
+    top: 206px;
+        
 }
 .instrucciones p{
     font-size: 20px;
     color: #fff;
+    align-items: center;
+    text-align: start;
+    margin-top: 10px;
 }
 
 
@@ -234,18 +244,25 @@ div.description{
     display: block;
 }
 
-.game-description,h3,h4,h5 {
-    font-size: 25px;
-   margin-bottom: 10px;
+.game-description,p,h3,h4,h5 {
+    font-size: 35px;
    color: #fff;
+   margin-top: 20px;
+    align-items: center;
 }
+.game-description h3{
+    margin-top: 15px;
+}
+.game-description{
+    background-color:#302556;
+    border-radius: 15px;
 
+}
 .game-description p {
     font-size: 16px;
-    color:#fff;
-    margin-top: 0px;
-}
+    color:#ffffff;
 
+}
 .game-img {
     display: flex;
     gap: 15px;
@@ -292,19 +309,20 @@ ul.slider img:target{
 }
 .carrusel{
     position: relative;
-    display: flex;
     top: 150px;
     left: 30px;
 }
 .scroll{
-    display: flex;
+     display: flex;
     flex-direction: row;
     margin-top: 0px;    
+    
 }
+
 .scroll a{
     text-decoration: none;
     padding: 5px;
-    border:#60b74b 1px solid;
+    border:#33FF66 1px solid;
     transition: background-color 2s;
 }
 .scroll a:hover{
@@ -432,10 +450,13 @@ div.carrito .bi-1-circle-fill{
     position: absolute;
 }
 div.carrito p{
+    font-family:sans-serif;
     display: flex;
     flex-direction: row;
     position: absolute;
     margin-left: 120px;
+    font-size: 25px;
+    color:#33FF66;
 }
 .avatar{
     width:140px;
@@ -443,18 +464,18 @@ div.carrito p{
 }
 
 .bi-arrow-left-circle{
-color: #28B204;
+    color:#33FF66;
 }
 .breadcrumbs{
     width: 100%;
-    height: 25px;
+    height: 20px;
     display: flex;
 }
 .breadcrumbs h2{
-    color:#28B204;
+    color:#33FF66;
     font-size: 20px;
     font-family:sans-serif;
-    margin-left: 10px;
+    margin-left: 30px;
     display: inline-block;
 }
 
@@ -910,19 +931,6 @@ button.price {
     background-color: #4267B2;
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.instrucciones{
-position: absolute;
-width: 500px;
-height: 200px;
-left: 800px;
-top: 200px;
-background: #1B123D;
-border: 1px solid #FFFFFF;
-border-radius: 35px;
 }
 
 footer {
