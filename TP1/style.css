@@ -488,6 +488,9 @@ div.carrito p{
     text-align: left;
     margin-left: 10px;
 }
+.ex h2{
+    margin-left: 16px;
+}
 .carrousel-exclusivos {
     position: relative; /* Para que las flechas y el carrusel estén dentro del mismo contenedor */
     width: 1318px;
@@ -496,6 +499,12 @@ div.carrito p{
     flex-direction: row;
     margin-top: 0px; /* Esto controla la separación desde el título hacia abajo */
     margin-left: 10px;
+}
+.carrousel-exclusivos img:hover{
+    transition-duration: 1s;
+    animation-duration: 5s;
+    transform: rotateY(20deg);
+    transform-style: preserve-3d;
 }
 
 .carousel-arrow {
@@ -528,6 +537,7 @@ div.primero img, div.tercero img {
     border-radius: 15px;
     width: 413px;
     height: 318px;
+    margin-left: 10px;
 }
 
 div.medio {
@@ -690,6 +700,14 @@ button.play {
     background-color: rgba(48, 37, 86, 1);
     color: rgba(51, 255, 102, 1);
     align-items: center;
+    animation-duration: 4s;
+    animation-direction: reverse;
+}
+button.play:hover{
+    transition-delay: 1s;
+    background-color:#1b1834;
+    height: 32px;
+    width: 70px;
 }
 .details img{
     height: 29px;
