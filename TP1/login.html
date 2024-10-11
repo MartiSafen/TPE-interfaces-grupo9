@@ -8,40 +8,94 @@
         <script src="scripts.js"></script>
     </head>
     <body>
-    <div class="containerFormulario">
-        <h2 class="titulo">REGISTRATE EN LUDO GAMES </h2>
-        <form class="register" action="index.html">
-            <p class="parrafo" id="nombreForm"><label>Nombre*</label></p>
-            <input type="text" name="nombre" id="nombreUsuario" required minlength="4" placeholder="Nombre">
-            <p class="parrafo" id="apellidoForm"><label>Apellido*</label></p>
-            <input type="text" name="nombre" id="apellidoUsuario" required minlength="2" placeholder="Apellido">
-            <p class="parrafo" id="edadForm"><label>Edad*</label></p>
-            <input type="number" name="edad" id="edad" required placeholder="Edad">
-            <p class="parrafo"><label>Nombre de Usuario*</label></p>
-            <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Nombre de Usuario">
-            <p class="parrafo"><label>Email*</label></p>
-            <input type="email" name="email" id="email" placeholder="Direccion de correo">
-            <p class="parrafo" id="contraseñaForm"><label>Contraseña*</label></p>
-            <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
-            <p class="parrafo" id="confirmarForm"><label>Repetir contraseña*</label></p>
-            <input type="password" name="confirmarContraseña" id="confirmarContraseña" placeholder="Confirmar Contraseña">
-            <figure>
-                <img src="/img/Pagina Login-Register/captcha.png" alt="Captcha" id="captcha">
-            </figure>
-            <button type="submit" class="btnEnviar">Registrarse</button>
-            <p class="ayuda parrafo" id="deshacerSemantico">¿Tenés cuenta? <a href="login.html"> Ingresá</a>.</p>
-            <div class="googleFb">
-                <figure>
-                    <img src="/img/Pagina Login-Register/google.png" alt="google" id="google">
-                </figure>
-                <p>Registrarse con Google</p>
-                <figure></figure>
-                    <img src="/img/Pagina Login-Register/facebook.png" alt="facebook" id="facebook">
-                </figure>
-                <p>Registrarse con Facebook</p>
+        <header>
+            <div class="barra-nav">
+                
+                <div class="logo">
+                        <img class="logo-nav"  src="/TP1/img/logo.jpg" alt="logo">
+                        <h1 class="titulo">LUDO GAMES</h1>
+                </div>
+            </div>
+    </header> 
+        <div class="containerPagLogin">
+            <!-- Contenedor principal -->
+            <div class="content">
+                <!-- Título y párrafo -->
+                <div class="text-section">
+                    <h2 class="titulo">¿TE UNES?</h2>
+                    <p class="parrafo"> Al registrarte en LUDO GAMES obtienes varias ventajas y comodidades.
+                        Además, podrás disfrutar de muchos más juegos para que la diversión no se acabe, ¡Te esperamos!
+                    </p>
+                    <!-- Logo debajo del párrafo -->
+                    <div class="image-container">
+                        <img class="logo-ff"  src = "/TP1/img/logoform.jpg" alt="logo">
+                    </div>
+                </div>
+    
+                <!-- Formulario a la derecha -->
+                <div class="containerFormularioLogin">
+                    <h2 class="titulo">Iniciar Sesión</h2>
+                    <form class="login">
+                    <div class="campos">
+                        <p class="parrafo"><label>Email</label></p>
+                        <input type="email" name="email" id="email" placeholder="Dirección de correo">
+                        <p class="parrafo" id="contraseñaForm"><label>Contraseña</label></p>
+                        <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">  
+                    </div>
+                    <div class="botones">
+                        <figure>
+                            <img class="captcha"  src = "/TP1/img/captcha.jpg" alt="captcha">
+                        </figure>
+                        <button type="submit" class="btnEnviar">Ingresar</button>
+                        <p id="successMessage" style="display:none;">¡Logeado con exito!</p>
+                   
+                        <p class="ayuda parrafo" id="deshacerSemantico">Olvidé mi contraseña</p>
+                        <p class="ayuda parrafo" id="deshacerSemantico">¿No tienes cuenta? Registrate</p>
+                        <div class="googleFb">
+                            <button type="submit" class="btnGoogle">
+                            <img class="googleimg" src="/TP1/img/googleimg.jpg" alt="google" id="google">Iniciar con Google</button>
+                            <button type="submit" class="btnFB"> 
+                                <img class="faceimg" src="/TP1/img/fbimg.jpg" alt="facebook" id="facebook">Iniciar con Facebook</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
             </div>
         </div>
-        </form>
-   </div>
     </body>
+    <footer>
+        <div class="logofooter">
+            <img class="logo-f"  src = "/TP1/img/logo.jpg" alt="logo">
+            <h3 class="titulo">LUDO GAMES</h3>
+    </div>
+        <div>
+            <h4>Navegación</h4>
+            <p>Home</p>
+            <p>Categorias</p>
+            <p>Registro</p>
+            <p>Inicio sesión</p>
+            <p>Perfil</p>
+        </div>
+        <div>
+            <h4>Ayuda</h4>
+            <p>FAQ</p>
+            <p>Nosotros</p>
+            <p>Soporte</p>
+            <p>Politicas de privacidad</p>
+            <p>Comentarios</p>   
+        </div>
+        <div>
+            <h4>Redes</h4>
+            <p>Instagram</p>
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Youtube</p>
+            <p>Discord</p>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <p>ludogames@gmail.com</p>
+            <p>+54 2494 00 11 22 </p>
+        </div>
+     </footer>
 </html>
