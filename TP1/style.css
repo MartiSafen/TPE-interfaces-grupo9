@@ -489,34 +489,13 @@ div.carrito p{
     margin-left: 10px;
 }
 .carrousel-exclusivos {
-    position: relative; /* Para que las flechas y el carrusel estén dentro del mismo contenedor */
+    position: relative;
     width: 1318px;
     height: 381px;
     display: flex;
     flex-direction: row;
     margin-top: 0px; /* Esto controla la separación desde el título hacia abajo */
     margin-left: 10px;
-}
-
-.carousel-arrow {
-    position: absolute;
-    bottom: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.left-arrow {
-    left: -60px; /* Ajusta si es necesario */
-}
-
-.right-arrow {
-    right: 40px; /* Ajusta si es necesario */
-}
-
-.carrousel-content {
-    display: flex; /* Permitir desplazamiento horizontal */
-    transition: transform 0.3s ease; /* Suaviza el desplazamiento */
 }
 
 div.primero, div.medio, div.tercero {
@@ -1001,6 +980,9 @@ footer div h4{
         align-items: flex-start; /* Alinear a la izquierda */
     }
 
+    .carousel{
+        height: 250px;
+    }
 
     div.menu-hamburguesa, div.search, div.carrito {
         width: 30%; /* Asegura que estos elementos ocupen todo el ancho */
@@ -1024,5 +1006,72 @@ footer div h4{
         height: 40px;
         width: 40px;
     }
+    .carrousel-exclusivos {
+        position: relative;
+        width: 100%; /* Ajusta para que se adapte al ancho del contenedor padre */
+        height: auto; /* Permitir que la altura sea automática */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; /* Permitir que los elementos se muevan a la siguiente línea si no caben */
+        gap: 5px;
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    
+    div.primero, div.medio, div.tercero, div.medio2 {
+        width: 150px;
+        height: 100px;
+    }
+    
+    div.primero img, div.tercero img {
+        border-radius: 15px;
+        width: 150px; /* Ajustar para que ocupe el ancho completo de su contenedor */
+        height: 100px; /* Mantener la proporción de la imagen */
+    }
+    
+    
+    div.medio img, div.medio2 img {
+        width: 150px; /* Ajustar para que ocupe el ancho completo de su contenedor */
+        height: 100px; /* Mantener la proporción de la imagen */
+        border-radius: 15px;
+        margin-left: -5px;
+    }
+    
+    .carousel-item {
+        width: 40%; /* Reducir un poco más el tamaño de las tarjetas */
+        margin-right: 5px; /* Reducir el espacio entre las tarjetas */
+        height: 200px;
+    }
+    .carousel-item img {
+        width: 100%; /* Hacer que la imagen ocupe todo el ancho */
+        height: auto;
+    }
+    /* Ajustar el tamaño del botón del carrito */
+    .carousel .details img {
+        width: 50px; /* Reducir el tamaño del icono del carrito */
+        height: 25px;
+    }
+
+    .carousel button {
+        width: 50px; /* Reducir un poco más el ancho del botón */
+        height: 25px;
+    }
+
+    /* Ajustes en las flechas del carrusel */
+    .carousel-arrow {
+        top: 50%; /* Centrar verticalmente las flechas */
+        z-index: 10;
+    }
+
+    footer p{
+        font-size: 10px;
+    }
+    footer div h4{
+        font-size: 15px;
+    }
+    footer{
+        width: 100%;
+    }
+
 }
 
