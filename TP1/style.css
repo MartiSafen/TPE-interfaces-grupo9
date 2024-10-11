@@ -985,7 +985,9 @@ footer div h4{
     font-size: 30px;
 }
 
-
+footer .redes{
+    display: inline-block;
+}
 .logofooter {
     display: flex;
     flex-direction: column;  /* Pone los elementos en una columna (uno encima del otro) */
