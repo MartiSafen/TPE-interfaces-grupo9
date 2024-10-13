@@ -25,34 +25,43 @@ body{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color:#1B123D; /* Fondo mientras carga */
+    background-color: #1B123D; /* Fondo mientras carga */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 9999;
-    
 }
 
 /* Loader en forma de círculo */
-#loader:before {
-    content: "";
+.loader-animation {
     width: 60px;
     height: 60px;
     border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db; /* Color del borde animado */
     border-radius: 50%;
-    animation: spin .8s ease infinite;
+    animation: spin 1s linear infinite;
 }
 
-/* Animación del spinner */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+/* Porcentaje de avance */
+#loader-percentage {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #ffffff;
 }
+
+/* Animación de giro */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ocultar el contenido de la página hasta que el loader desaparezca */
+#content {
+    display: none;
+}
+
+
 header{
     background-color:#302556;
     padding: 10px;
@@ -488,6 +497,9 @@ div.carrito p{
     text-align: left;
     margin-left: 10px;
 }
+.ex h2{
+    margin-left: 16px;
+}
 .carrousel-exclusivos {
     position: relative;
     width: 1318px;
@@ -496,6 +508,12 @@ div.carrito p{
     flex-direction: row;
     margin-top: 0px; /* Esto controla la separación desde el título hacia abajo */
     margin-left: 10px;
+}
+.carrousel-exclusivos img:hover{
+    transition-duration: 1s;
+    animation-duration: 5s;
+    transform: rotateY(20deg);
+    transform-style: preserve-3d;
 }
 
 div.primero, div.medio, div.tercero {
@@ -507,6 +525,7 @@ div.primero img, div.tercero img {
     border-radius: 15px;
     width: 413px;
     height: 318px;
+    margin-left: 10px;
 }
 
 div.medio {
@@ -669,6 +688,14 @@ button.play {
     background-color: rgba(48, 37, 86, 1);
     color: rgba(51, 255, 102, 1);
     align-items: center;
+    animation-duration: 4s;
+    animation-direction: reverse;
+}
+button.play:hover{
+    transition-delay: 1s;
+    background-color:#1b1834;
+    height: 32px;
+    width: 70px;
 }
 .details img{
     height: 29px;
@@ -736,20 +763,24 @@ button.price {
 /* Contenido: Sección de texto a la izquierda y formulario a la derecha */
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Mantén los elementos alineados al inicio */
     align-items: flex-start;
-    gap: 40px; /* Espacio entre la sección de texto y el formulario */
+    gap: 10px; /* Ajusta el espacio entre los elementos */
     max-width: 1200px;
     width: 100%;
+    margin-left: 50px; 
 }
 
 /* Sección de texto a la izquierda */
 .text-section {
     width: 350px;
     color: white;
+    flex: 1; /* El texto ocupará un 50% del espacio disponible */
+    max-width: 50%; /* Ajusta según tus necesidades */
 }
 
 .text-section .titulo {
+    margin-left: 100px;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -765,6 +796,7 @@ button.price {
 /* Logo debajo del párrafo */
 .image-container {
     margin-top: 20px;
+    margin-right: 200px;
     text-align: center;
 }
 
@@ -845,7 +877,7 @@ button.price {
 .containerFormulario .btnEnviar {
     width: 150px; /* Asegura que el botón esté alineado con los inputs */
     margin-bottom: 15px;
-    padding-left: 10px;
+  
     height: 40px;
     background-color: #33FF66;
     color: black;
@@ -858,9 +890,42 @@ button.price {
     text-align: center;
 }
 
-.containerFormulario .btnEnviar:hover {
-    background-color: #28B204;
+.btnEnviar:hover {
+    background-color: #218838; /* Un verde más oscuro al pasar el mouse */
 }
+
+.btnEnviar:disabled {
+    background-color: #6c757d; /* Un gris para cuando está deshabilitado */
+    cursor: not-allowed;
+}
+
+/* Estilos para el mensaje de éxito */
+#successMessage {
+    color: #28a745;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    display: none; /* Oculto por defecto */
+    text-align: center;
+}
+
+/* Para agregar animación al mostrar el mensaje */
+#successMessage.show {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Aumenta la duración de la animación a 2 segundos */
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* Ayuda e inicio de sesión */
 .ayuda {
@@ -942,7 +1007,6 @@ footer div h4{
     font-size: 30px;
 }
 
-
 .logofooter {
     display: flex;
     flex-direction: column;  /* Pone los elementos en una columna (uno encima del otro) */
@@ -952,6 +1016,18 @@ footer div h4{
 
 .logo-f {
     width: 100px;   /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+}
+.redes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px; /* Ajusta el espacio entre los íconos */
+    margin-top: -10px;
+}
+
+.redes img {
+    width: 30px; /* Ajusta el tamaño de los íconos */
     height: auto;
 }
 
@@ -1074,4 +1150,165 @@ footer div h4{
     }
 
 }
+
+/* Login */
+
+.containerPagLogin {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #1B123D;
+    min-height: 100vh; /* Cambia a min-height para que ocupe al menos el 100% de la pantalla */
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+
+.containerFormularioLogin {
+    background-color: #2C2A2A;
+    width: 34%;
+    height: 580px;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea los elementos al centro */
+}
+
+.containerFormularioLogin .titulo {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.campos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos dentro del contenedor */
+}
+
+.botones {
+    width: 100%;
+     display: flex;
+    flex-direction: column;
+   
+    align-items: center;/* Centra los elementos dentro del contenedor */
+}
+
+
+.campos .parrafo {
+    color: white;
+    width: 90%; /* Asegura que las etiquetas también estén centradas */
+    margin-bottom: 5px;
+    text-align: left; /* Mantiene el texto alineado a la izquierda */
+}
+
+.campos input {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    height: 40px;
+    width: 90%; /* Asegura que los inputs estén centrados */
+    background-color: #8481D7;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-size: 16px;
+}
+
+.campos input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Captcha */
+.containerFormularioLogin figure {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.botones .captcha {
+    border-radius: 5px;
+}
+
+/* Botón de envío */
+.containerFormularioLogin .btnEnviar {
+    width: 150px; /* Asegura que el botón esté alineado con los inputs */
+    margin-bottom: 15px;
+  
+    height: 40px;
+    background-color: #33FF66;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.containerFormularioLogin .btnEnviar:hover {
+    background-color: #28B204;
+}
+
+/* Ayuda e inicio de sesión */
+.ayuda {
+    color: #33FF66;
+    text-align: center;
+    padding: 22px;
+}
+
+.ayuda a {
+    color: #33FF66;
+    text-decoration: none;
+}
+
+/* Contenedor de los botones de Google y Facebook */
+.googleFb {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.googleFb button {
+    display: flex;
+    align-items: center; /* Alinea el texto y la imagen verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 100%;
+    padding: 10px 15px; /* Reduce el padding para un botón menos "gordo" */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px; /* Tamaño de fuente más adecuado para legibilidad */
+    transition: background-color 0.3s ease;
+}
+
+.googleFb img {
+    width: 20px; /* Ajusta el tamaño de la imagen para que no sea tan pequeña */
+    height: auto;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.googleFb button:hover {
+    filter: brightness(0.9);
+}
+
+.btnGoogle {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btnFB {
+    background-color: #4267B2;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
 

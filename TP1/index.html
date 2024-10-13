@@ -38,37 +38,40 @@
             <!-- Formulario a la derecha -->
             <div class="containerFormulario">
                 <h2 class="titulo">REGÍSTRATE EN LUDO GAMES</h2>
-                <form class="register" action="index.html">
-                <div class="campos">
-                    <p class="parrafo" id="nombreForm"><label>Nombre*</label></p>
-                    <input type="text" name="nombre" id="nombreUsuario" required minlength="4" placeholder="Nombre">
-                    <p class="parrafo" id="apellidoForm"><label>Apellido*</label></p>
-                    <input type="text" name="apellido" id="apellidoUsuario" required minlength="2" placeholder="Apellido">
-                    <p class="parrafo" id="edadForm"><label>Edad*</label></p>
-                    <input type="number" name="edad" id="edad" required placeholder="Edad">
-                    <p class="parrafo"><label>Nombre de Usuario*</label></p>
-                    <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Nombre de Usuario">
-                    <p class="parrafo"><label>Email*</label></p>
-                    <input type="email" name="email" id="email" placeholder="Dirección de correo">
-                    <p class="parrafo" id="contraseñaForm"><label>Contraseña*</label></p>
-                    <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
-                    <p class="parrafo" id="confirmarForm"><label>Repetir contraseña*</label></p>
-                    <input type="password" name="confirmarContraseña" id="confirmarContraseña" placeholder="Confirmar Contraseña">
-                </div>
-                <div class="botones">
-                    <figure>
-                        <img class="captcha"  src = "/TP1/img/captcha.jpg" alt="captcha">
-                    </figure>
-                    <button type="submit" class="btnEnviar">Registrarse</button>
-               
-                    <p class="ayuda parrafo" id="deshacerSemantico">¿Tenés cuenta? <a class ="ayuda parrafo" href="login.html">Ingresá.</a></p>
-                    <div class="googleFb">
-                        <button type="submit" class="btnGoogle">
-                        <img class="googleimg" src="/TP1/img/googleimg.jpg" alt="google" id="google">Registrarse con Google</button>
-                        <button type="submit" class="btnFB"> 
-                            <img class="faceimg" src="/TP1/img/fbimg.jpg" alt="facebook" id="facebook">Registrarse con Facebook</button>
+                <form class="register">
+                    <div class="campos">
+                        <p class="parrafo" id="nombreForm"><label>Nombre*</label></p>
+                        <input type="text" name="nombre" id="nombreUsuario" required minlength="4" placeholder="Nombre">
+                        <p class="parrafo" id="apellidoForm"><label>Apellido*</label></p>
+                        <input type="text" name="apellido" id="apellidoUsuario" required minlength="2" placeholder="Apellido">
+                        <p class="parrafo" id="edadForm"><label>Edad*</label></p>
+                        <input type="number" name="edad" id="edad" required placeholder="Edad">
+                        <p class="parrafo"><label>Nombre de Usuario*</label></p>
+                        <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Nombre de Usuario">
+                        <p class="parrafo"><label>Email*</label></p>
+                        <input type="email" name="email" id="email" placeholder="Dirección de correo">
+                        <p class="parrafo" id="contraseñaForm"><label>Contraseña*</label></p>
+                        <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+                        <p class="parrafo" id="confirmarForm"><label>Repetir contraseña*</label></p>
+                        <input type="password" name="confirmarContraseña" id="confirmarContraseña" placeholder="Confirmar Contraseña">
                     </div>
-                </div>
+                    <div class="botones">
+                        <figure>
+                            <img class="captcha"  src = "/TP1/img/captcha.jpg" alt="captcha">
+                        </figure>
+                        <button type="submit" class="btnEnviar" id="btnEnviar">Registrarse</button>
+                        <p id="successMessage" style="display:none;">¡Registro exitoso!</p>
+                
+                        <p class="ayuda parrafo" id="deshacerSemantico">¿Tenés cuenta? <a class="ayuda parrafo" href="login.html">Ingresá.</a></p>
+                        <div class="googleFb">
+                            <button type="button" class="btnGoogle">
+                                <img class="googleimg" src="/TP1/img/googleimg.jpg" alt="google" id="google">Registrarse con Google
+                            </button>
+                            <button type="button" class="btnFB"> 
+                                <img class="faceimg" src="/TP1/img/fbimg.jpg" alt="facebook" id="facebook">Registrarse con Facebook
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -95,14 +98,14 @@
         <p>Politicas de privacidad</p>
         <p>Comentarios</p>   
     </div>
-    <div>
+    <div class="redes">
         <h4>Redes</h4>
-        <p>Instagram</p>
-        <p>Facebook</p>
-        <p>Twitter</p>
-        <p>Youtube</p>
-        <p>Discord</p>
-    </div>
+        <img src="/TP1/img/instagram_black_logo_icon_147122.png" alt="Instagram">
+        <img src="/TP1/img/social_facebook_fb_35.png" alt="facebook">
+        <img src="/TP1/img/twitter_black_logo_icon_147062.png" alt="Twitter">
+        <img src="/TP1/img/YOUTUBE_icon-icons.com_65487.png" alt="Youtube">
+        <img src="/TP1/img/discord_icon_136688.png" alt="Discord">
+      </div>
     <div>
         <h4>Contacto</h4>
         <p>ludogames@gmail.com</p>
