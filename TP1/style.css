@@ -691,6 +691,9 @@ button.play {
     animation-duration: 4s;
     animation-direction: reverse;
 }
+a{
+    text-decoration: none;
+}
 button.play:hover{
     transition-delay: 1s;
     background-color:#1b1834;
@@ -1057,7 +1060,7 @@ footer div h4{
     }
 
     .carousel{
-        height: 250px;
+        height: 230px;
     }
 
     div.menu-hamburguesa, div.search, div.carrito {
@@ -1067,7 +1070,7 @@ footer div h4{
     }
 
     .submenu {
-        width: 100%; /* Ampliar el submenú a ocupar todo el ancho */
+        width: 50%; /* Ampliar el submenú a ocupar todo el ancho */
         left: 0; /* Alinear a la izquierda */
     }
     div.search{
