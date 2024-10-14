@@ -458,7 +458,7 @@ div.carrito p{
     flex-direction: row;
     position: absolute;
     margin-left: 120px;
-    font-size: 25px;
+    font-size: 22px;
     color:#33FF66;
 }
 .avatar{
@@ -496,7 +496,7 @@ div.carrito p{
     margin-left: 16px;
 }
 .carrousel-exclusivos {
-    position: relative;
+    position: relative; /* Para que las flechas y el carrusel estén dentro del mismo contenedor */
     width: 1318px;
     height: 381px;
     display: flex;
@@ -509,6 +509,27 @@ div.carrito p{
     animation-duration: 5s;
     transform: rotateY(20deg);
     transform-style: preserve-3d;
+}
+
+.carousel-arrow {
+    position: absolute;
+    bottom: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.left-arrow {
+    left: -60px; /* Ajusta si es necesario */
+}
+
+.right-arrow {
+    right: 40px; /* Ajusta si es necesario */
+}
+
+.carrousel-content {
+    display: flex; /* Permitir desplazamiento horizontal */
+    transition: transform 0.3s ease; /* Suaviza el desplazamiento */
 }
 
 div.primero, div.medio, div.tercero {
@@ -652,6 +673,7 @@ div.medio2 {
 }
 
 
+
 /* Estilo para los botones */
 .carousel button {
     padding: 5px 10px;
@@ -668,8 +690,12 @@ div.medio2 {
 button.free {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
-
+button.free:hover{
+        background-color: #1ab73cd9;
+        color: #762d85;
+}
 button.cart img {
     width: 30px;
     height: 30px;
@@ -686,9 +712,6 @@ button.play {
     animation-duration: 4s;
     animation-direction: reverse;
 }
-a{
-    text-decoration: none;
-}
 button.play:hover{
     transition-delay: 1s;
     background-color:#1b1834;
@@ -700,9 +723,19 @@ button.play:hover{
     width: 69px;
     margin-bottom: 15px;
 }
+.details img:hover{
+   
+    transform: scale(1.1);
+}
 button.price {
     background-color: rgba(51, 255, 102, 1);
     color: rgba(28, 58, 169, 1);
+    transition: background-color 0.4s ease, color 0.4s ease;
+
+}
+button.price:hover{
+    background-color: #1ab73cd9;
+    color: #762d85;
 }
 
 /* Flechas del carrusel */
@@ -1005,6 +1038,9 @@ footer div h4{
     font-size: 30px;
 }
 
+footer .redes{
+    display: inline-block;
+}
 .logofooter {
     display: flex;
     flex-direction: column;  /* Pone los elementos en una columna (uno encima del otro) */
@@ -1014,18 +1050,6 @@ footer div h4{
 
 .logo-f {
     width: 100px;   /* Ajusta el tamaño de la imagen según sea necesario */
-    height: auto;
-}
-.redes {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px; /* Ajusta el espacio entre los íconos */
-    margin-top: -10px;
-}
-
-.redes img {
-    width: 30px; /* Ajusta el tamaño de los íconos */
     height: auto;
 }
 
@@ -1043,110 +1067,6 @@ footer div h4{
 .text-section .logo-ff {
     width: 445px;   /* Ajusta el tamaño de la imagen según sea necesario */
     height: auto;
-}
-
-
-
-/* mobile*/
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Apilar los elementos en columna */
-        align-items: flex-start; /* Alinear a la izquierda */
-    }
-
-    .carousel{
-        height: 230px;
-    }
-
-    div.menu-hamburguesa, div.search, div.carrito {
-        width: 30%; /* Asegura que estos elementos ocupen todo el ancho */
-        justify-content: space-between; /* Espacio entre los elementos */
-        margin: 5px 0; /* Margen vertical */
-    }
-
-    .submenu {
-        width: 50%; /* Ampliar el submenú a ocupar todo el ancho */
-        left: 0; /* Alinear a la izquierda */
-    }
-    div.search{
-        display:none;
-    }
-
-    div.carrito{
-        display:none;
-
-    }
-    .avatar{
-        height: 40px;
-        width: 40px;
-    }
-    .carrousel-exclusivos {
-        position: relative;
-        width: 100%; /* Ajusta para que se adapte al ancho del contenedor padre */
-        height: auto; /* Permitir que la altura sea automática */
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap; /* Permitir que los elementos se muevan a la siguiente línea si no caben */
-        gap: 5px;
-        margin-top: 0px;
-        margin-left: 10px;
-    }
-    
-    div.primero, div.medio, div.tercero, div.medio2 {
-        width: 150px;
-        height: 100px;
-    }
-    
-    div.primero img, div.tercero img {
-        border-radius: 15px;
-        width: 150px; /* Ajustar para que ocupe el ancho completo de su contenedor */
-        height: 100px; /* Mantener la proporción de la imagen */
-    }
-    
-    
-    div.medio img, div.medio2 img {
-        width: 150px; /* Ajustar para que ocupe el ancho completo de su contenedor */
-        height: 100px; /* Mantener la proporción de la imagen */
-        border-radius: 15px;
-        margin-left: -5px;
-    }
-    
-    .carousel-item {
-        width: 40%; /* Reducir un poco más el tamaño de las tarjetas */
-        margin-right: 5px; /* Reducir el espacio entre las tarjetas */
-        height: 200px;
-    }
-    .carousel-item img {
-        width: 100%; /* Hacer que la imagen ocupe todo el ancho */
-        height: auto;
-    }
-    /* Ajustar el tamaño del botón del carrito */
-    .carousel .details img {
-        width: 50px; /* Reducir el tamaño del icono del carrito */
-        height: 25px;
-    }
-
-    .carousel button {
-        width: 50px; /* Reducir un poco más el ancho del botón */
-        height: 25px;
-    }
-
-    /* Ajustes en las flechas del carrusel */
-    .carousel-arrow {
-        top: 50%; /* Centrar verticalmente las flechas */
-        z-index: 10;
-    }
-
-    footer p{
-        font-size: 10px;
-    }
-    footer div h4{
-        font-size: 15px;
-    }
-    footer{
-        width: 100%;
-    }
-
 }
 
 /* Login */
