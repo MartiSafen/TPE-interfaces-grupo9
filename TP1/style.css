@@ -106,9 +106,10 @@ nav {
     cursor: pointer;
 }
 
-.img-btn {
+.img-btn{
     height: 30px;
     display: block;
+    color: #33FF66;
 }
 
 .submenu {
@@ -403,7 +404,7 @@ div .logo .titulo{
     margin-left: 25px;
 }
 
-.menu-hamburguesa, .logo, .search , .carrito{
+.logo, .search , .carrito{
     display: inline-block;
     border: 5px;
     margin: 5px 5px;
@@ -418,14 +419,8 @@ div .logo .titulo{
     width: 27px;
     height: 34px;
 }
-.box .bi-list{
-color: #33FF66;
-}
-div.menu-hamburguesa{
-    width: 20%;
-    text-align: left;
-    color:#33FF66;
-}
+
+
 div.search{
     width: 400px;
     height: 40px;
