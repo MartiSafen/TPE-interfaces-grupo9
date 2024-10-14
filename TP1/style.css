@@ -490,7 +490,7 @@ div.carrito p{
     color: white; /* Color del título */
     margin-top: 10px;
     text-align: left;
-    margin-left: 10px;
+    margin-left: 48px;
 }
 .ex h2{
     margin-left: 16px;
@@ -502,7 +502,7 @@ div.carrito p{
     display: flex;
     flex-direction: row;
     margin-top: 0px; /* Esto controla la separación desde el título hacia abajo */
-    margin-left: 10px;
+    margin-left: 48px;
 }
 .carrousel-exclusivos img:hover{
     transition-duration: 1s;
@@ -912,13 +912,38 @@ button.price:hover{
     height: 40px;
     background-color: #33FF66;
     color: black;
-    border: none;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
     justify-content: center;
     cursor: pointer;
     text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.5s ease-out;
+}
+
+.containerFormulario .btnEnviar:hover {
+    animation: colorChangeHover 0.5s ease-in forwards, borderSpin 0.5s ease-in-out forwards;
+}
+
+@keyframes colorChangeHover {
+    from {
+        color: #33FF66;
+    }
+    to {
+        color: #28B204;
+    }
+}
+
+@keyframes borderSpin {
+    from {
+        transform: rotate(0deg);
+        border-color: transparent;
+    }
+    to {
+        transform: rotate(360deg);
+        border-color: #28B204;
+    }
 }
 
 .btnEnviar:hover {
@@ -1019,6 +1044,7 @@ footer {
     justify-content: space-between;
     background-color: #302556;
     padding: 2% 0;
+    width: 100%;
     
 }
 
@@ -1158,17 +1184,39 @@ footer .redes{
     height: 40px;
     background-color: #33FF66;
     color: black;
-    border: none;
     border-radius: 5px;
     font-size: 16px;
     font-weight: bold;
     justify-content: center;
     cursor: pointer;
     text-align: center;
+    border: 2px solid transparent;
+    transition: transform 0.5s ease-out;
 }
 
+
 .containerFormularioLogin .btnEnviar:hover {
-    background-color: #28B204;
+    animation: colorChangeHover 0.5s ease-in backwards, borderSpin 0.5s ease-in-out backwards;
+}
+
+@keyframes colorChangeHover {
+    from {
+        color: #33FF66;
+    }
+    to {
+        color: #28B204;
+    }
+}
+
+@keyframes borderSpin {
+    from {
+        transform: rotate(0deg);
+        border-color: transparent;
+    }
+    to {
+        transform: rotate(-360deg);
+        border-color: #28B204;
+    }
 }
 
 /* Ayuda e inicio de sesión */

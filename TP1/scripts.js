@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Después de 3 segundos, redirigir a otra página
             setTimeout(function() {
                 window.location.href = "home.html"; // Cambia esto a la URL deseada
-            }, 3000); // Redirigir después de 3 segundos de mostrar el mensaje de éxito
+            }, 2500); // Redirigir después de 3 segundos de mostrar el mensaje de éxito
         }, 4000); // Simular el proceso de carga durante 4 segundos (ahora es más largo)
     });
 })
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Después de 3 segundos, redirigir al home
         setTimeout(function() {
             window.location.href = 'home.html'; // Redirigir al home
-        }, 3000);
+        }, 2500);
     });
 });
 
