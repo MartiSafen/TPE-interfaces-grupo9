@@ -1275,6 +1275,51 @@ footer .redes{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* -------------------------------------- JUEGO-------------------------------------------*/
 
+.bodyjuego {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('/TP1/img/jardin2.png'); /* Ajusta la ruta */
+    background-size: contain; /* Cubre toda la pantalla */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    color: white;
+}
+
+
+#tableroCanvas {
+    border: 2px solid #fff;
+    background-color: transparent;
+    margin: 10px auto;
+}
+
+#fichas {
+    margin: 10px auto; /* Reducido para acercar las fichas al tablero */
+}
+
+.ficha {
+    width: 50px; /* Tamaño de las fichas */
+    height: 50px; /* Asegurando que sean redondas */
+    border-radius: 50%; /* Hacer las fichas redondas */
+    margin: 5px;
+    cursor: grab;
+}
+
+.ficha.planta {
+    background-image: url('/TP1/img/plantaa.png'); /* Imagen de ficha planta */
+    background-size: cover; /* Ajustar imagen al tamaño de la ficha */
+    background-color: green;
+}
+
+.ficha.zombie {
+    background-image: url('/TP1/img/zombiee.png'); /* Imagen de ficha zombie */
+    background-size: cover; /* Ajustar imagen al tamaño de la ficha */
+    background-color: darkmagenta;
+}
+
+.ficha:active {
+    cursor: grabbing;
+}
 
 
