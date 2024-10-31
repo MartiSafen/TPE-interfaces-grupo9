@@ -17,9 +17,10 @@ class Casillero {
 }
 
 class Tablero {
-    constructor(columnas = 7, filas = 6) {
+    constructor(columnas = 7, filas = 6, lineasSeleccionadas) {
         this.columnas = columnas;
         this.filas = filas;
+        this.lineasParaGanar = lineasSeleccionadas;
         this.grilla = Array.from({ length: columnas }, () => Array.from({ length: filas }, () => new Casillero()));
     }
 
@@ -53,7 +54,7 @@ class Tablero {
         let count = 1;
         count += this.countInDirection(colIndex, filaIndex, deltaCol, deltaRow, jugador);
         count += this.countInDirection(colIndex, filaIndex, -deltaCol, -deltaRow, jugador);
-        return count >= 4;
+        return count >= this.lineasParaGanar; // Usa el número de líneas necesario para ganar
     }
 
     countInDirection(colIndex, filaIndex, deltaCol, deltaRow, jugador) {
@@ -81,45 +82,75 @@ class Ficha {
     }
 
     getColor() {
-        return this.jugador === 'planta' ? 'green' : 'darkmagenta';
-    }
-
-    getImage() {
-        return this.jugador === 'planta' ? '/TP1/img/plantaa.png' : '/TP1/img/zombiee.png';
+        return this.jugador === 'planta' ? 'green' : 'red';
     }
 }
 
 class Juego {
-    constructor() {
-        this.tablero = new Tablero();
+    constructor(columnas, filas, lineasParaGanar) {
+        this.columnas = columnas;
+        this.filas = filas;
+        this.lineasParaGanar = lineasParaGanar;
+        this.tablero = new Tablero(columnas, filas, lineasParaGanar);
         this.jugadorActual = 'planta';
         this.canvas = document.getElementById('tableroCanvas');
         this.context = this.canvas.getContext('2d');
+        
+        // Definir el tamaño máximo del tablero en píxeles
+        const maxBoardSize = 500; // Tamaño máximo del tablero en píxeles
+        this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
+        this.updateCanvasSize();
+
+        // Precargar las imágenes de las fichas
+        this.imgPlanta = new Image();
+        this.imgPlanta.src = '/TP1/img/plantaa.png';
+        this.imgZombie = new Image();
+        this.imgZombie.src = '/TP1/img/zombiee.png';
+
         this.initFichas();
         this.drawBoard();
     }
 
+    updateCanvasSize() {
+        // Ajustar tamaño del canvas basado en el tamaño de celda calculado
+        this.canvas.width = this.columnas * this.cellSize;
+        this.canvas.height = this.filas * this.cellSize;
+
+        // Espacio desde el encabezado
+        this.canvas.style.marginTop = "20px";
+    }
+
+
+
+
     drawBoard() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
-        for (let col = 0; col < this.tablero.columnas; col++) {
-            for (let row = 0; row < this.tablero.filas; row++) {
+        for (let col = 0; col < this.columnas; col++) {
+            for (let row = 0; row < this.filas; row++) {
                 this.context.beginPath();
-                this.context.arc(col * 50 + 25, row * 50 + 25, 20, 0, 2 * Math.PI);
                 
+                const x = col * this.cellSize + this.cellSize / 2;
+                const y = row * this.cellSize + this.cellSize / 2;
                 const casillero = this.tablero.grilla[col][row];
                 
-                // Dibuja el color de fondo del casillero
-                this.context.fillStyle = casillero.isEmpty() ? 'white' : casillero.estado === 'planta' ? 'green' : 'darkmagenta';
-                this.context.fill();
-                this.context.stroke();
-                
-                // Dibuja la imagen de la ficha si no está vacía
-                if (!casillero.isEmpty()) {
-                    const img = new Image();
-                    img.src = casillero.estado === 'planta' ? '/TP1/img/plantaa.png' : '/TP1/img/zombiee.png';
-                    this.context.drawImage(img, col * 50 + 5, row * 50 + 5, 40, 40);
+                // Si el casillero está vacío, usa un color de fondo (blanco)
+                if (casillero.isEmpty()) {
+                    this.context.fillStyle = 'white';
+                    this.context.arc(x, y, this.cellSize / 2 - 5, 0, 2 * Math.PI);
+                    this.context.fill();
+                } else {
+                    // Dibujar la imagen correspondiente a cada jugador
+                    const img = casillero.estado === 'planta' ? this.imgPlanta : this.imgZombie;
+                    this.context.drawImage(
+                        img,
+                        col * this.cellSize,
+                        row * this.cellSize,
+                        this.cellSize,
+                        this.cellSize
+                    );
                 }
+                this.context.stroke();
             }
         }
     }
@@ -145,7 +176,7 @@ class Juego {
         event.preventDefault();
         const rect = this.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
-        const colIndex = Math.floor(x / 50);
+        const colIndex = Math.floor(x / this.cellSize);
 
         const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
         
@@ -165,27 +196,23 @@ class Juego {
 
     animateDrop(colIndex, filaIndex, jugador) {
         let currentRow = 0;
-        
-        const img = new Image();
-        img.src = this.fichaActual.getImage();
+        const img = jugador === 'planta' ? this.imgPlanta : this.imgZombie;
 
         const interval = setInterval(() => {
             this.drawBoard();
-
-            // Dibuja el color de fondo de la ficha que cae
-            this.context.fillStyle = this.fichaActual.getColor(); // Mantiene el color de fondo
-            this.context.beginPath();
-            this.context.arc(colIndex * 50 + 25, currentRow * 50 + 25, 20, 0, 2 * Math.PI);
-            this.context.fill();
-            this.context.stroke();
-
-            // Dibuja la imagen de la ficha que cae
-            this.context.drawImage(img, colIndex * 50 + 5, currentRow * 50 + 5, 40, 40);
+            
+            this.context.drawImage(
+                img,
+                colIndex * this.cellSize,
+                currentRow * this.cellSize,
+                this.cellSize,
+                this.cellSize
+            );
 
             if (currentRow === filaIndex) {
                 clearInterval(interval);
                 this.tablero.grilla[colIndex][filaIndex].colocarFicha(jugador);
-                this.drawBoard(); // Redibuja el tablero para reflejar el cambio
+                this.drawBoard();
             } else {
                 currentRow++;
             }
@@ -193,7 +220,39 @@ class Juego {
     }
 }
 
-const juego = new Juego();
+
+// Manejar el evento de iniciar el juego
+document.getElementById('iniciarJuego').addEventListener('click', () => {
+    const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
+    let columnas, filas;
+
+    // Asignar columnas y filas basados en la selección de líneas para ganar
+    switch (lineasSeleccionadas) {
+        case 4:
+            columnas = 7;
+            filas = 6;
+            break;
+        case 5:
+            columnas = 8;
+            filas = 7;
+            break;
+        case 6:
+            columnas = 9;
+            filas = 8;
+            break;
+        case 7:
+            columnas = 10;
+            filas = 9;
+            break;
+        default:
+            columnas = 7;
+            filas = 6;
+            break;
+    }
+
+    // Inicializar el juego con el tamaño dinámico del tablero
+    new Juego(columnas, filas, lineasSeleccionadas);
+});
 
 
 

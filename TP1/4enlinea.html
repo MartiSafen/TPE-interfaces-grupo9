@@ -67,8 +67,18 @@
         </div>
     </header>
      <h1 class="titulojuego">4 en Línea</h1>
+     <div>
+        <label for="lineas">Elige cuántas fichas en línea necesarias para ganar:</label>
+        <select id="lineas">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+        <button id="iniciarJuego">Iniciar Juego</button>
+    </div>
     <div id="juegoContainer">
-        <canvas id="tableroCanvas" width="350" height="300"></canvas>
+        <canvas id="tableroCanvas" width="450" height="400"></canvas>
         <!-- Contenedor para hints de flechas -->
         <div id="hintsContainer"></div>
     </div>

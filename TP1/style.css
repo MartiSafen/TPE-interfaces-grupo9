@@ -1291,7 +1291,10 @@ footer .redes{
 #tableroCanvas {
     border: 2px solid #fff;
     background-color: transparent;
-    margin: 10px auto;
+    margin-top: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #fichas {
@@ -1321,5 +1324,7 @@ footer .redes{
 .ficha:active {
     cursor: grabbing;
 }
+
+
 
 
