@@ -1326,5 +1326,7 @@ footer .redes{
 }
 
 
-
+.hidden {
+    display: none;
+}
 

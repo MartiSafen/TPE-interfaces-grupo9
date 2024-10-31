@@ -95,65 +95,50 @@ class Juego {
         this.jugadorActual = 'planta';
         this.canvas = document.getElementById('tableroCanvas');
         this.context = this.canvas.getContext('2d');
-        
-        // Definir el tamaño máximo del tablero en píxeles
-        const maxBoardSize = 500; // Tamaño máximo del tablero en píxeles
+
+        // Tamaño máximo para mantener el tablero visible
+        const maxBoardSize = 500;
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-        // Precargar las imágenes de las fichas
+        // Precargar las imágenes de las fichas y el casillero
         this.imgPlanta = new Image();
         this.imgPlanta.src = '/TP1/img/plantaa.png';
         this.imgZombie = new Image();
         this.imgZombie.src = '/TP1/img/zombiee.png';
+        this.imgCasillero = new Image();
+        this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
 
         this.initFichas();
-        this.drawBoard();
+        this.imgCasillero.onload = () => this.drawBoard(); // Dibujar el tablero cuando la imagen esté cargada
     }
 
     updateCanvasSize() {
-        // Ajustar tamaño del canvas basado en el tamaño de celda calculado
         this.canvas.width = this.columnas * this.cellSize;
         this.canvas.height = this.filas * this.cellSize;
-
-        // Espacio desde el encabezado
-        this.canvas.style.marginTop = "20px";
     }
-
-
-
 
     drawBoard() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         for (let col = 0; col < this.columnas; col++) {
             for (let row = 0; row < this.filas; row++) {
-                this.context.beginPath();
-                
-                const x = col * this.cellSize + this.cellSize / 2;
-                const y = row * this.cellSize + this.cellSize / 2;
+                const x = col * this.cellSize;
+                const y = row * this.cellSize;
                 const casillero = this.tablero.grilla[col][row];
-                
-                // Si el casillero está vacío, usa un color de fondo (blanco)
-                if (casillero.isEmpty()) {
-                    this.context.fillStyle = 'white';
-                    this.context.arc(x, y, this.cellSize / 2 - 5, 0, 2 * Math.PI);
-                    this.context.fill();
-                } else {
-                    // Dibujar la imagen correspondiente a cada jugador
+
+                // Dibujar la imagen de casillero
+                this.context.drawImage(this.imgCasillero, x, y, this.cellSize, this.cellSize);
+
+                // Dibujar la ficha si el casillero no está vacío
+                if (!casillero.isEmpty()) {
                     const img = casillero.estado === 'planta' ? this.imgPlanta : this.imgZombie;
-                    this.context.drawImage(
-                        img,
-                        col * this.cellSize,
-                        row * this.cellSize,
-                        this.cellSize,
-                        this.cellSize
-                    );
+                    this.context.drawImage(img, x, y, this.cellSize, this.cellSize);
                 }
-                this.context.stroke();
             }
         }
     }
+
 
     initFichas() {
         const fichas = document.querySelectorAll('.ficha');
@@ -224,34 +209,17 @@ class Juego {
 // Manejar el evento de iniciar el juego
 document.getElementById('iniciarJuego').addEventListener('click', () => {
     const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
-    let columnas, filas;
+    const [columnas, filas] = {
+        4: [7, 6],
+        5: [8, 7],
+        6: [9, 8],
+        7: [10, 9]
+    }[lineasSeleccionadas];
 
-    // Asignar columnas y filas basados en la selección de líneas para ganar
-    switch (lineasSeleccionadas) {
-        case 4:
-            columnas = 7;
-            filas = 6;
-            break;
-        case 5:
-            columnas = 8;
-            filas = 7;
-            break;
-        case 6:
-            columnas = 9;
-            filas = 8;
-            break;
-        case 7:
-            columnas = 10;
-            filas = 9;
-            break;
-        default:
-            columnas = 7;
-            filas = 6;
-            break;
-    }
-
-    // Inicializar el juego con el tamaño dinámico del tablero
     new Juego(columnas, filas, lineasSeleccionadas);
+
+    // Oculta toda la configuración
+    document.getElementById('configuracion').classList.add('hidden');
 });
 
 
