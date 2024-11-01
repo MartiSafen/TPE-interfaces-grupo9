@@ -78,14 +78,24 @@
         <button id="iniciarJuego">Iniciar Juego</button>
     </div>
     <div id="juegoContainer">
+        <div id="fichasPlanta" class="fichas">
+            <h3>Fichas Planta</h3>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+            <!-- Agrega más fichas de "planta" si es necesario -->
+        </div>
+    
         <canvas id="tableroCanvas" width="450" height="400"></canvas>
-        <!-- Contenedor para hints de flechas -->
-        <div id="hintsContainer"></div>
+    
+        <div id="fichasZombie" class="fichas">
+            <h3>Fichas Zombie</h3>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+            <!-- Agrega más fichas de "zombie" si es necesario -->
+        </div>
     </div>
-    <div id="fichas">
-        <div class="ficha planta" data-jugador="planta" draggable="true"></div>
-        <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
-    </div>
+    <div id="hintsContainer"></div>
+    
         
     <footer>
         <div class="logofooter">
