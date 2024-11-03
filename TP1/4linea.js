@@ -110,9 +110,49 @@ class Juego {
         this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
 
         this.initFichas();
-        this.imgCasillero.onload = () => this.drawBoard(); // Dibujar el tablero cuando la imagen esté cargada
+        this.initHints();  // Llama a la función para inicializar los hints
+        this.imgCasillero.onload = () => this.drawBoard();
+
+        // Configuración del temporizador (300 segundos)
+        this.tiempoRestante = 300;
+        this.iniciarTemporizador();
     }
 
+    iniciarTemporizador() {
+        const timerElement = document.getElementById('tiempo'); // Elemento en HTML para mostrar el tiempo
+        timerElement.textContent = `Tiempo restante: ${this.tiempoRestante} segundos`;
+
+        this.intervaloTemporizador = setInterval(() => {
+            this.tiempoRestante--;
+
+            if (this.tiempoRestante <= 0) {
+                clearInterval(this.intervaloTemporizador);
+                alert("¡Empate! El tiempo ha terminado.");
+                setTimeout(() => location.reload(), 2000);
+            }
+
+            timerElement.textContent = `Tiempo restante: ${this.tiempoRestante} segundos`;
+        }, 1000);
+    }
+
+    initHints() {
+        const hintsContainer = document.getElementById('hintsContainer');
+        hintsContainer.innerHTML = '';  // Limpia hints anteriores
+        
+        // Ajuste para posicionar hints en columnas del tablero
+        for (let i = 0; i < this.columnas; i++) {
+            const hint = document.createElement('div');
+            hint.classList.add('hint');
+    
+            // Ajusta la posición de cada hint
+            hint.style.position = 'absolute';
+            hint.style.left = `${i * this.cellSize}px`; // Alinear con cada columna
+            hint.style.width = `${this.cellSize}px`; // Tamaño acorde a la celda
+    
+            hintsContainer.appendChild(hint);
+        }
+    }
+    
     updateCanvasSize() {
         this.canvas.width = this.columnas * this.cellSize;
         this.canvas.height = this.filas * this.cellSize;
@@ -138,7 +178,6 @@ class Juego {
             }
         }
     }
-
 
     initFichas() {
         const fichas = document.querySelectorAll('.ficha');
@@ -170,6 +209,7 @@ class Juego {
 
             setTimeout(() => {
                 if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
+                    clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
                     alert(`¡El jugador ${this.jugadorActual} gana!`);
                     setTimeout(() => location.reload(), 2000);
                 }
@@ -194,33 +234,48 @@ class Juego {
                 this.cellSize
             );
 
-            if (currentRow === filaIndex) {
+            currentRow++;
+            if (currentRow > filaIndex) {
                 clearInterval(interval);
-                this.tablero.grilla[colIndex][filaIndex].colocarFicha(jugador);
-                this.drawBoard();
-            } else {
-                currentRow++;
+                this.tablero.colocarFicha(colIndex, jugador); // Coloca la ficha en el tablero después de la animación
+                this.drawBoard(); // Redibuja el tablero
             }
         }, 100);
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('iniciarJuego').addEventListener('click', () => {
+        const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
+        const [columnas, filas] = {
+            4: [7, 6],
+            5: [8, 7],
+            6: [9, 8],
+            7: [10, 9]
+        }[lineasSeleccionadas];
 
-// Manejar el evento de iniciar el juego
-document.getElementById('iniciarJuego').addEventListener('click', () => {
-    const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
-    const [columnas, filas] = {
-        4: [7, 6],
-        5: [8, 7],
-        6: [9, 8],
-        7: [10, 9]
-    }[lineasSeleccionadas];
+        // Crear una nueva instancia del juego
+        const juego = new Juego(columnas, filas, lineasSeleccionadas);
 
-    new Juego(columnas, filas, lineasSeleccionadas);
+        // Oculta toda la configuración
+        document.getElementById('configuracion').classList.add('hidden');
 
-    // Oculta toda la configuración
-    document.getElementById('configuracion').classList.add('hidden');
+        // Muestra el temporizador
+        const temporizador = document.getElementById('temporizador');
+        temporizador.classList.remove('hidden'); // Muestra el temporizador
+
+        // Oculta el selector de líneas para ganar
+        document.getElementById('lineas').style.display = 'none'; // Oculta el selector de líneas
+
+        // También oculta el botón para iniciar el juego
+        document.getElementById('iniciarJuego').style.display = 'none';
+    });
 });
+
+
+
+
+
 
 
 

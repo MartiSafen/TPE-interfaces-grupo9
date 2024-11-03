@@ -1295,12 +1295,15 @@ footer .redes{
     align-items: center;
     gap: 20px;
     margin-top: 20px;
+    position: relative;
 }
 
 /* Estilos para el tablero */
 #tableroCanvas {
-    border: 2px solid #333;
-    background-color: transparent;
+    border: 2px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 
 /* Estilos para los contenedores de fichas */
@@ -1308,14 +1311,22 @@ footer .redes{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    padding: 15px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    gap: 12px;
 }
 
 /* Títulos para cada tipo de ficha */
 .fichas h3 {
     font-family: Arial, sans-serif;
-    color: #444;
-    margin-bottom: 10px;
+    color: #ffffff;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* Estilos para las fichas de cada jugador */
@@ -1326,20 +1337,27 @@ footer .redes{
     cursor: grab;
     background-size: cover;
     background-position: center;
+    border: 3px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Ficha Planta */
 .ficha.planta {
-    background-color: green;
+    background-color: #4CAF50;
     background-image: url('/TP1/img/plantaa.png'); /* Ajusta la ruta */
 }
 
 /* Ficha Zombie */
 .ficha.zombie {
-    background-color: red;
+    background-color: #8A2BE2;
     background-image: url('/TP1/img/zombiee.png'); /* Ajusta la ruta */
 }
 
+/* Hover para destacar la ficha */
+.ficha:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
 
 .ficha:active {
     cursor: grabbing;
@@ -1350,3 +1368,43 @@ footer .redes{
     display: none;
 }
 
+#hintsContainer {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: -40px; /* Ajusta según el espacio que quieras encima del tablero */
+    margin-left: 850px;
+    width: 100%; /* Abarca el ancho completo del tablero */
+    pointer-events: none;
+}
+
+
+.hint {
+    width: 50px;
+    height: 40px;
+    background-image: url('/TP1/img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: hintAnimation 1s infinite alternate;
+    display: inline-block;
+}
+
+@keyframes hintAnimation {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Estilo para el temporizador */
+#temporizador {
+    position: absolute;
+    top: -30px; /* Ajuste de posición sobre el tablero */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
