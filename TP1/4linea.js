@@ -101,13 +101,13 @@ class Juego {
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-        // Precargar las imágenes de las fichas y el casillero
-        this.imgPlanta = new Image();
-        this.imgPlanta.src = '/TP1/img/plantaa.png';
-        this.imgZombie = new Image();
-        this.imgZombie.src = '/TP1/img/zombiee.png';
-        this.imgCasillero = new Image();
-        this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
+     // Precargar las imágenes de las fichas y el casillero
+    this.imgPlanta = new Image();
+    this.imgPlanta.src = this.getSelectedImage('planta'); // Obtenemos la imagen seleccionada
+    this.imgZombie = new Image();
+    this.imgZombie.src = this.getSelectedImage('zombie'); // Obtenemos la imagen seleccionada
+     this.imgCasillero = new Image();
+     this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
 
         this.initFichas();
         this.initHints();  // Llama a la función para inicializar los hints
@@ -242,6 +242,12 @@ class Juego {
             }
         }, 100);
     }
+
+    getSelectedImage(tipo) {
+        // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
+        const selected = document.querySelector(`input[name="${tipo}"]:checked`);
+        return selected ? `/TP1/img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -258,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const juego = new Juego(columnas, filas, lineasSeleccionadas);
 
         // Oculta toda la configuración
-        document.getElementById('configuracion').classList.add('hidden');
+         document.getElementById('configuracion').style.display = 'none'
 
         // Muestra el temporizador
         const temporizador = document.getElementById('temporizador');
@@ -271,7 +277,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('iniciarJuego').style.display = 'none';
     });
 });
-
 
 
 
