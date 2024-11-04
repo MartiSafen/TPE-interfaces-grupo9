@@ -101,13 +101,13 @@ class Juego {
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-     // Precargar las imágenes de las fichas y el casillero
-    this.imgPlanta = new Image();
-    this.imgPlanta.src = this.getSelectedImage('planta'); // Obtenemos la imagen seleccionada
-    this.imgZombie = new Image();
-    this.imgZombie.src = this.getSelectedImage('zombie'); // Obtenemos la imagen seleccionada
-     this.imgCasillero = new Image();
-     this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
+        // Precargar las imágenes de las fichas y el casillero
+        this.imgPlanta = new Image();
+        this.imgPlanta.src = '/TP1/img/plantaa.png';
+        this.imgZombie = new Image();
+        this.imgZombie.src = '/TP1/img/zombiee.png';
+        this.imgCasillero = new Image();
+        this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
 
         this.initFichas();
         this.initHints();  // Llama a la función para inicializar los hints
@@ -134,24 +134,50 @@ class Juego {
             timerElement.textContent = `Tiempo restante: ${this.tiempoRestante} segundos`;
         }, 1000);
     }
-
+    
     initHints() {
         const hintsContainer = document.getElementById('hintsContainer');
-        hintsContainer.innerHTML = '';  // Limpia hints anteriores
-        
-        // Ajuste para posicionar hints en columnas del tablero
+        hintsContainer.innerHTML = '';  // Limpia los hints anteriores
+    
         for (let i = 0; i < this.columnas; i++) {
-            const hint = document.createElement('div');
-            hint.classList.add('hint');
+            // Verificar si la columna tiene espacio disponible
+            const emptyRowIndex = this.tablero.getEmptyRowIndex(i);
+            console.log(`Columna ${i}: emptyRowIndex = ${emptyRowIndex}`); // Agregar el log aquí
+    
+            const tieneEspacio = emptyRowIndex !== -1;
+    
+            // Verificar si el hint ya existe
+            let hint = hintsContainer.querySelector(`.hint[data-column="${i}"]`);
+            
+            if (!hint) {
+                // Crear el hint solo si no existe
+                hint = document.createElement('div');
+                hint.classList.add('hint');
+                hint.setAttribute('data-column', i); // Agrega el atributo data-column
+                hintsContainer.appendChild(hint); // Añadir el hint al contenedor
+            }
     
             // Ajusta la posición de cada hint
             hint.style.position = 'absolute';
-            hint.style.left = `${i * this.cellSize}px`; // Alinear con cada columna
+            const offset = -30; // Mueve los hints un poco a la izquierda
+            hint.style.left = `${i * this.cellSize + offset}px`;
             hint.style.width = `${this.cellSize}px`; // Tamaño acorde a la celda
     
-            hintsContainer.appendChild(hint);
+            if (tieneEspacio) {
+                // Si hay espacio, mostrar el hint
+                hint.style.display = 'block'; // Muestra el hint
+            } else {
+                // Si la columna está llena, ocultar el hint
+                hint.style.display = 'none'; // Oculta el hint
+            }
         }
     }
+    
+
+   
+
+
+
     
     updateCanvasSize() {
         this.canvas.width = this.columnas * this.cellSize;
@@ -201,24 +227,27 @@ class Juego {
         const rect = this.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const colIndex = Math.floor(x / this.cellSize);
-
+    
         const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
         
         if (filaIndex !== -1) {
             this.animateDrop(colIndex, filaIndex, this.jugadorActual);
-
+    
             setTimeout(() => {
                 if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
                     clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
                     alert(`¡El jugador ${this.jugadorActual} gana!`);
                     setTimeout(() => location.reload(), 2000);
                 }
-                
+    
                 this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
+                
+                // Actualiza los hints después de cambiar de jugador
+                this.initHints(); // Llama a initHints para actualizar los hints
             }, (filaIndex + 1) * 100);
         }
     }
-
+    
     animateDrop(colIndex, filaIndex, jugador) {
         let currentRow = 0;
         const img = jugador === 'planta' ? this.imgPlanta : this.imgZombie;
@@ -242,12 +271,6 @@ class Juego {
             }
         }, 100);
     }
-
-    getSelectedImage(tipo) {
-        // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
-        const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-        return selected ? `/TP1/img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
-    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -264,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const juego = new Juego(columnas, filas, lineasSeleccionadas);
 
         // Oculta toda la configuración
-         document.getElementById('configuracion').style.display = 'none'
+        document.getElementById('configuracion').classList.add('hidden');
 
         // Muestra el temporizador
         const temporizador = document.getElementById('temporizador');

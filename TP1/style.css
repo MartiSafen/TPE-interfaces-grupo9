@@ -1417,8 +1417,9 @@ footer .redes{
     background-size: contain;
     background-repeat: no-repeat;
     animation: hintAnimation 1s infinite alternate;
-    display: inline-block;
+    display: block; /* Cambiado a block para facilitar el control */
 }
+
 
 @keyframes hintAnimation {
     0% { transform: translateY(-10px); }
@@ -1443,10 +1444,10 @@ footer .redes{
 
 }
     #configuracion {
-        padding: 20px;
+        padding: 10px;
         border: 1px solid #ccc; /* Un borde sutil para separar la sección */
         border-radius: 5px; /* Bordes redondeados */
-        margin-bottom: 20px; /* Espacio abajo */
+        margin-bottom: 10px; /* Espacio abajo */
     }
     
     #configuracion h3, #configuracion h4 {
@@ -1454,7 +1455,7 @@ footer .redes{
     }
     
     #configuracion div {
-        margin-bottom: 15px; /* Espaciado entre los grupos de selección */
+        margin-bottom: 10px; /* Espaciado entre los grupos de selección */
     }
     
     #configuracion img {
