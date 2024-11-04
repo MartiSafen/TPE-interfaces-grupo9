@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 en Línea: Plants vs. Zombies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bodyjuego">
+    <header>
+
+        <div class="barra-nav">
+
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <!-- Boton con imagen para desplegar el menú -->
+                        <button class="menu-btn">
+                            <img class="img-btn" src="./img/menu.png" alt="Menú">
+                        </button>
+                        <!-- Menu oculto -->
+                        <ul class="submenu" id="submenu">
+                            <li><a href="home.html">INICIO</a></li>
+                            <li><a href="home.html">CATEGORIAS</a>
+                                <!-- Submenu Categorías -->
+                                <ul class="submenu-categorias">
+                                    <li><a href="home.html">Para ti</a></li>
+                                    <li><a href="home.html">Aventura</a></li>
+                                    <li><a href="home.html">Acción</a></li>
+                                    <li><a href="home.html">Cartas</a></li>
+                                    <li><a href="home.html">Juegos nuevos</a></li>
+                                    <li><a href="home.html">Carreras</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="juego.html">BLOG</a></li>
+                            <li><a href="home.html">NOVEDADES</a></li>
+                            <li><a href="index.html">CONFIGURACIÓN</a></li>
+                            <li><a href="login.html">CERRAR SESIÓN</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        
+            <div class="logo">
+                <img class="logo-nav" src="./img/logo.jpg" alt="logo">
+                <h1 class="titulo">LUDO GAMES</h1>
+            </div>
+            <div class="search">
+                <form class="d-flex" role="search">
+                    <input class="form-controlme-2" type="search" placeholder=" Buscar juego" aria-label="Search">
+                </form>
+            </div>
+            <div class="carrito">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi-cart2"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi-1-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312z" />
+                </svg>
+                <img src="./img/avatar.png" alt="avatar" class="avatar">
+                <p>Bienvenido Juan!</p>
+            </div>
+        </div>
+    </header>
+     <h1 class="titulojuego">4 en Línea</h1>
+     <div id="configuracion">
+        <p>Elige cuántas fichas en línea necesarias para ganar:</p>
+        <select id="lineas">
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+        <button id="iniciarJuego">Iniciar Juego</button>
+    </div>
+    <div id="juegoContainer">
+        <div id="temporizador" class="hidden">Tiempo: <span id="tiempo">00:00</span></div>
+    
+        <div id="fichasPlanta" class="fichas">
+            <h3>Fichas Planta</h3>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+        </div>
+        <div id="hintsContainer"></div>
+        <canvas id="tableroCanvas" width="450" height="400"></canvas>
+        <div id="fichasZombie" class="fichas">
+            <h3>Fichas Zombie</h3>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+        </div>
+    </div>
+   
+    
+        
+    <footer>
+        <div class="logofooter">
+            <img class="logo-f" src="./img/logo.jpg" alt="logo">
+            <h3 class="titulo">LUDO GAMES</h3>
+        </div>
+        <div>
+            <h4>Navegación</h4>
+            <p>Home</p>
+            <p>Categorias</p>
+            <p>Registro</p>
+            <p>Inicio sesión</p>
+            <p>Perfil</p>
+        </div>
+        <div>
+            <h4>Ayuda</h4>
+            <p>FAQ</p>
+            <p>Nosotros</p>
+            <p>Soporte</p>
+            <p>Politicas de privacidad</p>
+            <p>Comentarios</p>
+        </div>
+        <div class="redes">
+            <h4>Redes</h4>
+            <img src="./img/instagram_black_logo_icon_147122.png" alt="Instagram">
+            <img src="./img/social_facebook_fb_35.png" alt="facebook">
+            <img src="./img/twitter_black_logo_icon_147062.png" alt="Twitter">
+            <img src="./img/YOUTUBE_icon-icons.com_65487.png" alt="Youtube">
+            <img src="./img/discord_icon_136688.png" alt="Discord">
+          </div>
+        <div>
+            <h4>Contacto</h4>
+            <p>ludogames@gmail.com</p>
+            <p>+54 2494 00 11 22 </p>
+        </div>
+    </footer>
+    <script src="/TP1/4linea.js"></script>
+</body>
+</html>
+
+
+
+
+
