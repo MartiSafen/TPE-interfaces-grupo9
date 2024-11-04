@@ -1342,12 +1342,11 @@ footer .redes{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 5px; /* Reduce el padding para apilar más las fichas */
     width: 100px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    gap: 12px;
 }
 
 /* Títulos para cada tipo de ficha */
@@ -1370,18 +1369,17 @@ footer .redes{
     background-position: center;
     border: 3px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -30px; /* Superponer las fichas hacia arriba */
 }
 
 /* Ficha Planta */
 .ficha.planta {
-    background-color: #4CAF50;
-    background-image: url('/TP1/img/plantaa.png'); /* Ajusta la ruta */
+     /* Ajusta la ruta a la imagen elegida */
 }
 
 /* Ficha Zombie */
 .ficha.zombie {
-    background-color: #8A2BE2;
-    background-image: url('/TP1/img/zombiee.png'); /* Ajusta la ruta */
+     /* Ajusta la ruta a la imagen elegida */
 }
 
 /* Hover para destacar la ficha */
@@ -1393,6 +1391,7 @@ footer .redes{
 .ficha:active {
     cursor: grabbing;
 }
+
 
 
 .hidden {
@@ -1482,3 +1481,6 @@ footer .redes{
     #iniciarJuego:hover {
         background-color: #218838; /* Color más oscuro al pasar el mouse */
     }
+
+
+    
