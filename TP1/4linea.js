@@ -104,28 +104,27 @@ class Juego {
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
+        // Cargar imágenes de fichas y casilleros
         this.imgPlanta = new Image();
-        this.imgPlanta.src = this.getSelectedImage('planta'); // Cargar imagen seleccionada para planta
+        this.imgPlanta.src = this.getSelectedImage('planta');
         this.imgZombie = new Image();
-        this.imgZombie.src = this.getSelectedImage('zombie'); // Cargar imagen seleccionada para zombie
-    
-        // Asegúrate de que las imágenes se carguen antes de dibujar el tablero
-        this.imgPlanta.onload = () => this.drawBoard();
-        this.imgZombie.onload = () => this.drawBoard();
-
+        this.imgZombie.src = this.getSelectedImage('zombie');
         this.imgCasillero = new Image();
-        this.imgCasillero.src = '/TP1/img/casillero.png';  // Imagen de casillero
+        this.imgCasillero.src = '/TP1/img/casillero.png';
 
-      
         this.initFichas();
         this.imgCasillero.onload = () => this.drawBoard();
         this.initHints();
 
+        // Calcular la cantidad total de casilleros
+        const totalCasilleros = this.columnas * this.filas;
+
+        // Cargar fichas para ambos jugadores
+        this.cargarFichas('planta', totalCasilleros);
+        this.cargarFichas('zombie', totalCasilleros);
+
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
-
-        // Escuchar cambios en la selección de imágenes
-        this.initImageSelectionListeners();
     }
 
     updateCanvasSize() {
@@ -197,12 +196,16 @@ class Juego {
         const hintsContainer = document.getElementById('hintsContainer');
         hintsContainer.innerHTML = '';  // Limpia hints anteriores
         
+        // Ajuste para posicionar hints en columnas del tablero
         for (let i = 0; i < this.columnas; i++) {
             const hint = document.createElement('div');
             hint.classList.add('hint');
+    
+            // Ajusta la posición de cada hint
             hint.style.position = 'absolute';
             hint.style.left = `${i * this.cellSize}px`; // Alinear con cada columna
             hint.style.width = `${this.cellSize}px`; // Tamaño acorde a la celda
+    
             hintsContainer.appendChild(hint);
         }
     }
@@ -222,10 +225,12 @@ class Juego {
         if (filaIndex !== -1) {
             this.animateDrop(colIndex, filaIndex, this.jugadorActual);
     
-            // Eliminar la ficha soltada de la columna de fichas
+            // No eliminar la última ficha de la columna del otro jugador
             const fichaContainer = document.getElementById(`fichas${this.jugadorActual.charAt(0).toUpperCase() + this.jugadorActual.slice(1)}`);
+            
+            // Solo eliminar ficha si hay una disponible
             if (fichaContainer.children.length > 0) {
-                fichaContainer.removeChild(fichaContainer.lastChild);  // Elimina la última ficha
+                fichaContainer.removeChild(fichaContainer.lastChild); // Elimina la última ficha del jugador actual
             }
     
             setTimeout(() => {
@@ -237,10 +242,13 @@ class Juego {
     
                 // Cambia el turno
                 this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
+    
+                // Cargar otra ficha para el jugador actual
+                this.cargarFichas(this.jugadorActual, this.columnas * this.filas); // Cargar nueva ficha para el jugador que acaba de jugar
             }, (filaIndex + 1) * 100);
         }
     }
-
+    
     animateDrop(colIndex, filaIndex, jugador) {
         let currentRow = 0;
         const img = jugador === 'planta' ? this.imgPlanta : this.imgZombie;
@@ -264,41 +272,51 @@ class Juego {
         }, 100);
     }
 
-    
     getSelectedImage(tipo) {
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-        // Ajusta el retorno para los nombres de archivo correctos
-        return selected ? `/TP1/img/${selected.value}` : '';
+        return selected ? `/TP1/img/${selected.value}.png` : '';
     }
 
-    initImageSelectionListeners() {
-        const plantas = document.querySelectorAll('input[name="planta"]');
-        const zombies = document.querySelectorAll('input[name="zombie"]');
+    cargarFichas(jugador, cantidadCasilleros) {
+        const contenedorFichas = document.getElementById(`fichas${jugador.charAt(0).toUpperCase() + jugador.slice(1)}`);
+        contenedorFichas.innerHTML = `<h3>Fichas ${jugador.charAt(0).toUpperCase() + jugador.slice(1)}</h3>`;
+        
+        const fichasParaCargar = Math.floor(1); // La mitad de los casilleros
+        
+        for (let i = 0; i < fichasParaCargar; i++) {
+            const ficha = document.createElement('div');
+            ficha.classList.add('ficha', jugador);
+            ficha.dataset.jugador = jugador;
+            ficha.draggable = true;
+            ficha.style.backgroundImage = this.getSelectedImage(jugador); // Asegúrate de usar 'this'
+            ficha.style.backgroundSize = 'contain'; // Ajustar tamaño de la imagen
+            ficha.style.backgroundRepeat = 'no-repeat'; // Evitar que la imagen se repita
+            ficha.style.backgroundPosition = 'center'; // Centrar la imagen en la ficha
     
-        const updateFichaImages = () => {
-            this.imgPlanta.src = this.getSelectedImage('planta'); // Cambiar 'tipo' a 'planta'
-            this.imgZombie.src = this.getSelectedImage('zombie'); // Cambiar 'tipo' a 'zombie'
-        };
+            // Añadir eventos de arrastrar
+            ficha.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', jugador); // Enviar el tipo de jugador
+                e.dataTransfer.setData('fichaId', ficha.id); // Enviar el ID de la ficha
+            });
     
-        plantas.forEach(input => {
-            input.addEventListener('change', updateFichaImages);
-        });
-    
-        zombies.forEach(input => {
-            input.addEventListener('change', updateFichaImages);
-        });
+            contenedorFichas.appendChild(ficha);
+        }
     }
+    
 }
-
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('iniciarJuego').addEventListener('click', () => {
         const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
+        
+        // Define las columnas y filas basadas en las líneas seleccionadas
         const [columnas, filas] = {
             4: [7, 6],
             5: [8, 7],
             6: [9, 8],
             7: [10, 9]
         }[lineasSeleccionadas];
+
+        const totalCasilleros = columnas * filas; // Total de casilleros del tablero
 
         // Crear una nueva instancia del juego
         const juego = new Juego(columnas, filas, lineasSeleccionadas);
@@ -308,30 +326,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('juegoContainer').style.display = 'flex';
 
         // Cargar fichas seleccionadas por el usuario
-        cargarFichas('planta', columnas * filas); // Pasa el total de casilleros
-        cargarFichas('zombie', columnas * filas); // Pasa el total de casilleros
+        juego.cargarFichas('planta', totalCasilleros); // Pasa el total de casilleros
+        juego.cargarFichas('zombie', totalCasilleros); // Pasa el total de casilleros
 
         // Muestra el temporizador
         document.getElementById('temporizador').classList.remove('hidden');
     });
 });
-
-function cargarFichas(tipo, total) {
-    const contenedorFichas = document.getElementById(`fichas${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`);
-    for (let i = 0; i < total; i++) {
-        const ficha = document.createElement('div');
-        ficha.classList.add('ficha');
-        ficha.dataset.jugador = tipo;
-        ficha.draggable = true;
-
-        const img = document.createElement('img');
-        img.src = `/TP1/img/${tipo}.png`;  // Ajusta la ruta según sea necesario
-       
-
-        ficha.appendChild(img);
-        contenedorFichas.appendChild(ficha);
-    }
-}
-
-
-
