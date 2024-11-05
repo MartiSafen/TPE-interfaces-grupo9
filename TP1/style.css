@@ -1281,19 +1281,18 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('/TP1/img/jardin2.png'); /* Ajusta la ruta */
-    background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
+    background-image: url('/TP1/img/jardin2.png');
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
-    min-height: 100vh; /* Altura mínima de la pantalla completa */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Asegura que los elementos se distribuyan */
+    justify-content: space-between;
 }
 
-/* Contenedor principal para centrar el tablero y las fichas */
 #juegoContainer {
     display: flex;
     justify-content: center;
@@ -1303,7 +1302,6 @@ footer .redes{
     position: relative;
 }
 
-/* Estilos para el tablero */
 #tableroCanvas {
     background-image: url('/TP1/img/fondocanvas.jpeg');
     border: 2px solid #ffffff;
@@ -1313,9 +1311,8 @@ footer .redes{
     margin-top: 30px;
 }
 
-/* Estilos para el contenedor de configuración */
 #configuracion {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    background: rgba(0, 0, 0, 0.6);
     padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1323,33 +1320,21 @@ footer .redes{
     top: 180px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    z-index: 10;
     color: white;
 }
 
-/* Estilos para el tablero */
-#tableroCanvas {
-    border: 2px solid #ffffff;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    margin-top: 30px;
-    
-}
-
-/* Estilos para los contenedores de fichas */
 .fichas {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5px; /* Reduce el padding para apilar más las fichas */
+    padding: 5px;
     width: 100px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Títulos para cada tipo de ficha */
 .fichas h3 {
     font-family: Arial, sans-serif;
     color: #ffffff;
@@ -1359,7 +1344,6 @@ footer .redes{
     text-align: center;
 }
 
-/* Estilos para las fichas de cada jugador */
 .ficha {
     width: 50px;
     height: 50px;
@@ -1369,20 +1353,9 @@ footer .redes{
     background-position: center;
     border: 3px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: -30px; /* Superponer las fichas hacia arriba */
+    margin-top: -30px;
 }
 
-/* Ficha Planta */
-.ficha.planta {
-     /* Ajusta la ruta a la imagen elegida */
-}
-
-/* Ficha Zombie */
-.ficha.zombie {
-     /* Ajusta la ruta a la imagen elegida */
-}
-
-/* Hover para destacar la ficha */
 .ficha:hover {
     transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
@@ -1392,8 +1365,6 @@ footer .redes{
     cursor: grabbing;
 }
 
-
-
 .hidden {
     display: none;
 }
@@ -1402,34 +1373,30 @@ footer .redes{
     display: flex;
     justify-content: space-around;
     position: absolute;
-    top: -10px; /* Ajusta según el espacio que quieras encima del tablero */
+    top: -10px;
     margin-left: 868px;
-    width: 100%; /* Abarca el ancho completo del tablero */
+    width: 100%;
     pointer-events: none;
 }
-
 
 .hint {
     width: 50px;
     height: 40px;
-    background-image: url('/TP1/img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
+    background-image: url('/TP1/img/arrow.png');
     background-size: contain;
     background-repeat: no-repeat;
     animation: hintAnimation 1s infinite alternate;
-    display: block; /* Cambiado a block para facilitar el control */
+    display: block;
 }
-
 
 @keyframes hintAnimation {
     0% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
 
-
-/* Ajuste del temporizador sobre los hints */
 #temporizador {
     position: absolute;
-    top: -50px; /* Ajusta si es necesario */
+    top: -50px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
@@ -1439,49 +1406,49 @@ footer .redes{
     padding: 8px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: -20px; /* Asegura que el temporizador esté por encima de los hints */
-
+    margin-top: -20px;
 }
-    #configuracion {
-        padding: 10px;
-        border: 1px solid #ccc; /* Un borde sutil para separar la sección */
-        border-radius: 5px; /* Bordes redondeados */
-        margin-bottom: 10px; /* Espacio abajo */
-    }
-    
-    #configuracion h3, #configuracion h4 {
-        margin: 10px 0; /* Espaciado uniforme */
-    }
-    
-    #configuracion div {
-        margin-bottom: 10px; /* Espaciado entre los grupos de selección */
-    }
-    
-    #configuracion img {
-        width: 50px; /* Tamaño ajustado de las imágenes */
-        height: auto; /* Mantiene la proporción de las imágenes */
-        vertical-align: middle; /* Alinea las imágenes al medio con el texto */
-        margin-right: 8px; /* Espaciado a la derecha de la imagen */
-    }
-    
-    input[type="radio"] {
-        margin-right: 5px; /* Espacio entre el botón de radio y la imagen */
-    }
-    
-    /* Opcional: Estilo del botón */
-    #iniciarJuego {
-        background-color: #28a745; /* Verde para el botón */
-        color: white;
-        border: none;
-        padding: 10px 15px; /* Padding más ajustado */
-        border-radius: 5px; /* Bordes redondeados para el botón */
-        cursor: pointer; /* Cambia el cursor al pasar por encima */
-        transition: background-color 0.3s; /* Efecto de transición al cambiar el color */
-    }
-    
-    #iniciarJuego:hover {
-        background-color: #218838; /* Color más oscuro al pasar el mouse */
-    }
+
+#configuracion {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#configuracion h3, #configuracion h4 {
+    margin: 10px 0;
+}
+
+#configuracion div {
+    margin-bottom: 10px;
+}
+
+#configuracion img {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+#iniciarJuego {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#iniciarJuego:hover {
+    background-color: #218838;
+}
+
 
 
     
