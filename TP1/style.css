@@ -1281,18 +1281,19 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('/TP1/img/jardin2.png');
-    background-size: contain;
+    background-image: url('/TP1/img/jardin2.png'); /* Ajusta la ruta */
+    background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Altura mínima de la pantalla completa */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan */
 }
 
+/* Contenedor principal para centrar el tablero y las fichas */
 #juegoContainer {
     display: flex;
     justify-content: center;
@@ -1302,6 +1303,7 @@ footer .redes{
     position: relative;
 }
 
+/* Estilos para el tablero */
 #tableroCanvas {
     background-image: url('/TP1/img/fondocanvas.jpeg');
     border: 2px solid #ffffff;
@@ -1311,8 +1313,9 @@ footer .redes{
     margin-top: 30px;
 }
 
+/* Estilos para el contenedor de configuración */
 #configuracion {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
     padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1320,7 +1323,7 @@ footer .redes{
     top: 180px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
     color: white;
 }
 
@@ -1345,6 +1348,7 @@ footer .redes{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Títulos para cada tipo de ficha */
 .fichas h3 {
     font-family: Arial, sans-serif;
     color: #ffffff;
@@ -1354,6 +1358,7 @@ footer .redes{
     text-align: center;
 }
 
+/* Estilos para las fichas de cada jugador */
 .ficha {
     width: 50px;
     height: 50px;
@@ -1392,6 +1397,8 @@ footer .redes{
     cursor: grabbing;
 }
 
+
+
 .hidden {
     display: none;
 }
@@ -1400,20 +1407,21 @@ footer .redes{
     display: flex;
     justify-content: space-around;
     position: absolute;
-    top: -10px;
+    top: -10px; /* Ajusta según el espacio que quieras encima del tablero */
     margin-left: 868px;
-    width: 100%;
+    width: 100%; /* Abarca el ancho completo del tablero */
     pointer-events: none;
 }
+
 
 .hint {
     width: 50px;
     height: 40px;
-    background-image: url('/TP1/img/arrow.png');
+    background-image: url('/TP1/img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
     background-size: contain;
     background-repeat: no-repeat;
     animation: hintAnimation 1s infinite alternate;
-    display: block;
+    display: inline-block;
 }
 
 @keyframes hintAnimation {
@@ -1421,9 +1429,11 @@ footer .redes{
     100% { transform: translateY(0); }
 }
 
+
+/* Ajuste del temporizador sobre los hints */
 #temporizador {
     position: absolute;
-    top: -50px;
+    top: -50px; /* Ajusta si es necesario */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
@@ -1433,7 +1443,8 @@ footer .redes{
     padding: 8px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: -20px;
+    margin-top: -20px; /* Asegura que el temporizador esté por encima de los hints */
+
 }
     #configuracion {
         padding: 20px;
