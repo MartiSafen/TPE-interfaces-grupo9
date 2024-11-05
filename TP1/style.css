@@ -1372,12 +1372,16 @@ footer .redes{
 
 /* Ficha Planta */
 .ficha.planta {
-    /* No establezcas un fondo aquí si estás aplicando el fondo en JavaScript */
+    background-color: green;
+    background-image: url('/TP1/img/plantaa.png');
 }
 
+/* Ficha Zombie */
 .ficha.zombie {
-    /* Igual aquí */
+    background-color: darkmagenta;
+    background-image: url('/TP1/img/zombiee.png');
 }
+
 /* Hover para destacar la ficha */
 .ficha:hover {
     transform: scale(1.1);

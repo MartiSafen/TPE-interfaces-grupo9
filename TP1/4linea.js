@@ -80,15 +80,41 @@ class Tablero {
     }
 }
 
-class Ficha {
-    constructor(jugador) {
-        this.jugador = jugador;
+    class Ficha {
+        constructor(jugador) {
+            this.jugador = jugador;
+            this.imagen = this.getSelectedImage(jugador); // Carga la imagen correspondiente
+        }
+    
+        getColor() {
+            return this.jugador === 'planta' ? 'green' : 'red';
+        }
+    
+        getSelectedImage(tipo) {
+            const selected = document.querySelector(`input[name="${tipo}"]:checked`);
+            return selected ? `/TP1/img/${selected.value}.png` : '';
+        }
+    
+        crearElemento() {
+            const fichaDiv = document.createElement('div');
+            fichaDiv.classList.add('ficha', this.jugador);
+            fichaDiv.dataset.jugador = this.jugador;
+            fichaDiv.draggable = true;
+            fichaDiv.style.backgroundImage = `url(${this.imagen})`; // Establece la imagen de fondo
+            fichaDiv.style.backgroundSize = 'contain'; // Ajustar tamaño de la imagen
+            fichaDiv.style.backgroundRepeat = 'no-repeat'; // Evitar que la imagen se repita
+            fichaDiv.style.backgroundPosition = 'center'; // Centrar la imagen en la ficha
+    
+            // Añadir eventos de arrastrar
+            fichaDiv.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', this.jugador); // Enviar el tipo de jugador
+                e.dataTransfer.setData('fichaId', fichaDiv.id); // Enviar el ID de la ficha
+            });
+    
+            return fichaDiv;
+        }
     }
 
-    getColor() {
-        return this.jugador === 'planta' ? 'green' : 'red';
-    }
-}
 
 class Juego {
     constructor(columnas, filas, lineasParaGanar) {
@@ -104,15 +130,9 @@ class Juego {
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-        // Cargar imágenes de fichas y casilleros
-        this.imgPlanta = new Image();
-        this.imgPlanta.src = this.getSelectedImage('planta');
-        this.imgZombie = new Image();
-        this.imgZombie.src = this.getSelectedImage('zombie');
         this.imgCasillero = new Image();
         this.imgCasillero.src = '/TP1/img/casillero.png';
 
-        this.initFichas();
         this.imgCasillero.onload = () => this.drawBoard();
         this.initHints();
 
@@ -216,19 +236,21 @@ class Juego {
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
     
-        // Validar que la ficha se suelta dentro de la zona dropeable (media celda de altura)
-        if (y > this.cellSize * 0.5) return;
+        // Validar que la ficha se suelta dentro de la zona dropeable
+        if (y < 0 || y > this.cellSize * this.filas) return;
     
         const colIndex = Math.floor(x / this.cellSize);
         const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
     
         if (filaIndex !== -1) {
+            // Colocar ficha en el tablero
+            this.tablero.colocarFicha(colIndex, this.jugadorActual);
+    
+            // Aquí puedes animar la ficha o dibujarla directamente en el tablero
             this.animateDrop(colIndex, filaIndex, this.jugadorActual);
     
-            // No eliminar la última ficha de la columna del otro jugador
+            // Eliminar la última ficha del contenedor
             const fichaContainer = document.getElementById(`fichas${this.jugadorActual.charAt(0).toUpperCase() + this.jugadorActual.slice(1)}`);
-            
-            // Solo eliminar ficha si hay una disponible
             if (fichaContainer.children.length > 0) {
                 fichaContainer.removeChild(fichaContainer.lastChild); // Elimina la última ficha del jugador actual
             }
@@ -242,8 +264,6 @@ class Juego {
     
                 // Cambia el turno
                 this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
-    
-                // Cargar otra ficha para el jugador actual
                 this.cargarFichas(this.jugadorActual, this.columnas * this.filas); // Cargar nueva ficha para el jugador que acaba de jugar
             }, (filaIndex + 1) * 100);
         }
@@ -281,25 +301,11 @@ class Juego {
         const contenedorFichas = document.getElementById(`fichas${jugador.charAt(0).toUpperCase() + jugador.slice(1)}`);
         contenedorFichas.innerHTML = `<h3>Fichas ${jugador.charAt(0).toUpperCase() + jugador.slice(1)}</h3>`;
         
-        const fichasParaCargar = Math.floor(1); // La mitad de los casilleros
+        const fichasParaCargar = Math.floor(cantidadCasilleros / 2); // Ajustar según tus necesidades
         
         for (let i = 0; i < fichasParaCargar; i++) {
-            const ficha = document.createElement('div');
-            ficha.classList.add('ficha', jugador);
-            ficha.dataset.jugador = jugador;
-            ficha.draggable = true;
-            ficha.style.backgroundImage = this.getSelectedImage(jugador); // Asegúrate de usar 'this'
-            ficha.style.backgroundSize = 'contain'; // Ajustar tamaño de la imagen
-            ficha.style.backgroundRepeat = 'no-repeat'; // Evitar que la imagen se repita
-            ficha.style.backgroundPosition = 'center'; // Centrar la imagen en la ficha
-    
-            // Añadir eventos de arrastrar
-            ficha.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', jugador); // Enviar el tipo de jugador
-                e.dataTransfer.setData('fichaId', ficha.id); // Enviar el ID de la ficha
-            });
-    
-            contenedorFichas.appendChild(ficha);
+            const ficha = new Ficha(jugador); // Crear una nueva ficha
+            contenedorFichas.appendChild(ficha.crearElemento()); // Agregar el elemento de ficha al contenedor
         }
     }
     
