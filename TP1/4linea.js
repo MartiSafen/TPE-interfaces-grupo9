@@ -1,7 +1,3 @@
-
-
-// El resto del código permanece igual
-
 class Casillero {
     constructor() {
         this.estado = null; // Puede ser 'planta', 'zombie' o null
@@ -80,41 +76,15 @@ class Tablero {
     }
 }
 
-    class Ficha {
-        constructor(jugador) {
-            this.jugador = jugador;
-            this.imagen = this.getSelectedImage(jugador); // Carga la imagen correspondiente
-        }
-    
-        getColor() {
-            return this.jugador === 'planta' ? 'green' : 'red';
-        }
-    
-        getSelectedImage(tipo) {
-            const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-            return selected ? `/TP1/img/${selected.value}.png` : '';
-        }
-    
-        crearElemento() {
-            const fichaDiv = document.createElement('div');
-            fichaDiv.classList.add('ficha', this.jugador);
-            fichaDiv.dataset.jugador = this.jugador;
-            fichaDiv.draggable = true;
-            fichaDiv.style.backgroundImage = `url(${this.imagen})`; // Establece la imagen de fondo
-            fichaDiv.style.backgroundSize = 'contain'; // Ajustar tamaño de la imagen
-            fichaDiv.style.backgroundRepeat = 'no-repeat'; // Evitar que la imagen se repita
-            fichaDiv.style.backgroundPosition = 'center'; // Centrar la imagen en la ficha
-    
-            // Añadir eventos de arrastrar
-            fichaDiv.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', this.jugador); // Enviar el tipo de jugador
-                e.dataTransfer.setData('fichaId', fichaDiv.id); // Enviar el ID de la ficha
-            });
-    
-            return fichaDiv;
-        }
+class Ficha {
+    constructor(jugador) {
+        this.jugador = jugador;
     }
 
+    getColor() {
+        return this.jugador === 'planta' ? 'green' : 'red';
+    }
+}
 
 class Juego {
     constructor(columnas, filas, lineasParaGanar) {
@@ -126,73 +96,26 @@ class Juego {
         this.canvas = document.getElementById('tableroCanvas');
         this.context = this.canvas.getContext('2d');
 
+        // Tamaño máximo para mantener el tablero visible
         const maxBoardSize = 500;
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-        this.imgCasillero = new Image();
-        this.imgCasillero.src = '/TP1/img/casillero.png';
+     // Precargar las imágenes de las fichas y el casillero
+    this.imgPlanta = new Image();
+    this.imgPlanta.src = this.getSelectedImage('planta'); // Obtenemos la imagen seleccionada
+    this.imgZombie = new Image();
+    this.imgZombie.src = this.getSelectedImage('zombie'); // Obtenemos la imagen seleccionada
+     this.imgCasillero = new Image();
+     this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
 
+        this.initFichas();
+        this.initHints();  // Llama a la función para inicializar los hints
         this.imgCasillero.onload = () => this.drawBoard();
-        this.initHints();
 
-        // Calcular la cantidad total de casilleros
-        const totalCasilleros = this.columnas * this.filas;
-
-        // Cargar fichas para ambos jugadores
-        this.cargarFichas('planta', totalCasilleros);
-        this.cargarFichas('zombie', totalCasilleros);
-
+        // Configuración del temporizador (300 segundos)
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
-    }
-
-    updateCanvasSize() {
-        this.canvas.width = this.columnas * this.cellSize;
-        this.canvas.height = this.filas * this.cellSize;
-    }
-
-    drawBoard() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        for (let col = 0; col < this.columnas; col++) {
-            for (let row = 0; row < this.filas; row++) {
-                const x = col * this.cellSize;
-                const y = row * this.cellSize;
-                const casillero = this.tablero.grilla[col][row];
-
-                this.context.drawImage(this.imgCasillero, x, y, this.cellSize, this.cellSize);
-                if (!casillero.isEmpty()) {
-                    const img = casillero.estado === 'planta' ? this.imgPlanta : this.imgZombie;
-                    this.context.drawImage(img, x, y, this.cellSize, this.cellSize);
-                }
-            }
-        }
-        this.drawDropZones();  // Dibuja las zonas de drop en la parte superior
-    }
-
-    drawDropZones() {
-        this.context.fillStyle = 'rgba(255, 245, 11, 0.5)';  // Color semitransparente para la zona dropeable
-        for (let col = 0; col < this.columnas; col++) {
-            const x = col * this.cellSize;
-            this.context.fillRect(x, 0, this.cellSize, this.cellSize * 0.5);  // Zona dropeable de media celda de altura
-        }
-    }
-
-    initFichas() {
-        const fichas = document.querySelectorAll('.ficha');
-        fichas.forEach(ficha => {
-            ficha.addEventListener('dragstart', (event) => {
-                if (ficha.dataset.jugador !== this.jugadorActual) {
-                    event.preventDefault();
-                    return;
-                }
-                this.fichaActual = new Ficha(ficha.dataset.jugador);
-                event.dataTransfer.setData('text/plain', ficha.dataset.jugador);
-            });
-        });
-
-        this.canvas.addEventListener('drop', (event) => this.handleDrop(event));
-        this.canvas.addEventListener('dragover', (event) => event.preventDefault());
     }
 
     iniciarTemporizador() {
@@ -229,52 +152,80 @@ class Juego {
             hintsContainer.appendChild(hint);
         }
     }
+    
+    updateCanvasSize() {
+        this.canvas.width = this.columnas * this.cellSize;
+        this.canvas.height = this.filas * this.cellSize;
+    }
+
+    drawBoard() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        for (let col = 0; col < this.columnas; col++) {
+            for (let row = 0; row < this.filas; row++) {
+                const x = col * this.cellSize;
+                const y = row * this.cellSize;
+                const casillero = this.tablero.grilla[col][row];
+
+                // Dibujar la imagen de casillero
+                this.context.drawImage(this.imgCasillero, x, y, this.cellSize, this.cellSize);
+
+                // Dibujar la ficha si el casillero no está vacío
+                if (!casillero.isEmpty()) {
+                    const img = casillero.estado === 'planta' ? this.imgPlanta : this.imgZombie;
+                    this.context.drawImage(img, x, y, this.cellSize, this.cellSize);
+                }
+            }
+        }
+    }
+
+    initFichas() {
+        const fichas = document.querySelectorAll('.ficha');
+        fichas.forEach(ficha => {
+            ficha.addEventListener('dragstart', (event) => {
+                if (ficha.dataset.jugador !== this.jugadorActual) {
+                    event.preventDefault();
+                    return;
+                }
+                this.fichaActual = new Ficha(ficha.dataset.jugador);
+                event.dataTransfer.setData('text/plain', ficha.dataset.jugador);
+            });
+        });
+
+        this.canvas.addEventListener('drop', (event) => this.handleDrop(event));
+        this.canvas.addEventListener('dragover', (event) => event.preventDefault());
+    }
 
     handleDrop(event) {
         event.preventDefault();
         const rect = this.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-    
-        // Validar que la ficha se suelta dentro de la zona dropeable
-        if (y < 0 || y > this.cellSize * this.filas) return;
-    
         const colIndex = Math.floor(x / this.cellSize);
+
         const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
-    
+        
         if (filaIndex !== -1) {
-            // Colocar ficha en el tablero
-            this.tablero.colocarFicha(colIndex, this.jugadorActual);
-    
-            // Aquí puedes animar la ficha o dibujarla directamente en el tablero
             this.animateDrop(colIndex, filaIndex, this.jugadorActual);
-    
-            // Eliminar la última ficha del contenedor
-            const fichaContainer = document.getElementById(`fichas${this.jugadorActual.charAt(0).toUpperCase() + this.jugadorActual.slice(1)}`);
-            if (fichaContainer.children.length > 0) {
-                fichaContainer.removeChild(fichaContainer.lastChild); // Elimina la última ficha del jugador actual
-            }
-    
+
             setTimeout(() => {
                 if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
-                    clearInterval(this.intervaloTemporizador);
+                    clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
                     alert(`¡El jugador ${this.jugadorActual} gana!`);
                     setTimeout(() => location.reload(), 2000);
                 }
-    
-                // Cambia el turno
+                
                 this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
-                this.cargarFichas(this.jugadorActual, this.columnas * this.filas); // Cargar nueva ficha para el jugador que acaba de jugar
             }, (filaIndex + 1) * 100);
         }
     }
-    
+
     animateDrop(colIndex, filaIndex, jugador) {
         let currentRow = 0;
         const img = jugador === 'planta' ? this.imgPlanta : this.imgZombie;
 
         const interval = setInterval(() => {
             this.drawBoard();
+            
             this.context.drawImage(
                 img,
                 colIndex * this.cellSize,
@@ -286,35 +237,22 @@ class Juego {
             currentRow++;
             if (currentRow > filaIndex) {
                 clearInterval(interval);
-                this.tablero.colocarFicha(colIndex, jugador);
-                this.drawBoard();
+                this.tablero.colocarFicha(colIndex, jugador); // Coloca la ficha en el tablero después de la animación
+                this.drawBoard(); // Redibuja el tablero
             }
         }, 100);
     }
 
     getSelectedImage(tipo) {
+        // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-        return selected ? `/TP1/img/${selected.value}.png` : '';
+        return selected ? `/TP1/img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
     }
-
-    cargarFichas(jugador, cantidadCasilleros) {
-        const contenedorFichas = document.getElementById(`fichas${jugador.charAt(0).toUpperCase() + jugador.slice(1)}`);
-        contenedorFichas.innerHTML = `<h3>Fichas ${jugador.charAt(0).toUpperCase() + jugador.slice(1)}</h3>`;
-        
-        const fichasParaCargar = Math.floor(cantidadCasilleros / 2); // Ajustar según tus necesidades
-        
-        for (let i = 0; i < fichasParaCargar; i++) {
-            const ficha = new Ficha(jugador); // Crear una nueva ficha
-            contenedorFichas.appendChild(ficha.crearElemento()); // Agregar el elemento de ficha al contenedor
-        }
-    }
-    
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('iniciarJuego').addEventListener('click', () => {
         const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
-        
-        // Define las columnas y filas basadas en las líneas seleccionadas
         const [columnas, filas] = {
             4: [7, 6],
             5: [8, 7],
@@ -322,20 +260,20 @@ document.addEventListener('DOMContentLoaded', () => {
             7: [10, 9]
         }[lineasSeleccionadas];
 
-        const totalCasilleros = columnas * filas; // Total de casilleros del tablero
-
         // Crear una nueva instancia del juego
         const juego = new Juego(columnas, filas, lineasSeleccionadas);
 
-        // Ocultar configuraciones y mostrar contenedores de juego
-        document.getElementById('configuracion').style.display = 'none';
-        document.getElementById('juegoContainer').style.display = 'flex';
-
-        // Cargar fichas seleccionadas por el usuario
-        juego.cargarFichas('planta', totalCasilleros); // Pasa el total de casilleros
-        juego.cargarFichas('zombie', totalCasilleros); // Pasa el total de casilleros
+        // Oculta toda la configuración
+         document.getElementById('configuracion').style.display = 'none'
 
         // Muestra el temporizador
-        document.getElementById('temporizador').classList.remove('hidden');
+        const temporizador = document.getElementById('temporizador');
+        temporizador.classList.remove('hidden'); // Muestra el temporizador
+
+        // Oculta el selector de líneas para ganar
+        document.getElementById('lineas').style.display = 'none'; // Oculta el selector de líneas
+
+        // También oculta el botón para iniciar el juego
+        document.getElementById('iniciarJuego').style.display = 'none';
     });
 });
