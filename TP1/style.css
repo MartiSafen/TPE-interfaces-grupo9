@@ -1375,13 +1375,13 @@ footer .redes{
 /* Ficha Planta */
 .ficha.planta {
     background-color: #4CAF50;
-    background-image: url('/TP1/img/plantaa.png'); /* Ajusta la ruta */
+   
 }
 
 /* Ficha Zombie */
 .ficha.zombie {
     background-color: #8A2BE2;
-    background-image: url('/TP1/img/zombiee.png'); /* Ajusta la ruta */
+    
 }
 
 /* Hover para destacar la ficha */

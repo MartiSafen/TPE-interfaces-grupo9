@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const juego = new Juego(columnas, filas, lineasSeleccionadas);
 
         // Oculta toda la configuración
-         document.getElementById('configuracion').style.display = 'none'
+        document.getElementById('configuracion').style.display = 'none';
 
         // Muestra el temporizador
         const temporizador = document.getElementById('temporizador');
@@ -275,5 +275,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // También oculta el botón para iniciar el juego
         document.getElementById('iniciarJuego').style.display = 'none';
+
+       
+
+        // Función para cambiar la imagen de fondo de las fichas planta
+        function cambiarFondoPlanta() {
+            const plantaSeleccionada = document.querySelector('input[name="planta"]:checked');
+            const imagenPlanta = plantaSeleccionada ? plantaSeleccionada.nextElementSibling.querySelector('img').src : '/TP1/img/plantaa.png';
+
+            // Cambiar la imagen de fondo de las fichas Planta
+            document.querySelectorAll('.ficha.planta').forEach(ficha => {
+                ficha.style.backgroundImage = `url('${imagenPlanta}')`;
+            });
+        }
+
+        // Función para cambiar la imagen de fondo de las fichas zombie
+        function cambiarFondoZombie() {
+            const zombieSeleccionado = document.querySelector('input[name="zombie"]:checked');
+            const imagenZombie = zombieSeleccionado ? zombieSeleccionado.nextElementSibling.querySelector('img').src : '/TP1/img/zombiee.png';
+
+            // Cambiar la imagen de fondo de las fichas Zombie
+            document.querySelectorAll('.ficha.zombie').forEach(ficha => {
+                ficha.style.backgroundImage = `url('${imagenZombie}')`;
+            });
+        }
+
+        
+        // Luego aplicamos las nuevas imágenes seleccionadas
+        cambiarFondoPlanta();
+        cambiarFondoZombie();
+        
     });
 });
+
+
