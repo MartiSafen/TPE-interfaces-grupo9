@@ -198,27 +198,43 @@ class Juego {
 
     handleDrop(event) {
         event.preventDefault();
-        const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const colIndex = Math.floor(x / this.cellSize);
-
-        const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
         
-        if (filaIndex !== -1) {
-            this.animateDrop(colIndex, filaIndex, this.jugadorActual);
-
-            setTimeout(() => {
-                if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
-                    clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
-                    alert(`¡El jugador ${this.jugadorActual} gana!`);
-                    setTimeout(() => location.reload(), 2000);
-                }
-                
-                this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
-            }, (filaIndex + 1) * 100);
+        const hintsContainer = document.getElementById('hintsContainer');
+        const hints = hintsContainer.getElementsByClassName('hint');
+        
+        let colIndex = -1;
+        
+        // Verifica si el drop ocurre sobre algún hint
+        for (let i = 0; i < hints.length; i++) {
+            const hint = hints[i];
+            const rect = hint.getBoundingClientRect();
+            
+            if (event.clientX >= rect.left && event.clientX <= rect.right) {
+                colIndex = i;
+                break;
+            }
+        }
+    
+        // Si la columna es válida, continúa con la animación y la lógica
+        if (colIndex !== -1) {
+            const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
+            
+            if (filaIndex !== -1) {
+                this.animateDrop(colIndex, filaIndex, this.jugadorActual);
+    
+                setTimeout(() => {
+                    if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
+                        clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
+                        alert(`¡El jugador ${this.jugadorActual} gana!`);
+                        setTimeout(() => location.reload(), 2000);
+                    }
+    
+                    this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
+                }, (filaIndex + 1) * 100);
+            }
         }
     }
-
+    
     animateDrop(colIndex, filaIndex, jugador) {
         let currentRow = 0;
         const img = jugador === 'planta' ? this.imgPlanta : this.imgZombie;
@@ -251,6 +267,8 @@ class Juego {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    let juego;
+
     document.getElementById('iniciarJuego').addEventListener('click', () => {
         const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
         const [columnas, filas] = {
@@ -261,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }[lineasSeleccionadas];
 
         // Crear una nueva instancia del juego
-        const juego = new Juego(columnas, filas, lineasSeleccionadas);
+        juego = new Juego(columnas, filas, lineasSeleccionadas);
 
         // Oculta toda la configuración
         document.getElementById('configuracion').style.display = 'none';
@@ -276,7 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // También oculta el botón para iniciar el juego
         document.getElementById('iniciarJuego').style.display = 'none';
 
-       
+        // Muestra el botón de reinicio
+        document.getElementById('reiniciarJuego').classList.remove('hidden');
 
         // Función para cambiar la imagen de fondo de las fichas planta
         function cambiarFondoPlanta() {
@@ -300,12 +319,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        
         // Luego aplicamos las nuevas imágenes seleccionadas
         cambiarFondoPlanta();
         cambiarFondoZombie();
-        
+    });
+
+    // Agregar funcionalidad al botón de reinicio
+    document.getElementById('reiniciarJuego').addEventListener('click', () => {
+        // Reinicia la página para restablecer todo el estado
+        location.reload();
     });
 });
-
 

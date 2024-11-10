@@ -1482,3 +1482,17 @@ footer .redes{
     #iniciarJuego:hover {
         background-color: #218838; /* Color más oscuro al pasar el mouse */
     }
+
+
+    #reiniciarJuego {
+    width: 100px;
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    padding: 5px 10px; /* Reduce el padding */
+    border: 1px solid #ccc; /* Borde más delgado */
+    background-color: #f0f0f0; /* Fondo más claro */
+    color: #333; /* Color de texto más oscuro */
+    cursor: pointer; /* Cursor tipo puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s;
+    
+}
