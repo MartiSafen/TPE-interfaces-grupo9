@@ -107,7 +107,7 @@ class Juego {
     this.imgZombie = new Image();
     this.imgZombie.src = this.getSelectedImage('zombie'); // Obtenemos la imagen seleccionada
      this.imgCasillero = new Image();
-     this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
+     this.imgCasillero.src = './img/casillero.png'; // Ruta de la imagen de casillero
 
         this.initFichas();
         this.initHints();  // Llama a la función para inicializar los hints
@@ -262,7 +262,7 @@ class Juego {
     getSelectedImage(tipo) {
         // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-        return selected ? `/TP1/img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
+        return selected ? `./img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
     }
 }
 

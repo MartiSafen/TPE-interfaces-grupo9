@@ -1281,7 +1281,7 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('/TP1/img/jardin2.png'); /* Ajusta la ruta */
+    background-image: url('./img/jardin2.png'); /* Ajusta la ruta */
     background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
@@ -1305,7 +1305,7 @@ footer .redes{
 
 /* Estilos para el tablero */
 #tableroCanvas {
-    background-image: url('/TP1/img/fondocanvas.jpeg');
+    background-image: url('./img/fondocanvas.jpeg');
     border: 2px solid #ffffff;
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1413,7 +1413,7 @@ footer .redes{
 .hint {
     width: 50px;
     height: 40px;
-    background-image: url('/TP1/img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
+    background-image: url('./img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
     background-size: contain;
     background-repeat: no-repeat;
     animation: hintAnimation 1s infinite alternate;
