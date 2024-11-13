@@ -81,57 +81,72 @@
             <h4>Plantas:</h4>
             <input type="radio" id="planta1" name="planta" value="plantaa" checked>
             <label for="planta1">
-                <img src="/TP1/img/plantaa.png" alt="Planta 1"> Planta 1
+                <img src="./img/plantaa.png" alt="Planta 1">
+                Planta 1
             </label><br>
             <input type="radio" id="planta2" name="planta" value="plantaa2">
             <label for="planta2">
-                <img src="/TP1/img/plantaa2.png" alt="Planta 2"> Planta 2
+                <img src="./img/plantaa2.png" alt="Planta 2">
+                Planta 2
             </label><br>
             <input type="radio" id="planta3" name="planta" value="plantaa3">
             <label for="planta3">
-                <img src="/TP1/img/plantaa3.png" alt="Planta 3"> Planta 3
+                <img src="./img/plantaa3.png" alt="Planta 3">
+                Planta 3
             </label><br>
         </div>
         <div>
             <h4>Zombies:</h4>
             <input type="radio" id="zombie1" name="zombie" value="zombiee" checked>
             <label for="zombie1">
-                <img src="/TP1/img/zombiee.png" alt="Zombie 1"> Zombie 1
+                <img src="./img/zombiee.png" alt="Zombie 1">
+                Zombie 1
             </label><br>
             <input type="radio" id="zombie2" name="zombie" value="zombiee2">
             <label for="zombie2">
-                <img src="/TP1/img/zombiee2.png" alt="Zombie 2"> Zombie 2
+                <img src="./img/zombiee2.png" alt="Zombie 2">
+                Zombie 2
             </label><br>
             <input type="radio" id="zombie3" name="zombie" value="zombiee3">
             <label for="zombie3">
-                <img src="/TP1/img/zombiee3.png" alt="Zombie 3"> Zombie 3
+                <img src="./img/zombiee3.png" alt="Zombie 3">
+                Zombie 3
             </label><br>
         </div>
         
         <button id="iniciarJuego">Iniciar Juego</button>
     </div>
     
-    <div id="juegoContainer" class="hidden">
-        <div id="temporizador"> 
+    <div id="juegoContainer">
+        <div id="temporizador" class="hidden"> 
             <span id="tiempo">00:00</span>
         </div>
+<<<<<<< HEAD
        
         <div id="fichasPlanta" class="fichas">
            
+=======
+    
+        <div id="fichasPlanta" class="fichas">
+            <h3>Fichas Planta</h3>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
         </div>
         
         <div id="hintsContainer"></div>
         <canvas id="tableroCanvas" width="450" height="400"></canvas>
         
         <div id="fichasZombie" class="fichas">
-           
+            <h3>Fichas Zombie</h3>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
         </div>
-    
-        
     </div>
+    
    
     
-        
+    <button id="reiniciarJuego" class="hidden">Reiniciar Juego</button>
     <footer>
         <div class="logofooter">
             <img class="logo-f" src="./img/logo.jpg" alt="logo">
@@ -167,7 +182,7 @@
             <p>+54 2494 00 11 22 </p>
         </div>
     </footer>
-    <script src="/TP1/4linea.js"></script>
+    <script src="4linea.js"></script>
 </body>
 </html>
 

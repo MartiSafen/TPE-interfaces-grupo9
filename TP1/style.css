@@ -1281,7 +1281,7 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('/TP1/img/jardin2.png'); /* Ajusta la ruta */
+    background-image: url('./img/jardin2.png'); /* Ajusta la ruta */
     background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
@@ -1305,7 +1305,7 @@ footer .redes{
 
 /* Estilos para el tablero */
 #tableroCanvas {
-    background-image: url('/TP1/img/fondocanvas.jpeg');
+    background-image: url('./img/fondocanvas.jpeg');
     border: 2px solid #ffffff;
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1342,11 +1342,16 @@ footer .redes{
     display: flex;
     flex-direction: column;
     align-items: center;
+<<<<<<< HEAD
     padding: 5px; /* Reduce el padding para apilar más las fichas */
+=======
+    padding: 15px;
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
     width: 100px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    gap: 12px;
 }
 
 /* Títulos para cada tipo de ficha */
@@ -1374,12 +1379,22 @@ footer .redes{
 
 /* Ficha Planta */
 .ficha.planta {
+<<<<<<< HEAD
      /* Ajusta la ruta a la imagen elegida */
+=======
+    background-color: #4CAF50;
+   
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 }
 
 /* Ficha Zombie */
 .ficha.zombie {
+<<<<<<< HEAD
      /* Ajusta la ruta a la imagen elegida */
+=======
+    background-color: #8A2BE2;
+    
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 }
 
 /* Hover para destacar la ficha */
@@ -1391,7 +1406,10 @@ footer .redes{
 .ficha:active {
     cursor: grabbing;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 
 
 .hidden {
@@ -1412,7 +1430,7 @@ footer .redes{
 .hint {
     width: 50px;
     height: 40px;
-    background-image: url('/TP1/img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
+    background-image: url('./img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
     background-size: contain;
     background-repeat: no-repeat;
     animation: hintAnimation 1s infinite alternate;
@@ -1483,4 +1501,19 @@ footer .redes{
     }
 
 
+<<<<<<< HEAD
     
+=======
+    #reiniciarJuego {
+    width: 100px;
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    padding: 5px 10px; /* Reduce el padding */
+    border: 1px solid #ccc; /* Borde más delgado */
+    background-color: #f0f0f0; /* Fondo más claro */
+    color: #333; /* Color de texto más oscuro */
+    cursor: pointer; /* Cursor tipo puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s;
+    
+}
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883

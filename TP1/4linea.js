@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // El resto del código permanece igual
 
+=======
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 class Casillero {
     constructor() {
         this.estado = null; // Puede ser 'planta', 'zombie' o null
@@ -98,10 +101,12 @@ class Juego {
         this.canvas = document.getElementById('tableroCanvas');
         this.context = this.canvas.getContext('2d');
 
+        // Tamaño máximo para mantener el tablero visible
         const maxBoardSize = 500;
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
+<<<<<<< HEAD
         this.imgPlanta = new Image();
         this.imgPlanta.src = this.getSelectedImage('planta'); // Cargar imagen seleccionada para planta
         this.imgZombie = new Image();
@@ -119,59 +124,26 @@ class Juego {
         this.imgCasillero.onload = () => this.drawBoard();
         this.initHints();
 
+=======
+     // Precargar las imágenes de las fichas y el casillero
+    this.imgPlanta = new Image();
+    this.imgPlanta.src = this.getSelectedImage('planta'); // Obtenemos la imagen seleccionada
+    this.imgZombie = new Image();
+    this.imgZombie.src = this.getSelectedImage('zombie'); // Obtenemos la imagen seleccionada
+     this.imgCasillero = new Image();
+     this.imgCasillero.src = './img/casillero.png'; // Ruta de la imagen de casillero
+
+        this.initFichas();
+        this.initHints();  // Llama a la función para inicializar los hints
+        this.imgCasillero.onload = () => this.drawBoard();
+
+        // Configuración del temporizador (300 segundos)
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
 
         // Escuchar cambios en la selección de imágenes
         this.initImageSelectionListeners();
-    }
-
-    updateCanvasSize() {
-        this.canvas.width = this.columnas * this.cellSize;
-        this.canvas.height = this.filas * this.cellSize;
-    }
-
-    drawBoard() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        for (let col = 0; col < this.columnas; col++) {
-            for (let row = 0; row < this.filas; row++) {
-                const x = col * this.cellSize;
-                const y = row * this.cellSize;
-                const casillero = this.tablero.grilla[col][row];
-
-                this.context.drawImage(this.imgCasillero, x, y, this.cellSize, this.cellSize);
-                if (!casillero.isEmpty()) {
-                    const img = casillero.estado === 'planta' ? this.imgPlanta : this.imgZombie;
-                    this.context.drawImage(img, x, y, this.cellSize, this.cellSize);
-                }
-            }
-        }
-        this.drawDropZones();  // Dibuja las zonas de drop en la parte superior
-    }
-
-    drawDropZones() {
-        this.context.fillStyle = 'rgba(255, 245, 11, 0.5)';  // Color semitransparente para la zona dropeable
-        for (let col = 0; col < this.columnas; col++) {
-            const x = col * this.cellSize;
-            this.context.fillRect(x, 0, this.cellSize, this.cellSize * 0.5);  // Zona dropeable de media celda de altura
-        }
-    }
-
-    initFichas() {
-        const fichas = document.querySelectorAll('.ficha');
-        fichas.forEach(ficha => {
-            ficha.addEventListener('dragstart', (event) => {
-                if (ficha.dataset.jugador !== this.jugadorActual) {
-                    event.preventDefault();
-                    return;
-                }
-                this.fichaActual = new Ficha(ficha.dataset.jugador);
-                event.dataTransfer.setData('text/plain', ficha.dataset.jugador);
-            });
-        });
-
-        this.canvas.addEventListener('drop', (event) => this.handleDrop(event));
-        this.canvas.addEventListener('dragover', (event) => event.preventDefault());
     }
 
     iniciarTemporizador() {
@@ -204,9 +176,53 @@ class Juego {
             hintsContainer.appendChild(hint);
         }
     }
+    
+    updateCanvasSize() {
+        this.canvas.width = this.columnas * this.cellSize;
+        this.canvas.height = this.filas * this.cellSize;
+    }
+
+    drawBoard() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        for (let col = 0; col < this.columnas; col++) {
+            for (let row = 0; row < this.filas; row++) {
+                const x = col * this.cellSize;
+                const y = row * this.cellSize;
+                const casillero = this.tablero.grilla[col][row];
+
+                // Dibujar la imagen de casillero
+                this.context.drawImage(this.imgCasillero, x, y, this.cellSize, this.cellSize);
+
+                // Dibujar la ficha si el casillero no está vacío
+                if (!casillero.isEmpty()) {
+                    const img = casillero.estado === 'planta' ? this.imgPlanta : this.imgZombie;
+                    this.context.drawImage(img, x, y, this.cellSize, this.cellSize);
+                }
+            }
+        }
+    }
+
+    initFichas() {
+        const fichas = document.querySelectorAll('.ficha');
+        fichas.forEach(ficha => {
+            ficha.addEventListener('dragstart', (event) => {
+                if (ficha.dataset.jugador !== this.jugadorActual) {
+                    event.preventDefault();
+                    return;
+                }
+                this.fichaActual = new Ficha(ficha.dataset.jugador);
+                event.dataTransfer.setData('text/plain', ficha.dataset.jugador);
+            });
+        });
+
+        this.canvas.addEventListener('drop', (event) => this.handleDrop(event));
+        this.canvas.addEventListener('dragover', (event) => event.preventDefault());
+    }
 
     handleDrop(event) {
         event.preventDefault();
+<<<<<<< HEAD
         const rect = this.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
@@ -224,18 +240,48 @@ class Juego {
             const fichaContainer = document.getElementById(`fichas${this.jugadorActual.charAt(0).toUpperCase() + this.jugadorActual.slice(1)}`);
             if (fichaContainer.children.length > 0) {
                 fichaContainer.removeChild(fichaContainer.lastChild);  // Elimina la última ficha
+=======
+        
+        const hintsContainer = document.getElementById('hintsContainer');
+        const hints = hintsContainer.getElementsByClassName('hint');
+        
+        let colIndex = -1;
+        
+        // Verifica si el drop ocurre sobre algún hint
+        for (let i = 0; i < hints.length; i++) {
+            const hint = hints[i];
+            const rect = hint.getBoundingClientRect();
+            
+            if (event.clientX >= rect.left && event.clientX <= rect.right) {
+                colIndex = i;
+                break;
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
             }
+        }
     
-            setTimeout(() => {
-                if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
-                    clearInterval(this.intervaloTemporizador);
-                    alert(`¡El jugador ${this.jugadorActual} gana!`);
-                    setTimeout(() => location.reload(), 2000);
-                }
+        // Si la columna es válida, continúa con la animación y la lógica
+        if (colIndex !== -1) {
+            const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
+            
+            if (filaIndex !== -1) {
+                this.animateDrop(colIndex, filaIndex, this.jugadorActual);
     
+<<<<<<< HEAD
                 // Cambia el turno
                 this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
             }, (filaIndex + 1) * 100);
+=======
+                setTimeout(() => {
+                    if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
+                        clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
+                        alert(`¡El jugador ${this.jugadorActual} gana!`);
+                        setTimeout(() => location.reload(), 2000);
+                    }
+    
+                    this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
+                }, (filaIndex + 1) * 100);
+            }
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
         }
     }
 
@@ -245,6 +291,7 @@ class Juego {
 
         const interval = setInterval(() => {
             this.drawBoard();
+            
             this.context.drawImage(
                 img,
                 colIndex * this.cellSize,
@@ -256,15 +303,17 @@ class Juego {
             currentRow++;
             if (currentRow > filaIndex) {
                 clearInterval(interval);
-                this.tablero.colocarFicha(colIndex, jugador);
-                this.drawBoard();
+                this.tablero.colocarFicha(colIndex, jugador); // Coloca la ficha en el tablero después de la animación
+                this.drawBoard(); // Redibuja el tablero
             }
         }, 100);
     }
 
     
     getSelectedImage(tipo) {
+        // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
+<<<<<<< HEAD
         // Ajusta el retorno para los nombres de archivo correctos
         return selected ? `/TP1/img/${selected.value}` : '';
     }
@@ -286,9 +335,15 @@ class Juego {
             input.addEventListener('change', updateFichaImages);
         });
     }
+=======
+        return selected ? `./img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
+    }
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    let juego;
+
     document.getElementById('iniciarJuego').addEventListener('click', () => {
         const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
         const [columnas, filas] = {
@@ -299,21 +354,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }[lineasSeleccionadas];
 
         // Crear una nueva instancia del juego
-        const juego = new Juego(columnas, filas, lineasSeleccionadas);
+        juego = new Juego(columnas, filas, lineasSeleccionadas);
 
-        // Ocultar configuraciones y mostrar contenedores de juego
+        // Oculta toda la configuración
         document.getElementById('configuracion').style.display = 'none';
+<<<<<<< HEAD
         document.getElementById('juegoContainer').style.display = 'flex';
 
         // Cargar fichas seleccionadas por el usuario
         cargarFichas('planta', columnas * filas); // Pasa el total de casilleros
         cargarFichas('zombie', columnas * filas); // Pasa el total de casilleros
+=======
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 
         // Muestra el temporizador
-        document.getElementById('temporizador').classList.remove('hidden');
+        const temporizador = document.getElementById('temporizador');
+        temporizador.classList.remove('hidden'); // Muestra el temporizador
+
+        // Oculta el selector de líneas para ganar
+        document.getElementById('lineas').style.display = 'none'; // Oculta el selector de líneas
+
+        // También oculta el botón para iniciar el juego
+        document.getElementById('iniciarJuego').style.display = 'none';
+
+        // Muestra el botón de reinicio
+        document.getElementById('reiniciarJuego').classList.remove('hidden');
+
+        // Función para cambiar la imagen de fondo de las fichas planta
+        function cambiarFondoPlanta() {
+            const plantaSeleccionada = document.querySelector('input[name="planta"]:checked');
+            const imagenPlanta = plantaSeleccionada ? plantaSeleccionada.nextElementSibling.querySelector('img').src : '/TP1/img/plantaa.png';
+
+            // Cambiar la imagen de fondo de las fichas Planta
+            document.querySelectorAll('.ficha.planta').forEach(ficha => {
+                ficha.style.backgroundImage = `url('${imagenPlanta}')`;
+            });
+        }
+
+        // Función para cambiar la imagen de fondo de las fichas zombie
+        function cambiarFondoZombie() {
+            const zombieSeleccionado = document.querySelector('input[name="zombie"]:checked');
+            const imagenZombie = zombieSeleccionado ? zombieSeleccionado.nextElementSibling.querySelector('img').src : '/TP1/img/zombiee.png';
+
+            // Cambiar la imagen de fondo de las fichas Zombie
+            document.querySelectorAll('.ficha.zombie').forEach(ficha => {
+                ficha.style.backgroundImage = `url('${imagenZombie}')`;
+            });
+        }
+
+        // Luego aplicamos las nuevas imágenes seleccionadas
+        cambiarFondoPlanta();
+        cambiarFondoZombie();
+    });
+
+    // Agregar funcionalidad al botón de reinicio
+    document.getElementById('reiniciarJuego').addEventListener('click', () => {
+        // Reinicia la página para restablecer todo el estado
+        location.reload();
     });
 });
 
+<<<<<<< HEAD
 function cargarFichas(tipo, total) {
     const contenedorFichas = document.getElementById(`fichas${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`);
     for (let i = 0; i < total; i++) {
@@ -330,3 +431,5 @@ function cargarFichas(tipo, total) {
         contenedorFichas.appendChild(ficha);
     }
 }
+=======
+>>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
