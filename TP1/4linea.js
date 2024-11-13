@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-// El resto del código permanece igual
-
-=======
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 class Casillero {
     constructor() {
         this.estado = null; // Puede ser 'planta', 'zombie' o null
@@ -106,25 +101,6 @@ class Juego {
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-<<<<<<< HEAD
-        this.imgPlanta = new Image();
-        this.imgPlanta.src = this.getSelectedImage('planta'); // Cargar imagen seleccionada para planta
-        this.imgZombie = new Image();
-        this.imgZombie.src = this.getSelectedImage('zombie'); // Cargar imagen seleccionada para zombie
-    
-        // Asegúrate de que las imágenes se carguen antes de dibujar el tablero
-        this.imgPlanta.onload = () => this.drawBoard();
-        this.imgZombie.onload = () => this.drawBoard();
-
-        this.imgCasillero = new Image();
-        this.imgCasillero.src = '/TP1/img/casillero.png';  // Imagen de casillero
-
-      
-        this.initFichas();
-        this.imgCasillero.onload = () => this.drawBoard();
-        this.initHints();
-
-=======
      // Precargar las imágenes de las fichas y el casillero
     this.imgPlanta = new Image();
     this.imgPlanta.src = this.getSelectedImage('planta'); // Obtenemos la imagen seleccionada
@@ -138,7 +114,6 @@ class Juego {
         this.imgCasillero.onload = () => this.drawBoard();
 
         // Configuración del temporizador (300 segundos)
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
 
@@ -222,25 +197,6 @@ class Juego {
 
     handleDrop(event) {
         event.preventDefault();
-<<<<<<< HEAD
-        const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-    
-        // Validar que la ficha se suelta dentro de la zona dropeable (media celda de altura)
-        if (y > this.cellSize * 0.5) return;
-    
-        const colIndex = Math.floor(x / this.cellSize);
-        const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
-    
-        if (filaIndex !== -1) {
-            this.animateDrop(colIndex, filaIndex, this.jugadorActual);
-    
-            // Eliminar la ficha soltada de la columna de fichas
-            const fichaContainer = document.getElementById(`fichas${this.jugadorActual.charAt(0).toUpperCase() + this.jugadorActual.slice(1)}`);
-            if (fichaContainer.children.length > 0) {
-                fichaContainer.removeChild(fichaContainer.lastChild);  // Elimina la última ficha
-=======
         
         const hintsContainer = document.getElementById('hintsContainer');
         const hints = hintsContainer.getElementsByClassName('hint');
@@ -255,7 +211,6 @@ class Juego {
             if (event.clientX >= rect.left && event.clientX <= rect.right) {
                 colIndex = i;
                 break;
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
             }
         }
     
@@ -266,11 +221,6 @@ class Juego {
             if (filaIndex !== -1) {
                 this.animateDrop(colIndex, filaIndex, this.jugadorActual);
     
-<<<<<<< HEAD
-                // Cambia el turno
-                this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
-            }, (filaIndex + 1) * 100);
-=======
                 setTimeout(() => {
                     if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
                         clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
@@ -281,7 +231,6 @@ class Juego {
                     this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
                 }, (filaIndex + 1) * 100);
             }
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
         }
     }
 
@@ -313,32 +262,8 @@ class Juego {
     getSelectedImage(tipo) {
         // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-<<<<<<< HEAD
-        // Ajusta el retorno para los nombres de archivo correctos
-        return selected ? `/TP1/img/${selected.value}` : '';
-    }
-
-    initImageSelectionListeners() {
-        const plantas = document.querySelectorAll('input[name="planta"]');
-        const zombies = document.querySelectorAll('input[name="zombie"]');
-    
-        const updateFichaImages = () => {
-            this.imgPlanta.src = this.getSelectedImage('planta'); // Cambiar 'tipo' a 'planta'
-            this.imgZombie.src = this.getSelectedImage('zombie'); // Cambiar 'tipo' a 'zombie'
-        };
-    
-        plantas.forEach(input => {
-            input.addEventListener('change', updateFichaImages);
-        });
-    
-        zombies.forEach(input => {
-            input.addEventListener('change', updateFichaImages);
-        });
-    }
-=======
         return selected ? `./img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
     }
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -358,14 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Oculta toda la configuración
         document.getElementById('configuracion').style.display = 'none';
-<<<<<<< HEAD
-        document.getElementById('juegoContainer').style.display = 'flex';
-
-        // Cargar fichas seleccionadas por el usuario
-        cargarFichas('planta', columnas * filas); // Pasa el total de casilleros
-        cargarFichas('zombie', columnas * filas); // Pasa el total de casilleros
-=======
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 
         // Muestra el temporizador
         const temporizador = document.getElementById('temporizador');
@@ -414,22 +331,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-<<<<<<< HEAD
-function cargarFichas(tipo, total) {
-    const contenedorFichas = document.getElementById(`fichas${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`);
-    for (let i = 0; i < total; i++) {
-        const ficha = document.createElement('div');
-        ficha.classList.add('ficha');
-        ficha.dataset.jugador = tipo;
-        ficha.draggable = true;
-
-        const img = document.createElement('img');
-        img.src = `/TP1/img/${tipo}.png`;  // Ajusta la ruta según sea necesario
-       
-
-        ficha.appendChild(img);
-        contenedorFichas.appendChild(ficha);
-    }
-}
-=======
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883

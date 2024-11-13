@@ -1342,11 +1342,7 @@ footer .redes{
     display: flex;
     flex-direction: column;
     align-items: center;
-<<<<<<< HEAD
-    padding: 5px; /* Reduce el padding para apilar más las fichas */
-=======
     padding: 15px;
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
     width: 100px;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
@@ -1379,22 +1375,14 @@ footer .redes{
 
 /* Ficha Planta */
 .ficha.planta {
-<<<<<<< HEAD
-     /* Ajusta la ruta a la imagen elegida */
-=======
     background-color: #4CAF50;
    
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 }
 
 /* Ficha Zombie */
 .ficha.zombie {
-<<<<<<< HEAD
-     /* Ajusta la ruta a la imagen elegida */
-=======
     background-color: #8A2BE2;
     
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 }
 
 /* Hover para destacar la ficha */
@@ -1406,10 +1394,6 @@ footer .redes{
 .ficha:active {
     cursor: grabbing;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
 
 
 .hidden {
@@ -1501,9 +1485,6 @@ footer .redes{
     }
 
 
-<<<<<<< HEAD
-    
-=======
     #reiniciarJuego {
     width: 100px;
     font-size: 12px; /* Tamaño de fuente más pequeño */
@@ -1516,4 +1497,3 @@ footer .redes{
     transition: background-color 0.3s, transform 0.2s;
     
 }
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
