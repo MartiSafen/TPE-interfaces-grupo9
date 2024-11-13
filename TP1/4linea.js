@@ -1,5 +1,3 @@
-
-
 // El resto del código permanece igual
 
 class Casillero {
@@ -80,41 +78,15 @@ class Tablero {
     }
 }
 
-    class Ficha {
-        constructor(jugador) {
-            this.jugador = jugador;
-            this.imagen = this.getSelectedImage(jugador); // Carga la imagen correspondiente
-        }
-    
-        getColor() {
-            return this.jugador === 'planta' ? 'green' : 'red';
-        }
-    
-        getSelectedImage(tipo) {
-            const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-            return selected ? `/TP1/img/${selected.value}.png` : '';
-        }
-    
-        crearElemento() {
-            const fichaDiv = document.createElement('div');
-            fichaDiv.classList.add('ficha', this.jugador);
-            fichaDiv.dataset.jugador = this.jugador;
-            fichaDiv.draggable = true;
-            fichaDiv.style.backgroundImage = `url(${this.imagen})`; // Establece la imagen de fondo
-            fichaDiv.style.backgroundSize = 'contain'; // Ajustar tamaño de la imagen
-            fichaDiv.style.backgroundRepeat = 'no-repeat'; // Evitar que la imagen se repita
-            fichaDiv.style.backgroundPosition = 'center'; // Centrar la imagen en la ficha
-    
-            // Añadir eventos de arrastrar
-            fichaDiv.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', this.jugador); // Enviar el tipo de jugador
-                e.dataTransfer.setData('fichaId', fichaDiv.id); // Enviar el ID de la ficha
-            });
-    
-            return fichaDiv;
-        }
+class Ficha {
+    constructor(jugador) {
+        this.jugador = jugador;
     }
 
+    getColor() {
+        return this.jugador === 'planta' ? 'green' : 'red';
+    }
+}
 
 class Juego {
     constructor(columnas, filas, lineasParaGanar) {
@@ -130,21 +102,28 @@ class Juego {
         this.cellSize = Math.floor(maxBoardSize / Math.max(this.columnas, this.filas));
         this.updateCanvasSize();
 
-        this.imgCasillero = new Image();
-        this.imgCasillero.src = '/TP1/img/casillero.png';
+        this.imgPlanta = new Image();
+        this.imgPlanta.src = this.getSelectedImage('planta'); // Cargar imagen seleccionada para planta
+        this.imgZombie = new Image();
+        this.imgZombie.src = this.getSelectedImage('zombie'); // Cargar imagen seleccionada para zombie
+    
+        // Asegúrate de que las imágenes se carguen antes de dibujar el tablero
+        this.imgPlanta.onload = () => this.drawBoard();
+        this.imgZombie.onload = () => this.drawBoard();
 
+        this.imgCasillero = new Image();
+        this.imgCasillero.src = '/TP1/img/casillero.png';  // Imagen de casillero
+
+      
+        this.initFichas();
         this.imgCasillero.onload = () => this.drawBoard();
         this.initHints();
 
-        // Calcular la cantidad total de casilleros
-        const totalCasilleros = this.columnas * this.filas;
-
-        // Cargar fichas para ambos jugadores
-        this.cargarFichas('planta', totalCasilleros);
-        this.cargarFichas('zombie', totalCasilleros);
-
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
+
+        // Escuchar cambios en la selección de imágenes
+        this.initImageSelectionListeners();
     }
 
     updateCanvasSize() {
@@ -216,16 +195,12 @@ class Juego {
         const hintsContainer = document.getElementById('hintsContainer');
         hintsContainer.innerHTML = '';  // Limpia hints anteriores
         
-        // Ajuste para posicionar hints en columnas del tablero
         for (let i = 0; i < this.columnas; i++) {
             const hint = document.createElement('div');
             hint.classList.add('hint');
-    
-            // Ajusta la posición de cada hint
             hint.style.position = 'absolute';
             hint.style.left = `${i * this.cellSize}px`; // Alinear con cada columna
             hint.style.width = `${this.cellSize}px`; // Tamaño acorde a la celda
-    
             hintsContainer.appendChild(hint);
         }
     }
@@ -236,23 +211,19 @@ class Juego {
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
     
-        // Validar que la ficha se suelta dentro de la zona dropeable
-        if (y < 0 || y > this.cellSize * this.filas) return;
+        // Validar que la ficha se suelta dentro de la zona dropeable (media celda de altura)
+        if (y > this.cellSize * 0.5) return;
     
         const colIndex = Math.floor(x / this.cellSize);
         const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
     
         if (filaIndex !== -1) {
-            // Colocar ficha en el tablero
-            this.tablero.colocarFicha(colIndex, this.jugadorActual);
-    
-            // Aquí puedes animar la ficha o dibujarla directamente en el tablero
             this.animateDrop(colIndex, filaIndex, this.jugadorActual);
     
-            // Eliminar la última ficha del contenedor
+            // Eliminar la ficha soltada de la columna de fichas
             const fichaContainer = document.getElementById(`fichas${this.jugadorActual.charAt(0).toUpperCase() + this.jugadorActual.slice(1)}`);
             if (fichaContainer.children.length > 0) {
-                fichaContainer.removeChild(fichaContainer.lastChild); // Elimina la última ficha del jugador actual
+                fichaContainer.removeChild(fichaContainer.lastChild);  // Elimina la última ficha
             }
     
             setTimeout(() => {
@@ -264,11 +235,10 @@ class Juego {
     
                 // Cambia el turno
                 this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
-                this.cargarFichas(this.jugadorActual, this.columnas * this.filas); // Cargar nueva ficha para el jugador que acaba de jugar
             }, (filaIndex + 1) * 100);
         }
     }
-    
+
     animateDrop(colIndex, filaIndex, jugador) {
         let currentRow = 0;
         const img = jugador === 'planta' ? this.imgPlanta : this.imgZombie;
@@ -292,37 +262,41 @@ class Juego {
         }, 100);
     }
 
+    
     getSelectedImage(tipo) {
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-        return selected ? `/TP1/img/${selected.value}.png` : '';
+        // Ajusta el retorno para los nombres de archivo correctos
+        return selected ? `/TP1/img/${selected.value}` : '';
     }
 
-    cargarFichas(jugador, cantidadCasilleros) {
-        const contenedorFichas = document.getElementById(`fichas${jugador.charAt(0).toUpperCase() + jugador.slice(1)}`);
-        contenedorFichas.innerHTML = `<h3>Fichas ${jugador.charAt(0).toUpperCase() + jugador.slice(1)}</h3>`;
-        
-        const fichasParaCargar = Math.floor(cantidadCasilleros / 2); // Ajustar según tus necesidades
-        
-        for (let i = 0; i < fichasParaCargar; i++) {
-            const ficha = new Ficha(jugador); // Crear una nueva ficha
-            contenedorFichas.appendChild(ficha.crearElemento()); // Agregar el elemento de ficha al contenedor
-        }
-    }
+    initImageSelectionListeners() {
+        const plantas = document.querySelectorAll('input[name="planta"]');
+        const zombies = document.querySelectorAll('input[name="zombie"]');
     
+        const updateFichaImages = () => {
+            this.imgPlanta.src = this.getSelectedImage('planta'); // Cambiar 'tipo' a 'planta'
+            this.imgZombie.src = this.getSelectedImage('zombie'); // Cambiar 'tipo' a 'zombie'
+        };
+    
+        plantas.forEach(input => {
+            input.addEventListener('change', updateFichaImages);
+        });
+    
+        zombies.forEach(input => {
+            input.addEventListener('change', updateFichaImages);
+        });
+    }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('iniciarJuego').addEventListener('click', () => {
         const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
-        
-        // Define las columnas y filas basadas en las líneas seleccionadas
         const [columnas, filas] = {
             4: [7, 6],
             5: [8, 7],
             6: [9, 8],
             7: [10, 9]
         }[lineasSeleccionadas];
-
-        const totalCasilleros = columnas * filas; // Total de casilleros del tablero
 
         // Crear una nueva instancia del juego
         const juego = new Juego(columnas, filas, lineasSeleccionadas);
@@ -332,10 +306,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('juegoContainer').style.display = 'flex';
 
         // Cargar fichas seleccionadas por el usuario
-        juego.cargarFichas('planta', totalCasilleros); // Pasa el total de casilleros
-        juego.cargarFichas('zombie', totalCasilleros); // Pasa el total de casilleros
+        cargarFichas('planta', columnas * filas); // Pasa el total de casilleros
+        cargarFichas('zombie', columnas * filas); // Pasa el total de casilleros
 
         // Muestra el temporizador
         document.getElementById('temporizador').classList.remove('hidden');
     });
 });
+
+function cargarFichas(tipo, total) {
+    const contenedorFichas = document.getElementById(`fichas${tipo.charAt(0).toUpperCase() + tipo.slice(1)}`);
+    for (let i = 0; i < total; i++) {
+        const ficha = document.createElement('div');
+        ficha.classList.add('ficha');
+        ficha.dataset.jugador = tipo;
+        ficha.draggable = true;
+
+        const img = document.createElement('img');
+        img.src = `/TP1/img/${tipo}.png`;  // Ajusta la ruta según sea necesario
+       
+
+        ficha.appendChild(img);
+        contenedorFichas.appendChild(ficha);
+    }
+}
