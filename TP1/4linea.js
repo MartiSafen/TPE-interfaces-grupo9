@@ -117,8 +117,7 @@ class Juego {
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
 
-        // Escuchar cambios en la selección de imágenes
-        this.initImageSelectionListeners();
+       
     }
 
     iniciarTemporizador() {
@@ -284,18 +283,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Oculta toda la configuración
         document.getElementById('configuracion').style.display = 'none';
 
-        // Muestra el temporizador
-        const temporizador = document.getElementById('temporizador');
-        temporizador.classList.remove('hidden'); // Muestra el temporizador
+        // Muestra los elementos del juego quitando la clase hidden
+        document.getElementById('temporizador').classList.remove('hidden'); // Muestra el temporizador
+        document.getElementById('reiniciarJuego').classList.remove('hidden'); // Muestra el botón de reinicio
+        document.getElementById('fichasPlanta').classList.remove('hidden'); // Muestra las fichas de planta
+        document.getElementById('fichasZombie').classList.remove('hidden'); // Muestra las fichas de zombie
+        document.getElementById('hintsContainer').classList.remove('hidden'); // Muestra el contenedor de hints
+        document.getElementById('tableroCanvas').classList.remove('hidden'); // Muestra el tablero
 
-        // Oculta el selector de líneas para ganar
-        document.getElementById('lineas').style.display = 'none'; // Oculta el selector de líneas
-
-        // También oculta el botón para iniciar el juego
+        // Oculta el selector de líneas para ganar y el botón para iniciar el juego
+        document.getElementById('lineas').style.display = 'none';
         document.getElementById('iniciarJuego').style.display = 'none';
-
-        // Muestra el botón de reinicio
-        document.getElementById('reiniciarJuego').classList.remove('hidden');
 
         // Función para cambiar la imagen de fondo de las fichas planta
         function cambiarFondoPlanta() {
@@ -330,4 +328,3 @@ document.addEventListener('DOMContentLoaded', () => {
         location.reload();
     });
 });
-
