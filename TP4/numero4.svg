@@ -1,0 +1,12 @@
+<svg width="602" height="603" viewBox="0 0 602 603" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="67.9055" y="26.7144" width="103.216" height="130.378" transform="rotate(-15 67.9055 26.7144)" fill="url(#pattern0_9_16)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M77.4121 59.7568H0V603H601.642V59.7568H184.703V127.662H77.4121V59.7568Z" fill="url(#pattern1_9_16)"/>
+<defs>
+<pattern id="pattern0_9_16" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_9_16" transform="matrix(0.00395988 0 0 0.00313491 -3.88816 0)"/>
+</pattern>
+<pattern id="pattern1_9_16" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_9_16" transform="matrix(-0.000679348 0 0 0.000752378 1 -0.1075)"/>
+</pattern>
+</defs>
+</svg>

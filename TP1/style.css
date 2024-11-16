@@ -1281,7 +1281,7 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('/TP1/img/jardin2.png'); /* Ajusta la ruta */
+    background-image: url('./img/jardin2.png'); /* Ajusta la ruta */
     background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
@@ -1305,7 +1305,7 @@ footer .redes{
 
 /* Estilos para el tablero */
 #tableroCanvas {
-    background-image: url('/TP1/img/fondocanvas.jpeg');
+    background-image: url('./img/fondocanvas.jpeg');
     border: 2px solid #ffffff;
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -1370,6 +1370,7 @@ footer .redes{
     background-position: center;
     border: 3px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -30px; /* Superponer las fichas hacia arriba */
 }
 
 /* Ficha Planta */
@@ -1413,7 +1414,7 @@ footer .redes{
 .hint {
     width: 50px;
     height: 40px;
-    background-image: url('/TP1/img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
+    background-image: url('./img/arrow.png'); /* Asegúrate de tener una imagen de flecha */
     background-size: contain;
     background-repeat: no-repeat;
     animation: hintAnimation 1s infinite alternate;
@@ -1482,3 +1483,17 @@ footer .redes{
     #iniciarJuego:hover {
         background-color: #218838; /* Color más oscuro al pasar el mouse */
     }
+
+
+    #reiniciarJuego {
+    width: 100px;
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+    padding: 5px 10px; /* Reduce el padding */
+    border: 1px solid #ccc; /* Borde más delgado */
+    background-color: #f0f0f0; /* Fondo más claro */
+    color: #333; /* Color de texto más oscuro */
+    cursor: pointer; /* Cursor tipo puntero */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s;
+    
+}

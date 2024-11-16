@@ -107,7 +107,7 @@ class Juego {
     this.imgZombie = new Image();
     this.imgZombie.src = this.getSelectedImage('zombie'); // Obtenemos la imagen seleccionada
      this.imgCasillero = new Image();
-     this.imgCasillero.src = '/TP1/img/casillero.png'; // Ruta de la imagen de casillero
+     this.imgCasillero.src = './img/casillero.png'; // Ruta de la imagen de casillero
 
         this.initFichas();
         this.initHints();  // Llama a la función para inicializar los hints
@@ -116,6 +116,9 @@ class Juego {
         // Configuración del temporizador (300 segundos)
         this.tiempoRestante = 300;
         this.iniciarTemporizador();
+
+        // Escuchar cambios en la selección de imágenes
+        this.initImageSelectionListeners();
     }
 
     iniciarTemporizador() {
@@ -139,16 +142,12 @@ class Juego {
         const hintsContainer = document.getElementById('hintsContainer');
         hintsContainer.innerHTML = '';  // Limpia hints anteriores
         
-        // Ajuste para posicionar hints en columnas del tablero
         for (let i = 0; i < this.columnas; i++) {
             const hint = document.createElement('div');
             hint.classList.add('hint');
-    
-            // Ajusta la posición de cada hint
             hint.style.position = 'absolute';
             hint.style.left = `${i * this.cellSize}px`; // Alinear con cada columna
             hint.style.width = `${this.cellSize}px`; // Tamaño acorde a la celda
-    
             hintsContainer.appendChild(hint);
         }
     }
@@ -198,24 +197,40 @@ class Juego {
 
     handleDrop(event) {
         event.preventDefault();
-        const rect = this.canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const colIndex = Math.floor(x / this.cellSize);
-
-        const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
         
-        if (filaIndex !== -1) {
-            this.animateDrop(colIndex, filaIndex, this.jugadorActual);
-
-            setTimeout(() => {
-                if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
-                    clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
-                    alert(`¡El jugador ${this.jugadorActual} gana!`);
-                    setTimeout(() => location.reload(), 2000);
-                }
-                
-                this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
-            }, (filaIndex + 1) * 100);
+        const hintsContainer = document.getElementById('hintsContainer');
+        const hints = hintsContainer.getElementsByClassName('hint');
+        
+        let colIndex = -1;
+        
+        // Verifica si el drop ocurre sobre algún hint
+        for (let i = 0; i < hints.length; i++) {
+            const hint = hints[i];
+            const rect = hint.getBoundingClientRect();
+            
+            if (event.clientX >= rect.left && event.clientX <= rect.right) {
+                colIndex = i;
+                break;
+            }
+        }
+    
+        // Si la columna es válida, continúa con la animación y la lógica
+        if (colIndex !== -1) {
+            const filaIndex = this.tablero.getEmptyRowIndex(colIndex);
+            
+            if (filaIndex !== -1) {
+                this.animateDrop(colIndex, filaIndex, this.jugadorActual);
+    
+                setTimeout(() => {
+                    if (this.tablero.checkWinner(colIndex, filaIndex, this.jugadorActual)) {
+                        clearInterval(this.intervaloTemporizador); // Detener el temporizador en caso de victoria
+                        alert(`¡El jugador ${this.jugadorActual} gana!`);
+                        setTimeout(() => location.reload(), 2000);
+                    }
+    
+                    this.jugadorActual = this.jugadorActual === 'planta' ? 'zombie' : 'planta';
+                }, (filaIndex + 1) * 100);
+            }
         }
     }
 
@@ -243,14 +258,17 @@ class Juego {
         }, 100);
     }
 
+    
     getSelectedImage(tipo) {
         // Usar querySelector para encontrar la imagen seleccionada por tipo (planta o zombie)
         const selected = document.querySelector(`input[name="${tipo}"]:checked`);
-        return selected ? `/TP1/img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
+        return selected ? `./img/${selected.value}.png` : ''; // Retorna la ruta de la imagen seleccionada
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    let juego;
+
     document.getElementById('iniciarJuego').addEventListener('click', () => {
         const lineasSeleccionadas = parseInt(document.getElementById('lineas').value);
         const [columnas, filas] = {
@@ -261,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }[lineasSeleccionadas];
 
         // Crear una nueva instancia del juego
-        const juego = new Juego(columnas, filas, lineasSeleccionadas);
+        juego = new Juego(columnas, filas, lineasSeleccionadas);
 
         // Oculta toda la configuración
         document.getElementById('configuracion').style.display = 'none';
@@ -276,7 +294,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // También oculta el botón para iniciar el juego
         document.getElementById('iniciarJuego').style.display = 'none';
 
-       
+        // Muestra el botón de reinicio
+        document.getElementById('reiniciarJuego').classList.remove('hidden');
 
         // Función para cambiar la imagen de fondo de las fichas planta
         function cambiarFondoPlanta() {
@@ -300,12 +319,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        
         // Luego aplicamos las nuevas imágenes seleccionadas
         cambiarFondoPlanta();
         cambiarFondoZombie();
-        
+    });
+
+    // Agregar funcionalidad al botón de reinicio
+    document.getElementById('reiniciarJuego').addEventListener('click', () => {
+        // Reinicia la página para restablecer todo el estado
+        location.reload();
     });
 });
-
 
