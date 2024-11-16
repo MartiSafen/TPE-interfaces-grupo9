@@ -356,8 +356,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Oculta toda la configuración
         document.getElementById('configuracion').style.display = 'none';
+     
 
         // Muestra los elementos del juego quitando la clase hidden
+        document.getElementById('juegoContainer').classList.remove('hidden');
+        document.getElementById('juegoInst').classList.remove('hidden');
         document.getElementById('temporizador').classList.remove('hidden'); // Muestra el temporizador
         document.getElementById('reiniciarJuego').classList.remove('hidden'); // Muestra el botón de reinicio
         document.getElementById('fichasPlanta').classList.remove('hidden'); // Muestra las fichas de planta
@@ -368,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Oculta el selector de líneas para ganar y el botón para iniciar el juego
         document.getElementById('lineas').style.display = 'none';
         document.getElementById('iniciarJuego').style.display = 'none';
+        document.getElementById('juegoContainer').style.backgroundImage = "url('./img/jardin2.png')";
 
         // Función para cambiar la imagen de fondo de las fichas planta
         function cambiarFondoPlanta() {

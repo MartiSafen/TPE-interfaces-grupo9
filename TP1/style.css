@@ -196,6 +196,10 @@ nav {
     background-color: #302b44;
 }
 
+.compartir {
+    padding: 21px;
+    margin-left: -35px;
+}
 
 .compartir div{
     width: 550px;
@@ -221,6 +225,7 @@ nav {
     width: 45px;
     background-color:#2FCE08;
     margin: 12px;
+    
 
 }
 /* Descripción del juego */
@@ -1261,7 +1266,7 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('./img/jardin2.png'); /* Ajusta la ruta */
+    /* Ajusta la ruta */
     background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
@@ -1275,20 +1280,20 @@ footer .redes{
 
 /* Contenedor principal para centrar el tablero y las fichas */
 #juegoContainer {
-    background-image: url('./img/jardin2.png'); /* Ajusta la ruta */
-    background-color: rgb(207, 145, 145); /* Ajusta la ruta */
-    background-size: cover; /* Asegúrate de que el fondo cubra toda la pantalla */
+   
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     margin-top: 80px;
     position: relative;
-    height: 650px;
     padding: 21px;
     border-radius: 15px;
+    margin-left: 50px;
+   
     
     
 }
@@ -1303,20 +1308,7 @@ footer .redes{
     margin-top: 30px;
 }
 
-/* Estilos para el contenedor de configuración */
-#configuracion {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-   width: 700px;
-   height: 700px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: relative;
-    top: 180px;
-    left: 50%;
-    transform: translateX(-50%);
-    /* Asegura que esté por encima de otros elementos */
-    color: white;
-}
+
 
 
 
@@ -1331,6 +1323,7 @@ footer .redes{
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     gap: 12px;
+    overflow: hidden;
 }
 
 /* Títulos para cada tipo de ficha */
@@ -1429,12 +1422,27 @@ footer .redes{
 }
 
 #configuracion {
-    
+    background-color: #302556;
     padding: 20px;
-    border: 1px solid #ccc; /* Un borde sutil para separar la sección */
+    border: 1px solid #33FF66; /* Un borde sutil para separar la sección */
     border-radius: 5px; /* Bordes redondeados */
     margin-bottom: 20px; /* Espacio abajo */
+    display: inline-block; /* Evita que ocupe todo el ancho */
+    height: 400px;
+    margin-top: 40px;
+  
+ 
 }
+
+#confgIns {
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 50px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    
+
+}
+
+
 
 #configuracion h3, #configuracion h4 {
     margin: 10px 0; /* Espaciado uniforme */
@@ -1442,6 +1450,9 @@ footer .redes{
 
 #configuracion div {
     margin-bottom: 15px; /* Espaciado entre los grupos de selección */
+    display: flex; /* Asegura que los elementos hijos estén alineados en línea */
+    align-items: center; /* Alinea verticalmente las imágenes con el texto */
+    gap: 10px; /* Espacio entre las imágenes */
 }
 
 #configuracion img {
@@ -1450,6 +1461,7 @@ footer .redes{
     vertical-align: middle; /* Alinea las imágenes al medio con el texto */
     margin-right: 8px; /* Espaciado a la derecha de la imagen */
 }
+
 
 input[type="radio"] {
     margin-right: 5px; /* Espacio entre el botón de radio y la imagen */
@@ -1464,6 +1476,7 @@ input[type="radio"] {
         border-radius: 5px; /* Bordes redondeados para el botón */
         cursor: pointer; /* Cambia el cursor al pasar por encima */
         transition: background-color 0.3s; /* Efecto de transición al cambiar el color */
+        
     }
     
     #iniciarJuego:hover {
@@ -1486,15 +1499,17 @@ input[type="radio"] {
     
 }
 
-.juegoInst {
-    display: flex;
-   
-    
+#juegoInst {
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 10px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
 }
+
 
 /* Ajustes para las instrucciones a la derecha */
 .instrucciones {
-    background-color: #1b1834;
+    background-color:#302556;
     padding: 20px;
     border-style: dotted;
     border-color: #33FF66;
