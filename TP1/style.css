@@ -1278,37 +1278,6 @@ footer .redes{
     justify-content: space-between; /* Asegura que los elementos se distribuyan */
 }
 
-/* Contenedor principal para centrar el tablero y las fichas */
-#juegoContainer {
-   
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 80px;
-    position: relative;
-    padding: 21px;
-    border-radius: 15px;
-    margin-left: 50px;
-   
-    
-    
-}
-
-/* Estilos para el tablero */
-#tableroCanvas {
-    background-image: url('./img/fondocanvas.jpeg');
-    border: 2px solid #ffffff;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    margin-top: 30px;
-}
-
-
 
 
 
@@ -1423,23 +1392,64 @@ footer .redes{
 
 #configuracion {
     background-color: #302556;
-    padding: 20px;
+    padding: 21px;
     border: 1px solid #33FF66; /* Un borde sutil para separar la sección */
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 15px; /* Bordes redondeados */
     margin-bottom: 20px; /* Espacio abajo */
     display: inline-block; /* Evita que ocupe todo el ancho */
-    height: 400px;
-    margin-top: 40px;
+    height: 637px;
+    width: 1510px;
+    margin-top: 80px;
+    margin-left: -5px;
+    margin-right: -67px;
+    position: relative;
   
  
 }
 
 #confgIns {
-    display: flex; /* Activa el modelo de diseño Flexbox */
-    gap: 50px; /* Espaciado entre los elementos (opcional) */
-    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
     
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 10px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
 
+#juegoInst {
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 10px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
+
+/* Contenedor principal para centrar el tablero y las fichas */
+#juegoContainer {
+   
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 80px;
+    position: relative;
+    padding: 21px;
+    border-radius: 15px;
+    margin-left: 5px;
+   
+    
+    
+}
+
+/* Estilos para el tablero */
+#tableroCanvas {
+    background-image: url('./img/fondocanvas.jpeg');
+    border: 2px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin-top: 30px;
 }
 
 
@@ -1499,12 +1509,7 @@ input[type="radio"] {
     
 }
 
-#juegoInst {
-    display: flex; /* Activa el modelo de diseño Flexbox */
-    gap: 10px; /* Espaciado entre los elementos (opcional) */
-    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
-    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
-}
+
 
 
 /* Ajustes para las instrucciones a la derecha */
@@ -1518,7 +1523,7 @@ input[type="radio"] {
     font-size: 18px;
     border-radius: 8px;
     margin: 20px;
-    height: 300px;
+    height: 350px;
 }
 .instrucciones p{
     font-size: 20px;
