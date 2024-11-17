@@ -195,27 +195,11 @@ nav {
 .button-play:active{
     background-color: #302b44;
 }
-.instrucciones{
-    background-color:#1b1834;
-    padding: 5px;
-    border-style: dotted;
-    border-color: #33FF66;
-    margin-top: 40px;
-    position: absolute;
-    width: 500px;
-    height: 200px;
-    left: 800px;
-    top: 206px;
-        
-}
-.instrucciones p{
-    font-size: 20px;
-    color: #fff;
-    align-items: center;
-    text-align: start;
-    margin-top: 10px;
-}
 
+.compartir {
+    padding: 21px;
+    margin-left: -35px;
+}
 
 .compartir div{
     width: 550px;
@@ -241,6 +225,7 @@ nav {
     width: 45px;
     background-color:#2FCE08;
     margin: 12px;
+    
 
 }
 /* Descripción del juego */
@@ -1281,7 +1266,7 @@ footer .redes{
 .bodyjuego {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('./img/jardin2.png'); /* Ajusta la ruta */
+    /* Ajusta la ruta */
     background-size: contain; /* Asegúrate de que el fondo cubra toda la pantalla */
     background-position: center;
     background-repeat: no-repeat;
@@ -1295,12 +1280,22 @@ footer .redes{
 
 /* Contenedor principal para centrar el tablero y las fichas */
 #juegoContainer {
+   
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     margin-top: 80px;
     position: relative;
+    padding: 21px;
+    border-radius: 15px;
+    margin-left: 50px;
+   
+    
+    
 }
 
 /* Estilos para el tablero */
@@ -1313,29 +1308,9 @@ footer .redes{
     margin-top: 30px;
 }
 
-/* Estilos para el contenedor de configuración */
-#configuracion {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 180px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
-    color: white;
-}
 
-/* Estilos para el tablero */
-#tableroCanvas {
-    border: 2px solid #ffffff;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    margin-top: 30px;
-    
-}
+
+
 
 /* Estilos para los contenedores de fichas */
 .fichas {
@@ -1348,6 +1323,7 @@ footer .redes{
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     gap: 12px;
+    overflow: hidden;
 }
 
 /* Títulos para cada tipo de ficha */
@@ -1370,18 +1346,18 @@ footer .redes{
     background-position: center;
     border: 3px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: -30px; /* Superponer las fichas hacia arriba */
+    margin-top: -10px; /* Superponer las fichas hacia arriba */
 }
 
 /* Ficha Planta */
 .ficha.planta {
-    background-color: #4CAF50;
+    background-color: green;
    
 }
 
 /* Ficha Zombie */
 .ficha.zombie {
-    background-color: #8A2BE2;
+    background-color: darkmagenta;
     
 }
 
@@ -1404,8 +1380,8 @@ footer .redes{
     display: flex;
     justify-content: space-around;
     position: absolute;
-    top: -10px; /* Ajusta según el espacio que quieras encima del tablero */
-    margin-left: 868px;
+    top: 65px; /* Ajusta según el espacio que quieras encima del tablero */
+    margin-left: 310px;
     width: 100%; /* Abarca el ancho completo del tablero */
     pointer-events: none;
 }
@@ -1430,7 +1406,7 @@ footer .redes{
 /* Ajuste del temporizador sobre los hints */
 #temporizador {
     position: absolute;
-    top: -50px; /* Ajusta si es necesario */
+    top: -10px; /* Ajusta si es necesario */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
@@ -1440,34 +1416,56 @@ footer .redes{
     padding: 8px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    margin-top: -20px; /* Asegura que el temporizador esté por encima de los hints */
+    margin-top: 15px;
+    margin-left: -65px;
 
 }
-    #configuracion {
-        padding: 20px;
-        border: 1px solid #ccc; /* Un borde sutil para separar la sección */
-        border-radius: 5px; /* Bordes redondeados */
-        margin-bottom: 20px; /* Espacio abajo */
-    }
+
+#configuracion {
+    background-color: #302556;
+    padding: 20px;
+    border: 1px solid #33FF66; /* Un borde sutil para separar la sección */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio abajo */
+    display: inline-block; /* Evita que ocupe todo el ancho */
+    height: 400px;
+    margin-top: 40px;
+  
+ 
+}
+
+#confgIns {
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 50px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
     
-    #configuracion h3, #configuracion h4 {
-        margin: 10px 0; /* Espaciado uniforme */
-    }
-    
-    #configuracion div {
-        margin-bottom: 15px; /* Espaciado entre los grupos de selección */
-    }
-    
-    #configuracion img {
-        width: 50px; /* Tamaño ajustado de las imágenes */
-        height: auto; /* Mantiene la proporción de las imágenes */
-        vertical-align: middle; /* Alinea las imágenes al medio con el texto */
-        margin-right: 8px; /* Espaciado a la derecha de la imagen */
-    }
-    
-    input[type="radio"] {
-        margin-right: 5px; /* Espacio entre el botón de radio y la imagen */
-    }
+
+}
+
+
+
+#configuracion h3, #configuracion h4 {
+    margin: 10px 0; /* Espaciado uniforme */
+}
+
+#configuracion div {
+    margin-bottom: 15px; /* Espaciado entre los grupos de selección */
+    display: flex; /* Asegura que los elementos hijos estén alineados en línea */
+    align-items: center; /* Alinea verticalmente las imágenes con el texto */
+    gap: 10px; /* Espacio entre las imágenes */
+}
+
+#configuracion img {
+    width: 50px; /* Tamaño ajustado de las imágenes */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    vertical-align: middle; /* Alinea las imágenes al medio con el texto */
+    margin-right: 8px; /* Espaciado a la derecha de la imagen */
+}
+
+
+input[type="radio"] {
+    margin-right: 5px; /* Espacio entre el botón de radio y la imagen */
+}
     
     /* Opcional: Estilo del botón */
     #iniciarJuego {
@@ -1478,6 +1476,7 @@ footer .redes{
         border-radius: 5px; /* Bordes redondeados para el botón */
         cursor: pointer; /* Cambia el cursor al pasar por encima */
         transition: background-color 0.3s; /* Efecto de transición al cambiar el color */
+        
     }
     
     #iniciarJuego:hover {
@@ -1486,14 +1485,72 @@ footer .redes{
 
 
     #reiniciarJuego {
+    margin-bottom: 555px;
     width: 100px;
+    font-style:italic;
     font-size: 12px; /* Tamaño de fuente más pequeño */
     padding: 5px 10px; /* Reduce el padding */
     border: 1px solid #ccc; /* Borde más delgado */
-    background-color: #f0f0f0; /* Fondo más claro */
+    background-color: #ffffff; /* Fondo más claro */
     color: #333; /* Color de texto más oscuro */
     cursor: pointer; /* Cursor tipo puntero */
     border-radius: 5px; /* Bordes redondeados */
     transition: background-color 0.3s, transform 0.2s;
     
+}
+
+#juegoInst {
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 10px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+}
+
+
+/* Ajustes para las instrucciones a la derecha */
+.instrucciones {
+    background-color:#302556;
+    padding: 20px;
+    border-style: dotted;
+    border-color: #33FF66;
+    width: 400px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 8px;
+    margin: 20px;
+    height: 300px;
+}
+.instrucciones p{
+    font-size: 20px;
+    color: #fff;
+    align-items: center;
+    text-align: start;
+    margin-top: 10px;
+}
+
+.popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-size: 18px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }

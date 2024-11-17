@@ -87,25 +87,96 @@
                 <h2>Para ti-> Plantas vs zombies</h2>
             </div>
         </section>
-        <!-- imagen del juego e instrucciones  -->
-        <section class="game-info">
-            <div class="game-img">
-                <img src="./img/juego.jpg" alt="juego">
+        <div id="confgIns">
+        <div id="configuracion">
+            <p>Elige cuántas fichas en línea necesarias para ganar:</p>
+            <select id="lineas">
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+            
+            <h3>Selecciona el diseño de tus fichas</h3>
+            <div>
+                <h4>Plantas:</h4>
+                <input type="radio" id="planta1" name="planta" value="plantaa" checked>
+                <label for="planta1">
+                    <img src="./img/plantaa.png" alt="Planta 1">
+                    Planta 1
+                </label><br>
+                <input type="radio" id="planta2" name="planta" value="plantaa2">
+                <label for="planta2">
+                    <img src="./img/plantaa2.png" alt="Planta 2">
+                    Planta 2
+                </label><br>
+                <input type="radio" id="planta3" name="planta" value="plantaa3">
+                <label for="planta3">
+                    <img src="./img/plantaa3.png" alt="Planta 3">
+                    Planta 3
+                </label><br>
             </div>
-<<<<<<< HEAD
-            <button class="button-play" >Jugar
-                <a href="4enlinea.html"></a>
-            </button>
-=======
-            <button class="button-play"><a href="4enlinea.html"></a>Jugar</button>
->>>>>>> bfa07b76ad69f86e2db4b726adfbe940565b7883
+            <div>
+                <h4>Zombies:</h4>
+                <input type="radio" id="zombie1" name="zombie" value="zombiee" checked>
+                <label for="zombie1">
+                    <img src="./img/zombiee.png" alt="Zombie 1">
+                    Zombie 1
+                </label><br>
+                <input type="radio" id="zombie2" name="zombie" value="zombiee2">
+                <label for="zombie2">
+                    <img src="./img/zombiee2.png" alt="Zombie 2">
+                    Zombie 2
+                </label><br>
+                <input type="radio" id="zombie3" name="zombie" value="zombiee3">
+                <label for="zombie3">
+                    <img src="./img/zombiee3.png" alt="Zombie 3">
+                    Zombie 3
+                </label><br>
+            </div>
+            
+            <button id="iniciarJuego">Iniciar Juego</button>
+        </div>
+ <div id="juegoInst" class="hidden">
+    <div id="juegoContainer" class="hidden">
+        <div id="temporizador" class="hidden"> 
+            <span id="tiempo">00:00</span>
+        </div>
+       
+        <div id="fichasPlanta" class="fichas hidden">
+            <h3>Fichas Planta</h3>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+            <div class="ficha planta" data-jugador="planta" draggable="true"></div>
+        </div>
+        
+        <div id="hintsContainer" class="hidden"></div>
+        
+        <canvas id="tableroCanvas" class="hidden" width="450" height="400"></canvas>
+
+        
+        <div id="fichasZombie" class="fichas hidden">
+            <h3>Fichas Zombie</h3>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+            <div class="ficha zombie" data-jugador="zombie" draggable="true"></div>
+        </div>
+        
+        <button id="reiniciarJuego" class="hidden">Reiniciar Juego</button>
+    </div>
+
 
             <div class="instrucciones">
-                <p><u>INSTRUCCIONES:</u> Es un juego de estrategia para dos jugadores,deben escoger las fichas violetas
-                    o azules y las colocan en la rejilla, comenzando por el centro o el borde, e intentan alinear 4 en
-                    horizontal, vertical o diagonal. Utiliza la estrategia para bloquear a tu adversario mientras
-                    intentas ser el primero en colocar 4 en línea para ganar.</p>
+                 <p><u>INSTRUCCIONES:</u> Es un juego de estrategia para dos jugadores,deben escoger las fichas violetas
+                o azules y las colocan en la rejilla, comenzando por el centro o el borde, e intentan alinear 4 en
+                horizontal, vertical o diagonal. Utiliza la estrategia para bloquear a tu adversario mientras
+                intentas ser el primero en colocar 4 en línea para ganar.</p>
             </div>
+       
+       
+        
+                
+        
+ </div>  
+</div>     
         </section>
         <section class="compartir">
             <div>
@@ -243,8 +314,9 @@
             <p>+54 2494 00 11 22 </p>
         </div>
     </footer>
-
+    <script src="4linea.js"></script>
     <script src="scripts.js"></script>
+   
 </body>
 
 </html>
