@@ -1278,37 +1278,6 @@ footer .redes{
     justify-content: space-between; /* Asegura que los elementos se distribuyan */
 }
 
-/* Contenedor principal para centrar el tablero y las fichas */
-#juegoContainer {
-   
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-top: 80px;
-    position: relative;
-    padding: 21px;
-    border-radius: 15px;
-    margin-left: 50px;
-   
-    
-    
-}
-
-/* Estilos para el tablero */
-#tableroCanvas {
-    background-image: url('./img/fondocanvas.jpeg');
-    border: 2px solid #ffffff;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    margin-top: 30px;
-}
-
-
 
 
 
@@ -1377,15 +1346,16 @@ footer .redes{
 }
 
 #hintsContainer {
+   
     display: flex;
     justify-content: space-around;
     position: absolute;
     top: 65px; /* Ajusta según el espacio que quieras encima del tablero */
-    margin-left: 310px;
-    width: 100%; /* Abarca el ancho completo del tablero */
+    left: 64.7%; /* Centra el contenedor horizontalmente */
+    transform: translateX(-50%); /* Ajusta para centrar respecto al tablero */
+    width: calc(100% - 20px); /* Ajusta al ancho dinámico del tablero si tiene bordes/márgenes */
     pointer-events: none;
 }
-
 
 .hint {
     width: 50px;
@@ -1396,7 +1366,6 @@ footer .redes{
     animation: hintAnimation 1s infinite alternate;
     display: inline-block;
 }
-
 @keyframes hintAnimation {
     0% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
@@ -1422,37 +1391,158 @@ footer .redes{
 }
 
 #configuracion {
+   
     background-color: #302556;
-    padding: 20px;
+    padding: 21px;
     border: 1px solid #33FF66; /* Un borde sutil para separar la sección */
-    border-radius: 5px; /* Bordes redondeados */
+    border-radius: 15px; /* Bordes redondeados */
     margin-bottom: 20px; /* Espacio abajo */
     display: inline-block; /* Evita que ocupe todo el ancho */
-    height: 400px;
-    margin-top: 40px;
+    height: 637px;
+    width: 1510px;
+    margin-top: 80px;
+    margin-left: -5px;
+    margin-right: -67px;
+    position: relative;
   
  
 }
 
 #confgIns {
-    display: flex; /* Activa el modelo de diseño Flexbox */
-    gap: 50px; /* Espaciado entre los elementos (opcional) */
-    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
     
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 10px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+    
+}
 
+#juegoInst {
+    display: flex; /* Activa el modelo de diseño Flexbox */
+    gap: 10px; /* Espaciado entre los elementos (opcional) */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+/* Contenedor principal para centrar el tablero y las fichas */
+#juegoContainer {
+   
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 80px;
+    position: relative;
+    padding: 21px;
+    border-radius: 15px;
+    margin-left: 5px;
+   
+    
+    
+}
+
+/* Estilos para el tablero */
+#tableroCanvas {
+    background-image: url('./img/fondocanvas.jpeg');
+    border: 2px solid #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin-top: 30px;
 }
 
 
-
-#configuracion h3, #configuracion h4 {
-    margin: 10px 0; /* Espaciado uniforme */
+#configuracion p {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
-#configuracion div {
-    margin-bottom: 15px; /* Espaciado entre los grupos de selección */
-    display: flex; /* Asegura que los elementos hijos estén alineados en línea */
-    align-items: center; /* Alinea verticalmente las imágenes con el texto */
-    gap: 10px; /* Espacio entre las imágenes */
+#configuracion h3 {
+    color: #ffffff;
+    text-align: center;
+    
+    margin: 20px 0 10px;
+}
+
+#configuracion select {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #33FF66;
+    width: 150px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.opcion {
+    flex: 1;
+    background-color: #302556;
+  
+    padding: 10px;
+   
+}
+
+.opcion h4 {
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    border: 1px solid;
+    border-color: #33FF66;
+    border-radius: 15px;
+}
+
+.opcion label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.opcion label img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border-color: #33FF66;
+}
+
+.opcion input[type="radio"] {
+    margin-right: 10px;
+}
+
+#iniciarJuego {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 20px auto 0;
+    transition: background-color 0.3s ease;
+}
+
+#iniciarJuego:hover {
+    background-color: #218838;
 }
 
 #configuracion img {
@@ -1463,25 +1553,8 @@ footer .redes{
 }
 
 
-input[type="radio"] {
-    margin-right: 5px; /* Espacio entre el botón de radio y la imagen */
-}
-    
-    /* Opcional: Estilo del botón */
-    #iniciarJuego {
-        background-color: #28a745; /* Verde para el botón */
-        color: white;
-        border: none;
-        padding: 10px 15px; /* Padding más ajustado */
-        border-radius: 5px; /* Bordes redondeados para el botón */
-        cursor: pointer; /* Cambia el cursor al pasar por encima */
-        transition: background-color 0.3s; /* Efecto de transición al cambiar el color */
-        
-    }
-    
-    #iniciarJuego:hover {
-        background-color: #218838; /* Color más oscuro al pasar el mouse */
-    }
+  
+
 
 
     #reiniciarJuego {
@@ -1499,12 +1572,7 @@ input[type="radio"] {
     
 }
 
-#juegoInst {
-    display: flex; /* Activa el modelo de diseño Flexbox */
-    gap: 10px; /* Espaciado entre los elementos (opcional) */
-    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
-    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
-}
+
 
 
 /* Ajustes para las instrucciones a la derecha */
@@ -1518,7 +1586,7 @@ input[type="radio"] {
     font-size: 18px;
     border-radius: 8px;
     margin: 20px;
-    height: 300px;
+    height: 350px;
 }
 .instrucciones p{
     font-size: 20px;
