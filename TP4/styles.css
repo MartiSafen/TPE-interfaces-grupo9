@@ -429,9 +429,9 @@ nav ul li:nth-child(5) {
     justify-content: center;
 }
 
-/* FULL COLOR SECTION */
+/* SECTION TODO COLORIDO */
 
-.full_color_grid {
+.todo_colorido {
     display: grid;
     grid-template-columns: repeat(5, auto);
     grid-template-rows: 368px 320px;
@@ -440,16 +440,20 @@ nav ul li:nth-child(5) {
     background-image: url(../img/grid/grid.png);
 }
 
-.full_color_grid img {
-    transition: all 0.3s ease;
+.todo_colorido img {
+    transition: all 0.5s ease;
     filter: brightness(0.9);
     z-index: 1;
 }
 
-.full_color_grid img:hover {
-    transform: scale(1.1);
+.todo_colorido img:hover {
+    transform: scale(1.1) rotate(5deg);
     filter: brightness(1.2);
+    transition: transform 0.5s ease-in-out;
 }
+
+
+
 
 /* NEWS SECTION */
 
@@ -567,7 +571,7 @@ nav ul li:nth-child(5) {
 }
 
 #number2 {
-    width: 480px;
+    width: 680px;
     height: 480px;
     z-index: 1;
     position: absolute;

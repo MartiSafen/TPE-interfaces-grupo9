@@ -1,6 +1,8 @@
 "use strict"
 showLoader();
 
+
+//Muestra el loader
 function showLoader() {
     let loader_container = document.querySelector('.loader_container');
     loader_container.classList.remove('nav_display');
