@@ -111,7 +111,7 @@ function parallaxEffect(y) {
 
 // Se encarga de hacer el logo más chico de acuerdo al scroll
 function moveLogo(y) {
-    const logo = document.querySelector(".logo_img")
+    const logo = document.querySelector(".logo")
     const header = document.querySelector("#header")
 
     let newWidth = 550 - y * 0.5

@@ -32,7 +32,7 @@ header {
     left: auto;
 }
 
-.primary_btn {
+.primary_btn{
     background-color: rgba(131, 194, 82, 1);
     border: 8px solid white;
     border-radius: 111px;
@@ -61,10 +61,9 @@ header {
 }
 
 .primary_btn:hover {
-    animation: button_animation 4s ease;
-    animation-fill-mode: both;
+    transform: scale(1.1); /* Aumentar ligeramente el tamaño */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Agregar sombra */
 }
-
 .primary_btn:hover img {
     display: flex;
 }
@@ -92,7 +91,7 @@ header {
     }
 }
 
-.logo_img {
+.logo {
     width: 550px;
     height: 320px;
     transform: translateY(110px);
@@ -113,7 +112,7 @@ header #btn_menu {
     border: 4px;
 }
 
-header #btn_menu .barras {
+header #btn_menu .linea {
     box-sizing: content-box;
     display: block;
     width: 100%;
@@ -125,15 +124,15 @@ header #btn_menu .barras {
     position: relative;
 }
 
-.lin1.active {
+.linea1.active {
     transform: rotate(45deg) translateY(17px);
 }
 
-.lin2.active {
+.linea2.active {
     opacity: 0;
 }
 
-.lin3.active {
+.linea3.active {
     transform: rotate(-45deg) translateY(-17px);
 }
 
@@ -210,7 +209,7 @@ nav ul li:nth-child(5) {
     }
 }
 
-.burger_container {
+.menu_container {
     width: 216px;
     display: flex;
     justify-content: left;
@@ -269,7 +268,7 @@ nav ul li:nth-child(5) {
     }
 }
 
-.loading_bar {
+.loading {
     margin-left: 35px;
     display: block;
     --height-of-loader: 4px;
@@ -281,7 +280,7 @@ nav ul li:nth-child(5) {
     position: relative;
 }
 
-.loading_bar::before {
+.loading::before {
     content: "";
     position: absolute;
     background: var(--loader-color);
@@ -840,7 +839,7 @@ main {
     height: 154px;
 }
 
-.app_example_card {
+.card_example {
     position: absolute;
     box-sizing: border-box;
     width: 576.38px;
@@ -864,19 +863,19 @@ main {
     transition: transform 1s;
 }
 
-.app_example:first-child {
+.card-example:first-child {
     left: 29px;
 }
 
-.app_example:nth-child(2) {
+.card-example:nth-child(2) {
     left: 577.38px;
 }
 
-.app_example:nth-child(3) {
+.card-example:nth-child(3) {
     left: 1125.76px;
 }
 
-.app_example:nth-child(4) {
+.card-example:nth-child(4) {
     left: 1674.14px;
 }
 
@@ -1014,7 +1013,7 @@ main {
     }
 }
 
-/* SECTION 3d */
+/*  3d */
 
 .container_3d {
     width: 100%;
