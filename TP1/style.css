@@ -1351,7 +1351,7 @@ footer .redes{
     justify-content: space-around;
     position: absolute;
     top: 65px; /* Ajusta según el espacio que quieras encima del tablero */
-    left: 64.7%; /* Centra el contenedor horizontalmente */
+    left: 64.8%; /* Centra el contenedor horizontalmente */
     transform: translateX(-50%); /* Ajusta para centrar respecto al tablero */
     width: calc(100% - 20px); /* Ajusta al ancho dinámico del tablero si tiene bordes/márgenes */
     pointer-events: none;
