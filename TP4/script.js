@@ -32,7 +32,7 @@ function getMouseMove(e) {
 // Mueve los personajes de la sección "Descubre el juego que convierte
 // las Matemáticas en diversión" de acuerdo a la posición del mouse
 function charactersMove(mouseX, mouseY) {
-    const characters = document.getElementById('characters');
+    const characters = document.getElementById('munequitos');
 
     // Calcula la dirección opuesta al cursor
     const offsetX = (window.innerWidth / 2 - mouseX) / 10;

@@ -437,7 +437,7 @@ nav ul li:nth-child(5) {
     grid-template-rows: 368px 320px;
     grid-gap: 30px;
     z-index: 0;
-    background-image: url(../img/grid/grid.png);
+    background-image: url(./img/grid/grid.png);
 }
 
 .todo_colorido img {
@@ -451,7 +451,6 @@ nav ul li:nth-child(5) {
     filter: brightness(1.2);
     transition: transform 0.5s ease-in-out;
 }
-
 
 
 
