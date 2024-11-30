@@ -20,6 +20,34 @@ function showLoader() {
 window.addEventListener("scroll", getScroll)
 window.addEventListener('mousemove', getMouseMove)
 
+// Función para implementar el parallax horizontal con direcciones opuestas
+function initParallax() {
+    // Captura todas las imágenes dentro de las secciones especificadas
+    const images = document.querySelectorAll('.tree_left, .tree_right_1, .tree_right_2, .rock_left, .rock_right_1, .rock_right_2, .rock_right_3, .bush_left_1, .bush_left_2, .bush_right_1, .bush_right_2');
+    
+    // Establece el efecto parallax en las imágenes
+    window.addEventListener('scroll', function () {
+        // Calcula el desplazamiento de la página
+        let scrollPosition = window.scrollY;
+
+        // Para cada imagen, ajustamos su posición en función del desplazamiento
+        images.forEach(function (image) {
+            // Si la imagen tiene "left" en su clase, mover hacia la derecha (positivo)
+            if (image.classList.contains('tree_left') || image.classList.contains('rock_left') || image.classList.contains('bush_left_1') || image.classList.contains('bush_left_2')) {
+                image.style.transform = `translateX(${scrollPosition * 0.3}px)`; // Mover hacia la derecha
+            } 
+            // Si la imagen tiene "right" en su clase, mover hacia la izquierda (negativo)
+            else if (image.classList.contains('tree_right_1') || image.classList.contains('tree_right_2') || image.classList.contains('rock_right_1') || image.classList.contains('rock_right_2') || image.classList.contains('rock_right_3') || image.classList.contains('bush_right_1') || image.classList.contains('bush_right_2')) {
+                image.style.transform = `translateX(-${scrollPosition * 0.3}px)`; // Mover hacia la izquierda
+            }
+        });
+    });
+}
+
+// Inicia la función de parallax una vez que el DOM esté cargado
+document.addEventListener('DOMContentLoaded', initParallax);
+
+
 // Función que se llama al mover el mouse, se encarga de llamar a otras funciones
 function getMouseMove(e) {
     const mouseX = e.clientX
