@@ -92,10 +92,10 @@ header {
 }
 
 .logo {
-    width: 550px;
-    height: 320px;
-    transform: translateY(110px);
-    transition: all .5s;
+    width: 550px; /* Ancho inicial */
+    height: 320px; /* Altura inicial proporcional */
+    transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease; /* Animación suave */
+    object-fit: contain; /* Mantener proporciones del contenido */
 }
 
 /* NAV */
@@ -310,7 +310,7 @@ nav ul li:nth-child(5) {
     display: flex;
     justify-content: center;
     gap: 36px;
-    margin-top: 60px;
+    margin-top: 200px;
 }
 
 .multimedia_container:nth-child(1).float-animation {

@@ -111,34 +111,41 @@ function parallaxEffect(y) {
     }
 }
 
-// Se encarga de hacer el logo más chico de acuerdo al scroll
 function moveLogo(y) {
-    const logo = document.querySelector(".logo")
-    const header = document.querySelector("#header")
+    const logo = document.querySelector(".logo");
+    const header = document.querySelector("#header");
 
-    let newWidth = 550 - y * 0.5
-    let newTransform = 110 - y * 0.2
-    let newGradient = y * 0.1
+    // Reducir menos el ancho (factor ajustado a 0.3 en lugar de 0.5)
+    let newWidth = 550 - y * 0.3;
+    let newHeight = (newWidth / 550) * 320; // Mantener la proporción original
 
-    if (newWidth > 150) {
-        logo.style.width = newWidth + "px"
+    // Aumentar los valores mínimos
+    const minWidth = 200; // Nuevo mínimo más grande
+    const minHeight = (minWidth / 550) * 320; // Altura proporcional al mínimo
+
+    if (newWidth > minWidth) {
+        logo.style.width = newWidth + "px";
+        logo.style.height = newHeight + "px"; // Ajustar altura proporcionalmente
     } else {
-        logo.style.width = "150px"
+        logo.style.width = minWidth + "px";
+        logo.style.height = minHeight + "px"; // Proporción mínima
     }
 
+    let newTransform = 110 - y * 0.2;
     if (newTransform > 0) {
-        logo.style.transform = "translateY(" + newTransform + "px)"
+        logo.style.transform = "translateY(" + newTransform + "px)";
     } else {
-        logo.style.transform = "translateY(0px)"
+        logo.style.transform = "translateY(0px)";
     }
 
+    let newGradient = y * 0.1;
     if (newGradient < 100) {
-        header.style.background = "linear-gradient(180deg, #00D1D5 " + newGradient + "%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%)"
+        header.style.background = `linear-gradient(180deg, #00D1D5 ${newGradient}%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0) 100%)`;
     } else {
-        header.style.background = "#00D1D5"
+        header.style.background = "#00D1D5";
     }
-
 }
+
 
 let interval = setInterval(changeImage, 3000)
 let repetition = 1
