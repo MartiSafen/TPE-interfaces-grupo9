@@ -23,7 +23,7 @@ window.addEventListener('mousemove', getMouseMove)
 // Función para implementar el parallax horizontal con direcciones opuestas
 function initParallax() {
     // Captura todas las imágenes dentro de las secciones especificadas
-    const images = document.querySelectorAll('.tree_left, .tree_right_1, .tree_right_2, .rock_left, .rock_right_1, .rock_right_2, .rock_right_3, .bush_left_1, .bush_left_2, .bush_right_1, .bush_right_2');
+    const images = document.querySelectorAll('.tree_left, .tree_right_1, .tree_right_2, .tree_right_3, .rock_left, .rock_right_1, .rock_right_2, .rock_right_3, .bush_left_1, .bush_left_2, .bush_right_1, .bush_right_2');
     
     // Establece el efecto parallax en las imágenes
     window.addEventListener('scroll', function () {
@@ -37,8 +37,18 @@ function initParallax() {
                 image.style.transform = `translateX(${scrollPosition * 0.3}px)`; // Mover hacia la derecha
             } 
             // Si la imagen tiene "right" en su clase, mover hacia la izquierda (negativo)
-            else if (image.classList.contains('tree_right_1') || image.classList.contains('tree_right_2') || image.classList.contains('rock_right_1') || image.classList.contains('rock_right_2') || image.classList.contains('rock_right_3') || image.classList.contains('bush_right_1') || image.classList.contains('bush_right_2')) {
+            else if (image.classList.contains('tree_right_1') || image.classList.contains('rock_right_1') || image.classList.contains('rock_right_2') || image.classList.contains('rock_right_3') || image.classList.contains('bush_right_1') || image.classList.contains('bush_right_2')) {
                 image.style.transform = `translateX(-${scrollPosition * 0.3}px)`; // Mover hacia la izquierda
+            }
+            
+            // Si es el "tree_right_2", mover con un multiplicador distinto (por ejemplo, más lento)
+            else if (image.classList.contains('tree_right_2')) {
+                image.style.transform = `translateX(-${scrollPosition * 0.2}px)`; // Mover más lentamente hacia la izquierda
+            }
+            
+            // Si es el "tree_right_3", mover con otro multiplicador (más rápido, por ejemplo)
+            else if (image.classList.contains('tree_right_3')) {
+                image.style.transform = `translateX(-${scrollPosition * 0.4}px)`; // Mover más rápido hacia la izquierda
             }
         });
     });
@@ -46,6 +56,7 @@ function initParallax() {
 
 // Inicia la función de parallax una vez que el DOM esté cargado
 document.addEventListener('DOMContentLoaded', initParallax);
+
 
 
 // Función que se llama al mover el mouse, se encarga de llamar a otras funciones
