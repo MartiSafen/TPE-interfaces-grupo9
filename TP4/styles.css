@@ -61,11 +61,25 @@ header {
 }
 
 .primary_btn:hover {
-    transform: scale(1.1); /* Aumentar ligeramente el tamaño */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Agregar sombra */
+    animation: pulseGlow 1s infinite; /* Llama a la animación */
 }
-.primary_btn:hover img {
-    display: flex;
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(1); /* Tamaño inicial */
+        box-shadow: 4px 5px 0px 0px rgba(2, 24, 126, 1);
+        background-color: rgba(131, 194, 82, 1);
+    }
+    50% {
+        transform: scale(1.1); /* Crece ligeramente */
+        box-shadow: 0px 0px 25px 8px rgba(131, 194, 82, 0.7); /* Brillo */
+        background-color: rgba(111, 174, 62, 1); /* Color más oscuro */
+    }
+    100% {
+        transform: scale(1); /* Vuelve al tamaño inicial */
+        box-shadow: 4px 5px 0px 0px rgba(2, 24, 126, 1);
+        background-color: rgba(131, 194, 82, 1); /* Vuelve al color inicial */
+    }
 }
 
 @keyframes button_animation {
@@ -926,6 +940,11 @@ main {
     position: relative;
 }
 
+.video-seccion-6 {
+    height: 400px;
+    width: 745px;
+    border-radius: 15px;
+}
 .section_video h1 {
     font-family: Lato;
     font-size: 60px;
